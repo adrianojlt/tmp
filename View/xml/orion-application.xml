@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<orion-application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/orion-application-10_0.xsd">
+    <imported-shared-libraries>
+        <import-shared-library name="adf.oracle.domain" min-version="10.1.3"></import-shared-library>
+    </imported-shared-libraries>
+    <jazn provider="LDAP" default-realm="local" persistence="ALL">
+        <jazn-web-app>
+            <property name="role.mapping.dynamic" value="true"/>
+            <property name="sso.session.synchronize" value="true" />
+            <property name="ldap.cache.session.enable" value="false" />
+            <property name="ldap.cache.realm.enable" value="false" />
+            <property name="ldap.cache.policy.enable" value="false" />           
+        </jazn-web-app>
+    </jazn>
+</orion-application>

@@ -1,0 +1,240 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="FuncionalidadesModulos"
+   DBObjectType="table"
+   DBObjectName="SYS_FUNCIONALIDADES_MODULOS"
+   AliasName="FuncionalidadesModulos"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulosImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      IsNotNull="true"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_FUNCIONALIDADES_MODULOS"
+      PrimaryKey="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysOpcoesMenuId"
+      IsNotNull="true"
+      ColumnName="SYS_OPCOES_MENU_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_FUNCIONALIDADES_MODULOS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Codigo"
+      IsNotNull="true"
+      Precision="30"
+      ColumnName="CODIGO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_FUNCIONALIDADES_MODULOS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Descricao"
+      IsNotNull="true"
+      Precision="200"
+      ColumnName="DESCRICAO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_FUNCIONALIDADES_MODULOS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="200" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_FUNCIONALIDADES_MODULOS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      IsNotNull="true"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_FUNCIONALIDADES_MODULOS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      IsNotNull="true"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_FUNCIONALIDADES_MODULOS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      IsNotNull="true"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_FUNCIONALIDADES_MODULOS" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="OpcoesMenu"
+      Association="ora.pt.cons.igif.sics.suporte.SfmSomFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.SfmSomFkAssoc.OpcoesMenu"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.SfmSomFkAssoc.FuncionalidadesModulos"
+      Type="ora.pt.cons.igif.sics.suporte.OpcoesMenuImpl" >
+   </AccessorAttribute>
+   <Key
+      Name="SfmPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="SFM_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006553" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006553" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006554" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.SysOpcoesMenuId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_OPCOES_MENU_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006554" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006555" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.Codigo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CODIGO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006555" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006556" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.Descricao" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DESCRICAO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006556" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006557" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006557" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006558" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006558" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006559" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006559" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006560" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006560" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SfmSomFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos.SysOpcoesMenuId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SOM_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="SFM_SOM_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

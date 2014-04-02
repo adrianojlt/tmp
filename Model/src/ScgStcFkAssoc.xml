@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+
+<Association
+   Name="ScgStcFkAssoc" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+   </DesignTime>
+   <AssociationEnd
+      Name="TipoCodigo"
+      Cardinality="1"
+      Source="true"
+      Owner="ora.pt.cons.igif.sics.suporte.TipoCodigo" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="TipoCodigo" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_foreignKey" Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.StcPk" />
+         <Attr Name="_minCardinality" Value="1" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+   <AssociationEnd
+      Name="CodigoGenerico"
+      Cardinality="-1"
+      Owner="ora.pt.cons.igif.sics.suporte.CodigoGenerico" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.SysTiposCodigosId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="CodigoGenerico" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_foreignKey" Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.ScgStcFk" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+</Association>

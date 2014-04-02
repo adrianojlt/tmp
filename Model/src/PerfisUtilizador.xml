@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="PerfisUtilizador"
+   DBObjectType="table"
+   DBObjectName="SYS_USERS_PERFIS"
+   AliasName="PerfisUtilizador"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.suporte.PerfisUtilizadorImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      IsUnique="true"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_USERS_PERFIS"
+      PrimaryKey="true"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysUsersId"
+      IsNotNull="true"
+      ColumnName="SYS_USERS_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_USERS_PERFIS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysPerfisId"
+      IsNotNull="true"
+      ColumnName="SYS_PERFIS_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_USERS_PERFIS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysEntidadesId"
+      ColumnName="SYS_ENTIDADES_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_USERS_PERFIS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_USERS_PERFIS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_USERS_PERFIS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_USERS_PERFIS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_USERS_PERFIS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="Utilizador"
+      Association="ora.pt.cons.igif.sics.suporte.SupSusFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.SupSusFkAssoc.Utilizador"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.SupSusFkAssoc.PerfisUtilizador"
+      Type="ora.pt.cons.igif.sics.suporte.UtilizadorImpl" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="Perfis"
+      Association="ora.pt.cons.igif.sics.suporte.SupSpeFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.SupSpeFkAssoc.Perfis"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.SupSpeFkAssoc.PerfisUtilizador"
+      Type="ora.pt.cons.igif.sics.suporte.PerfisImpl" >
+   </AccessorAttribute>
+   <Key
+      Name="SupPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="SUP_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007112" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.SysUsersId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_USERS_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007112" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007113" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.SysPerfisId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_PERFIS_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007113" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007114" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007114" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007115" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007115" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007116" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007116" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007117" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007117" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SupSpeFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.SysPerfisId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SPE_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="SUP_SPE_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SupSusFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.SysUsersId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SUS_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="SUP_SUS_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+
+<Association
+   Name="SenSenFkAssoc" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+   </DesignTime>
+   <AssociationEnd
+      Name="SysEntidadesIdEntidade"
+      Cardinality="1"
+      Source="true"
+      Owner="ora.pt.cons.igif.sics.suporte.Entidade"
+      LockTopContainer="false" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.Entidade.SysEntidadesId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="SysEntidadesIdEntidade" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+   <AssociationEnd
+      Name="Entidade"
+      Cardinality="-1"
+      Owner="ora.pt.cons.igif.sics.suporte.Entidade" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.Entidade.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="Entidade" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+</Association>

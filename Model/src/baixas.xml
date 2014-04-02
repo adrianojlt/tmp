@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="baixas"
+   SeparateXMLFiles="true"
+   PackageName="ora.pt.cons.igif.sics.baixas" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.41.57" />
+   </DesignTime>
+   <Containee
+      Name="Baixa"
+      FullName="ora.pt.cons.igif.sics.baixas.Baixa"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="BaixasModule"
+      FullName="ora.pt.cons.igif.sics.baixas.BaixasModule"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="BaixaView"
+      FullName="ora.pt.cons.igif.sics.baixas.BaixaView"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="GoeGitItemsBaixasIdAFkAssoc"
+      FullName="ora.pt.cons.igif.sics.baixas.GoeGitItemsBaixasIdAFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="GoeGitItemsBaixasIdNFkAssoc"
+      FullName="ora.pt.cons.igif.sics.baixas.GoeGitItemsBaixasIdNFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="ItemBaixa"
+      FullName="ora.pt.cons.igif.sics.baixas.ItemBaixa"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="ItemBaixaView"
+      FullName="ora.pt.cons.igif.sics.baixas.ItemBaixaView"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ItemsDaBaixaAssoc"
+      FullName="ora.pt.cons.igif.sics.baixas.ItemsDaBaixaAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="ListaBaixas"
+      FullName="ora.pt.cons.igif.sics.baixas.ListaBaixas"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaHistBaixas"
+      FullName="ora.pt.cons.igif.sics.baixas.ListaHistBaixas"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaHistItemsBaixas"
+      FullName="ora.pt.cons.igif.sics.baixas.ListaHistItemsBaixas"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaItemsBaixas"
+      FullName="ora.pt.cons.igif.sics.baixas.ListaItemsBaixas"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaOperacoesLog"
+      FullName="ora.pt.cons.igif.sics.baixas.ListaOperacoesLog"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="OperacoesLog"
+      FullName="ora.pt.cons.igif.sics.baixas.OperacoesLog"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="OperacoesLogView"
+      FullName="ora.pt.cons.igif.sics.baixas.OperacoesLogView"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

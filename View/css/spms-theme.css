@@ -1,0 +1,402 @@
+@CHARSET "ISO-8859-1";
+
+
+.header {
+	width: inherit; 
+	*width: 100%; 
+	height: 25px;
+	margin:	0 auto; /* center */ 
+	margin-top: 0px;
+	padding: 5px 0 0 10px;
+	font: 12px "arial";
+	font-weight: bold;
+	color: white;
+	background-color: #438EBD;
+}
+
+.container {
+	position:			static; 
+	width: 				inherit; 
+	*width: 			100%; 
+	/*height: 			400px;*/
+	margin:				0 auto; /* center */ 
+	margin-top: 		1px;
+	margin-bottom: 		1px;
+	padding: 			10px;
+	*padding: 			5px;
+	border: 			0px solid;
+	background-color: 	#e8e8e8; /* EEEEEE #e8e8e8 dfdfdf*/
+}
+
+.footer {
+	width: inherit; 
+	*width: 100%; 
+	height: 30px;
+	margin:	0 auto; /* center */ 	
+	margin-top: 2px;
+	border: 0px dotted;
+	background-color: #999999; /* #438EBD */
+}
+
+.fixed-footer {
+	width: 100%;
+	height: 30px;
+	position: fixed;
+	bottom: 0px;
+	background-color: #999999;
+}
+
+.subheader {
+
+}
+
+.subcontainer {
+
+} 
+
+.subfooter {
+
+}
+
+.message {
+	background-color: #f2e5a8;
+	color: #666666;	
+	font: 12 arial regular;
+	padding: 10px;
+}
+
+input {
+	/*width: initial;*/
+}
+
+input[type="text"] { 
+	width: 100%;
+	font: 14px "arial";
+	min-height: 26px;
+	border: 1px solid #AAAAAA;
+}
+
+input[type="checkbox"] {
+	width: 16px;
+	height: 16px;
+	margin-right: 3px;
+}
+
+input[type="button"].spms-toolbar-button {
+	padding: 0 10px 0 10px;
+	border: 0px;
+	color: white;
+	cursor: pointer;
+	background-color: #438EBD;
+	height: inherit; 
+	*height: 25px; /* inheritance is not supported in ie7 */
+}
+
+input[type="button"].spms-toolbar-button:hover {
+	background: #006699;
+}
+
+input[type="button"].buttonDisabled:hover {
+	background: #CCCCCC;
+}
+
+input[type=button][disabled].spms-toolbar-button {
+	background-color: #CCCCCC;
+	border-color: white;
+}
+
+input.spms-button {
+	display: block;
+	width: 100%;
+	height: 26px;
+	cursor: pointer;
+        border: 0px;
+        border-right: 1px solid white;
+	background: none repeat scroll 0 0 #438DBC;
+	color: white;
+	padding: 5px 10px 5px 10px;
+}
+
+input.spms-button:hover {
+	background: #006699;
+}
+
+input[type="button"].buttonDisabled {
+    background-color: #CCCCCC;
+    border-color: #ffffff;
+    cursor: default;
+    border: 0px;
+}
+
+input[type="button"].right { float: right; border-left: 1px solid white; }
+input[type="button"].left { float: left; border-right: 1px solid white; }
+
+
+
+
+.labelfield {
+	border: 0px solid;
+	margin: 0px 0px 4px 0px;
+	min-height: 16px;
+	color: #333333;
+	font: 14px "arial";
+	border-color: black;
+}
+
+.displayfield {
+	display: block;
+	color: #666666;
+	border: 1px solid;
+	border-color: #999999;
+	text-align: left;
+	font: 14px "arial";
+	min-height: 24px;
+	padding: 3px;
+}
+
+.inputfield {
+	display: block;
+	color: #666666;
+	border: 1px solid;
+	border-color: #999999;
+	text-align: left;
+	font: 14px "arial";
+	min-height: 24px;
+	padding: 3px;
+	background-color: white;
+}
+
+.inputfield.newinput {
+	width: 100%;
+	background-color: #e8e8e8;
+}
+
+select.selectfield {
+	/* width: 200px; */
+	width: 100%;
+	border: 1px solid #aaaaaa;
+	height: 26px;
+}
+
+button.defaultbutton {
+	display: block;
+	height: 24px;
+	border: 0px none;
+	background: none repeat scroll 0 0 #438DBC;
+	color: white;
+	padding: 0 10px 0 10px;
+}
+
+
+
+
+.checkboxfield {
+	margin-top: 5px;
+	font-size: 14px;
+}
+
+.tfill {
+	display: block;
+	min-height: 24px;
+	border: 0px solid;
+}
+
+.subtitle {
+	font: bold 12px arial;
+	color: #666666;
+}
+
+
+
+
+/*** TABLE ***/
+table.spms-table {
+	width: 100%;
+	cursor: default;
+	border: 1px;
+	font-family: Arial;
+	font-weight: normal;
+	font-size: 12px;
+	overflow: auto;
+	text-indent: 10px;
+	color: #333333;
+	border-color: #aaaaaa;
+}
+
+.spms-table > thead > tr > th,
+.spms-table > tbody > tr > th,
+.spms-table > tfoot > tr > th,
+.spms-table > thead > tr > td,
+.spms-table > tbody > tr > td,
+.spms-table > tfoot > tr > td {
+	padding: 5px;
+	border: 1px #aaaaaa;
+}
+
+.spms-table > thead > tr > th {
+	height: 20px;
+	text-indent: 10px;
+	font-family: Arial;
+	font-size: 14px;
+	text-align: left;
+	font-weight: normal;
+	background: #989898;
+	color: #ffffff;
+	border: 1px solid #DFDFDF;
+}
+
+.spms-table > tbody > tr > td { 
+	border: 1px solid #DFDFDF;
+	/*border: 1px solid black;*/
+}
+
+.spms-table > tbody > tr:nth-child(odd) > td,
+.spms-table > tbody > tr:nth-child(odd) > th {
+	/*background-color: #f9f9f9;*/
+}
+
+.spms-table > tbody > tr.even > td {
+	background-color: #f9f9f9;
+}
+
+.spms-table > tbody > tr:hover > td,
+.spms-table > tbody > tr:hover > th {
+	background-color: #438EBD;
+ 	color: black;
+}
+.highlight {
+	background-color: #438EBD;
+	color: white;
+}
+
+input.nextLastLink {
+	background:  url("../imagens_cit_v3/fast_arrowr02.png") no-repeat;
+	cursor: pointer;
+	width: 15px;
+	border: none;
+}
+input.prevFirstLink {
+	background:  url("../imagens_cit_v3/fast_arrowl02.png") no-repeat;
+	cursor: pointer;
+	width: 15px;
+	border: none;
+}
+input.nextLastLinkDis {
+	background:  url("../imagens_cit_v3/fast_arrowr01.png") no-repeat;
+	width: 15px;
+	border: none;
+}
+input.prevFirstLinkDis {
+	background:  url("../imagens_cit_v3/fast_arrowl01.png") no-repeat;
+	width: 15px;
+	border: none;
+}
+input.nextLinkDis {
+	background:  url("../imagens_cit_v3/arrowr01.png") no-repeat;
+	width: 15px;
+	border: none;
+}
+input.prevLinkDis {
+	background:  url("../imagens_cit_v3/arrowl01.png") no-repeat;
+	width: 15px;
+	border: none;
+}
+
+/*** #end TABLE ***/
+
+	
+
+ul.tabnav {
+	float: none;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: inline-block; /* this property avoid the split of tabs for another row when li margin is changed */
+}
+
+ul.tabnav li {
+	display: inline-block; /* this property avoid the split of tabs for another row when li margin is changed */
+	float: left;
+	width: 20%; /* 100 / 5 = 20 */
+	*width: 19%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul.tabnav li a {
+	float: left; 
+	width: 100%;
+	height: 26px;
+	display: block;
+	padding: 5px 0 0 0; 
+	border: 1px solid #E0E0E0; 
+	border-bottom: 0px;
+	background:#666666; 
+	font-family: Arial, "Times New Roman", Times, serif; 
+	font-size: 14px; 
+	text-align: center;
+	color: white;
+	text-decoration:none; 
+	border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.tabnav li:first-child a {border-left: 0px; }
+.tabnav li:last-child a {border-right: 0px; }
+
+ul.tabnav li a:hover { text-decoration:none; background-color:#858585; font-family: Arial, "Times New Roman", Times, serif; }
+ul.tabnav li a.active { background:#438EBD; color: white; border-bottom: 0px solid #fff; }
+
+.tabcontainer {
+	margin: 10px 5px 0 5px;
+}
+
+.border {
+	height: 10px;
+	*width: 94%;
+	margin: 0 5px 0 5px;
+	border-top: 5px solid #438EBD;
+}
+
+.tabcontent {
+	/*
+	border-top: 5px solid #438EBD;
+	margin: 0 6px 0 5px;
+	*/
+}
+
+.tabcontent.active 		{ display: block; }
+.tabcontent.inactive 	{ display: none; }
+
+.errorMessageText{
+    z-index:2;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight:bold;
+    color: #ffffff;
+    padding-left: 20px;
+}
+
+.warningMessageLabel{
+    z-index:2;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight:bold;
+    color: #666666;
+    padding-left: 20px;
+}
+
+.warningMessageText{
+    z-index:2;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight:bold;
+    color: #666666;
+    padding-left: 20px;
+}
+
+
+
+
+

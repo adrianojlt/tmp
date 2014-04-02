@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="10.1.3.41.57" id="pesquisaFamiliarLovPageDef"
+                Package="ora.pt.cons.igif.sics.view.pageDefs.git"
+                ControllerClass="ora.pt.cons.igif.sics.controller.git.pesquisaFamiliarLovPageController">
+
+    <parameters/>
+    <executables>   
+       <iterator id="ListaAgregadoFamiliarIterator" 
+                  Binds="Root.IdentificacaoUtenteModule.ListaAgregadoFamiliar"
+                  DataControl="RootAppModuleDataControl"
+                  RangeSize="15" 
+                  Refresh="deferred"/>
+       <iterator id="InformacaoUtenteIterator" Binds="InformacaoUtente" RangeSize="10" DataControl="RootAppModuleDataControl"/> 
+       <iterator id="ListaCodigosGenericos1IteratorPARE" RangeSize="-1" Binds="Root.ModulosSuporteModule.ListaCodigosGenericos1" DataControl="RootAppModuleDataControl" /> 
+       <iterator id="ListaCodigosGenericos3IteratorIdAM" RangeSize="-1" Binds="Root.ModulosSuporteModule.ListaCodigosGenericos3" DataControl="RootAppModuleDataControl" />
+    </executables>
+    <bindings>
+        <table IterBinding="ListaAgregadoFamiliarIterator"
+               id="ListaAgregadoFamiliar">
+          <AttrNames>
+        <Item Value="DescParentesco"/>
+        <Item Value="Nutente"/>
+        <Item Value="NomeCompleto"/>
+        <Item Value="DtaNasc"/>
+        <Item Value="NomeEquipa"/>
+        <Item Value="CodParentesco"/>
+        <Item Value="DataFim"/>
+        <Item Value="Idequipa"/>
+        <Item Value="IdHistFamilia"/>
+        <Item Value="Idprohistequipas"/>
+        <Item Value="IduFamiliaId"/>
+        <Item Value="IduInscrId"/>
+        <Item Value="IhfDataFim"/>
+        <Item Value="IduIdentUtId"/>
+        <Item Value="Niss"/>
+        <Item Value="Bi"/>
+        <Item Value="NomeNormalizado"/>
+      </AttrNames>
+        </table>
+        <table IterBinding="InformacaoUtenteIterator" id="InformacaoUtente">
+          <AttrNames>
+            <Item Value="Idutente"/>
+            <Item Value="Datanascimento"/>
+            <Item Value="Entresp"/>
+            <Item Value="Nomeutente"/>
+            <Item Value="Numbi"/>
+            <Item Value="Numssocial"/>
+            <Item Value="Numutente"/>
+            <Item Value="Idhistentutente"/>
+            <Item Value="Numbeneficiario"/>
+            <Item Value="Entrespabrv"/>
+            <Item Value="Nomenormalizado"/>
+          </AttrNames>
+        </table>
+         <table id="ListaCodigosGenericos1"
+                   IterBinding="ListaCodigosGenericos1IteratorPARE">
+              <AttrNames>
+                <Item Value="Id"/>
+                <Item Value="Activo"/>
+                <Item Value="Codigo"/>
+                <Item Value="CodigoAntigo"/>
+                <Item Value="DataActivo"/>
+                <Item Value="DataInactivo"/>
+                <Item Value="Descricao"/>
+                <Item Value="DescAbrv"/>
+                <Item Value="LimiteMax"/>
+                <Item Value="LimiteMin"/>
+                <Item Value="Observacoes"/>
+                <Item Value="Ordenacao"/>
+                <Item Value="SysTiposCodigosId"/>
+                <Item Value="ScgSysEntidadesId"/>
+                <Item Value="TipocodigoCodtipo"/>
+              </AttrNames>
+            </table>
+            <table id="ListaCodigosGenericos3"
+                   IterBinding="ListaCodigosGenericos3IteratorIdAM">
+              <AttrNames>
+                <Item Value="Id"/>
+                <Item Value="Activo"/>
+                <Item Value="Codigo"/>
+                <Item Value="CodigoAntigo"/>
+                <Item Value="DataActivo"/>
+                <Item Value="DataInactivo"/>
+                <Item Value="Descricao"/>
+                <Item Value="DescAbrv"/>
+                <Item Value="LimiteMax"/>
+                <Item Value="LimiteMin"/>
+                <Item Value="Observacoes"/>
+                <Item Value="Ordenacao"/>
+                <Item Value="SysTiposCodigosId"/>
+                <Item Value="ScgSysEntidadesId"/>
+                <Item Value="TipocodigoCodtipo"/>
+              </AttrNames>
+            </table> 
+    </bindings>
+</pageDefinition>

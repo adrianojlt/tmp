@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="InformacaoUtente"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="ora.pt.cons.igif.sics.InformacaoUtenteRowImpl"
+   ComponentClass="ora.pt.cons.igif.sics.InformacaoUtenteImpl"
+   MsgBundleClass="ora.pt.cons.igif.sics.common.InformacaoUtenteRowImplMsgBundle"
+   ComponentInterface="ora.pt.cons.igif.sics.common.InformacaoUtente"
+   ClientProxyName="ora.pt.cons.igif.sics.client.InformacaoUtenteClient"
+   FetchMode="FETCH_AS_NEEDED"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|Msg|VarAccess" />
+   </DesignTime>
+   <Variable
+      Name="idUtente"
+      Kind="where"
+      Type="oracle.jbo.domain.Number" >
+   </Variable>
+   <Variable
+      Name="nomeUtente"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <Variable
+      Name="numUtente"
+      Kind="where"
+      Type="oracle.jbo.domain.Number" >
+   </Variable>
+   <Variable
+      Name="numSSocial"
+      Kind="where"
+      Type="oracle.jbo.domain.Number" >
+   </Variable>
+   <Variable
+      Name="entResp"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <Variable
+      Name="numBI"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <Variable
+      Name="dataNascimento"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <Variable
+      Name="idHistEntUtente"
+      Kind="where"
+      Type="oracle.jbo.domain.Number" >
+   </Variable>
+   <Variable
+      Name="numBeneficiario"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <Variable
+      Name="entRespAbrv"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <Variable
+      Name="sexoUtente"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <Variable
+      Name="nomeToNormal"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <SQLQuery><![CDATA[
+SELECT DECODE(:idUtente,-1,TO_NUMBER(NULL),:idUtente) idUtente,
+       DECODE(:idHistEntUtente,-1,TO_NUMBER(NULL),:idHistEntUtente) idHistEntUtente,
+       DECODE(:numUtente,-1,TO_NUMBER(NULL),:numUtente) numUtente,
+       DECODE(:numSSocial,-1,TO_NUMBER(NULL),:numSSocial) numSSocial,
+       NVL(:numBI,NULL) numBI,
+       NVL(:nomeUtente,NULL) nomeUtente,
+       NVL(:entResp,NULL) entResp,
+       NVL(:entRespAbrv,NULL) entRespAbrv,
+       NVL(:dataNascimento,NULL) dataNascimento,
+       NVL(:numBeneficiario,NULL) numBeneficiario,
+       NVL(:sexoUtente,NULL) sexoUtente,
+       GERAL.normaliza_nome(NVL(:nomeToNormal,NULL)) nomeNormalizado
+FROM   DUAL
+   ]]></SQLQuery>
+   <ViewAttribute
+      Name="Idutente"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDUTENTE"
+      Expression="IDUTENTE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Idhistentutente"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDHISTENTUTENTE"
+      Expression="IDHISTENTUTENTE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Numutente"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NUMUTENTE"
+      Expression="NUMUTENTE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Numssocial"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NUMSSOCIAL"
+      Expression="NUMSSOCIAL"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Numbi"
+      IsPersistent="false"
+      Precision="13"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NUMBI"
+      Expression="NUMBI"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nomeutente"
+      IsPersistent="false"
+      Precision="200"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOMEUTENTE"
+      Expression="NOMEUTENTE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="200" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Entresp"
+      IsPersistent="false"
+      Precision="32"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ENTRESP"
+      Expression="ENTRESP"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Entrespabrv"
+      IsPersistent="false"
+      Precision="32"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ENTRESPABRV"
+      Expression="ENTRESPABRV"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Datanascimento"
+      IsPersistent="false"
+      Precision="10"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DATANASCIMENTO"
+      Expression="DATANASCIMENTO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Numbeneficiario"
+      IsPersistent="false"
+      Precision="32"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NUMBENEFICIARIO"
+      Expression="NUMBENEFICIARIO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Sexoutente"
+      IsPersistent="false"
+      Precision="32"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SEXOUTENTE"
+      Expression="SEXOUTENTE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nomenormalizado"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOMENORMALIZADO"
+      Expression="NOMENORMALIZADO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nomecompleto"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOMECOMPLETO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="32" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

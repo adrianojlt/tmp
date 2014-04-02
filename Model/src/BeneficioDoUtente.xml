@@ -1,0 +1,275 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="BeneficioDoUtente"
+   DBObjectType="table"
+   DBObjectName="IDU_HIST_BENEF"
+   AliasName="BeneficioDoUtente"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.utentes.BeneficioDoUtenteImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_BENEF"
+      PrimaryKey="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="IduIdentUtId"
+      IsNotNull="true"
+      ColumnName="IDU_IDENT_UT_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_BENEF" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="IduBenefUtId"
+      IsNotNull="true"
+      ColumnName="IDU_BENEF_UT_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_BENEF" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="NdocIsent"
+      Precision="6"
+      Scale="0"
+      ColumnName="NDOC_ISENT"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_BENEF" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DtaValidade"
+      ColumnName="DTA_VALIDADE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_BENEF" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataIni"
+      ColumnName="DATA_INI"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_BENEF" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataFim"
+      ColumnName="DATA_FIM"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_BENEF" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_HIST_BENEF"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_HIST_BENEF"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_BENEF"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_BENEF"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="IdentificacaoUtente"
+      Association="ora.pt.cons.igif.sics.utentes.IhbIiuFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.utentes.IhbIiuFkAssoc.IdentificacaoUtente"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.utentes.IhbIiuFkAssoc.BeneficioDoUtente"
+      Type="ora.pt.cons.igif.sics.utentes.IdentificacaoUtenteImpl" >
+   </AccessorAttribute>
+   <Key
+      Name="IhbPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="IHB_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005620" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005620" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005621" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.IduIdentUtId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;IDU_IDENT_UT_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005621" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005622" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.IduBenefUtId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;IDU_BENEF_UT_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005622" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005623" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005623" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005624" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005624" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005625" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005625" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005626" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005626" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IhbIbuFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.IduBenefUtId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="IBU_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IHB_IBU_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IhbIiuFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente.IduIdentUtId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="IIU_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IHB_IIU_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

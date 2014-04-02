@@ -1,0 +1,514 @@
+<?xml version='1.0' encoding='ISO-8859-15' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="Familia"
+   DBObjectType="table"
+   DBObjectName="IDU_FAMILIA"
+   AliasName="Familia"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.utentes.FamiliaImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      PrimaryKey="true"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Procfam"
+      IsUnique="true"
+      IsNotNull="true"
+      Precision="38"
+      Scale="0"
+      ColumnName="PROCFAM"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgTiporuaId"
+      ColumnName="SCG_TIPORUA_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Rua"
+      Precision="60"
+      ColumnName="RUA"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgTipoportaId"
+      ColumnName="SCG_TIPOPORTA_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Porta"
+      Precision="60"
+      ColumnName="PORTA"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgTipoandarId"
+      ColumnName="SCG_TIPOANDAR_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Andar"
+      Precision="60"
+      ColumnName="ANDAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Lugar"
+      Precision="60"
+      ColumnName="LUGAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Localidade"
+      Precision="40"
+      ColumnName="LOCALIDADE"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SchCdaineId"
+      ColumnName="SCH_CDAINE_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysEntidadesEqcolId"
+      ColumnName="SYS_ENTIDADES_EQCOL_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysCodigoPostalId"
+      ColumnName="SYS_CODIGO_POSTAL_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Indica"
+      Precision="4"
+      ColumnName="INDICA"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Telef"
+      Precision="9"
+      ColumnName="TELEF"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="9" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysEntidadesCentroId"
+      IsUnique="true"
+      IsNotNull="true"
+      ColumnName="SYS_ENTIDADES_CENTRO_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      IsUpdateable="while_insert"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      IsUpdateable="while_insert"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Obs"
+      Precision="500"
+      ColumnName="OBS"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="500" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="IduFamiliaOrigId"
+      ColumnName="IDU_FAMILIA_ORIG_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="IduFamiliaOrigIdFamilia"
+      Association="ora.pt.cons.igif.sics.utentes.IfaIfaOrigFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.utentes.IfaIfaOrigFkAssoc.IduFamiliaOrigIdFamilia"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.utentes.IfaIfaOrigFkAssoc.Familia"
+      Type="ora.pt.cons.igif.sics.utentes.FamiliaImpl" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="HistFamilia"
+      Association="ora.pt.cons.igif.sics.utentes.IhfIfaFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.utentes.IhfIfaFkAssoc.HistFamilia"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.utentes.IhfIfaFkAssoc.Familia"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="Familia"
+      Association="ora.pt.cons.igif.sics.utentes.IfaIfaOrigFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.utentes.IfaIfaOrigFkAssoc.Familia"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.utentes.IfaIfaOrigFkAssoc.IduFamiliaOrigIdFamilia"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <Key
+      Name="IfaPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="IFA_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IfaSenUk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.Procfam" />
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.SysEntidadesCentroId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isUnique" Value="true" />
+         <Attr Name="_DBObjectName" Value="IFA_SEN_UK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005706" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005706" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005707" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.Procfam" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;PROCFAM&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005707" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005708" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.SysEntidadesCentroId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_ENTIDADES_CENTRO_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005708" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005709" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005709" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005710" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005710" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005711" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005711" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005712" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005712" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IfaIfaOrigFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.IduFamiliaOrigId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="IFA_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IFA_IFA_ORIG_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IfaScgTandFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.ScgTipoandarId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IFA_SCG_TAND_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IfaScgTporFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.ScgTipoportaId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IFA_SCG_TPOR_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IfaScgTruaFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.ScgTiporuaId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IFA_SCG_TRUA_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IfaSchChreFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.SchCdaineId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCH_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IFA_SCH_CHRE_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IfaScpFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.Familia.SysCodigoPostalId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCP_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IFA_SCP_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

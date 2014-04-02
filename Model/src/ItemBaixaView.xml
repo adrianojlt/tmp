@@ -1,0 +1,250 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="ItemBaixaView"
+   SelectList="ItemBaixa.ANULADO, 
+       ItemBaixa.AUTORIZ_SAIDA, 
+       ItemBaixa.COMUNICACAO_ANULACAO_CRSS, 
+       ItemBaixa.COMUNICACAO_CRSS, 
+       ItemBaixa.CREATED_BY, 
+       ItemBaixa.CREATION_DATE, 
+       ItemBaixa.CUIDADOS_INADIAVEIS, 
+       ItemBaixa.DATA_ANULADO, 
+       ItemBaixa.DATA_INICIO, 
+       ItemBaixa.DATA_TERMO, 
+       ItemBaixa.GIT_BAIXAS_ID, 
+       ItemBaixa.ID, 
+       ItemBaixa.ID_PAI, 
+       ItemBaixa.INCAPACITADO, 
+       ItemBaixa.INTERNAMENTO, 
+       ItemBaixa.JUSTIFICACAO_SAIDA, 
+       ItemBaixa.LAST_UPDATED_BY, 
+       ItemBaixa.LAST_UPDATE_DATE, 
+       ItemBaixa.SCG_CLASSIFDOENCA_ID, 
+       ItemBaixa.SCG_TIPOALTA_ID, 
+       ItemBaixa.SCG_TIPOREGISTO_ID, 
+       ItemBaixa.SYS_ENTIDADES_ID, 
+       ItemBaixa.SCG_MOTIVO_ANULACAO_ID, 
+       ItemBaixa.SYS_ENTIDADES_ANULUCAO_ID, 
+       ItemBaixa.COMENTARIO_ANULACAO, 
+       ItemBaixa.PRO_PROFISSID_PESSOAL_ID, 
+       ItemBaixa.PRO_PROFISSID_PES_ANULACAO_ID, 
+       ItemBaixa.CIRURGIA_AMBULATORIO, 
+       ItemBaixa.NUM_EPISODIO, 
+       ItemBaixa.SCG_COD_MODULO_ID"
+   FromList="GIT_ITEMS_BAIXAS ItemBaixa"
+   BindingStyle="OracleName"
+   CustomQuery="false"
+   RowClass="ora.pt.cons.igif.sics.baixas.ItemBaixaViewRowImpl"
+   ComponentClass="ora.pt.cons.igif.sics.baixas.ItemBaixaViewImpl"
+   MsgBundleClass="ora.pt.cons.igif.sics.baixas.common.ItemBaixaViewRowImplMsgBundle"
+   FetchMode="FETCH_AS_NEEDED"
+   MaxFetchSize="0"
+   UseGlueCode="false" >
+   <Data>
+      <Property Name ="COMPLETE_LIBRARY" Value ="FALSE" />
+      <Property Name ="ID" Value ="014b49d2-0113-1000-8141-7f000001bd96::::ViewObject" />
+      <Property Name ="IS_ABSTRACT" Value ="FALSE" />
+      <Property Name ="IS_ACTIVE" Value ="FALSE" />
+      <Property Name ="IS_LEAF" Value ="FALSE" />
+      <Property Name ="IS_ROOT" Value ="FALSE" />
+      <Property Name ="VISIBILITY" Value ="PUBLIC" />
+   </Data>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|Msg|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="ItemBaixa"
+      Entity="ora.pt.cons.igif.sics.baixas.ItemBaixa" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="true" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="Anulado"
+      EntityAttrName="Anulado"
+      EntityUsage="ItemBaixa"
+      AliasName="ANULADO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="AutorizSaida"
+      EntityAttrName="AutorizSaida"
+      EntityUsage="ItemBaixa"
+      AliasName="AUTORIZ_SAIDA" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ComunicacaoAnulacaoCrss"
+      EntityAttrName="ComunicacaoAnulacaoCrss"
+      EntityUsage="ItemBaixa"
+      AliasName="COMUNICACAO_ANULACAO_CRSS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ComunicacaoCrss"
+      EntityAttrName="ComunicacaoCrss"
+      EntityUsage="ItemBaixa"
+      AliasName="COMUNICACAO_CRSS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      EntityAttrName="CreatedBy"
+      EntityUsage="ItemBaixa"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      EntityAttrName="CreationDate"
+      EntityUsage="ItemBaixa"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CuidadosInadiaveis"
+      EntityAttrName="CuidadosInadiaveis"
+      EntityUsage="ItemBaixa"
+      AliasName="CUIDADOS_INADIAVEIS" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DataAnulado"
+      EntityAttrName="DataAnulado"
+      EntityUsage="ItemBaixa"
+      AliasName="DATA_ANULADO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DataInicio"
+      IsNotNull="true"
+      EntityAttrName="DataInicio"
+      EntityUsage="ItemBaixa"
+      AliasName="DATA_INICIO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DataTermo"
+      EntityAttrName="DataTermo"
+      EntityUsage="ItemBaixa"
+      AliasName="DATA_TERMO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="GitBaixasId"
+      IsNotNull="true"
+      EntityAttrName="GitBaixasId"
+      EntityUsage="ItemBaixa"
+      AliasName="GIT_BAIXAS_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      EntityAttrName="Id"
+      EntityUsage="ItemBaixa"
+      AliasName="ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IdPai"
+      EntityAttrName="IdPai"
+      EntityUsage="ItemBaixa"
+      AliasName="ID_PAI" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Incapacitado"
+      EntityAttrName="Incapacitado"
+      EntityUsage="ItemBaixa"
+      AliasName="INCAPACITADO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Internamento"
+      EntityAttrName="Internamento"
+      EntityUsage="ItemBaixa"
+      AliasName="INTERNAMENTO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="JustificacaoSaida"
+      EntityAttrName="JustificacaoSaida"
+      EntityUsage="ItemBaixa"
+      AliasName="JUSTIFICACAO_SAIDA" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="ItemBaixa"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="ItemBaixa"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgClassifdoencaId"
+      EntityAttrName="ScgClassifdoencaId"
+      EntityUsage="ItemBaixa"
+      AliasName="SCG_CLASSIFDOENCA_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgTipoaltaId"
+      EntityAttrName="ScgTipoaltaId"
+      EntityUsage="ItemBaixa"
+      AliasName="SCG_TIPOALTA_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgTiporegistoId"
+      IsNotNull="true"
+      EntityAttrName="ScgTiporegistoId"
+      EntityUsage="ItemBaixa"
+      AliasName="SCG_TIPOREGISTO_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SysEntidadesId"
+      EntityAttrName="SysEntidadesId"
+      EntityUsage="ItemBaixa"
+      AliasName="SYS_ENTIDADES_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgMotivoAnulacaoId"
+      EntityAttrName="ScgMotivoAnulacaoId"
+      EntityUsage="ItemBaixa"
+      AliasName="SCG_MOTIVO_ANULACAO_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SysEntidadesAnulucaoId"
+      EntityAttrName="SysEntidadesAnulucaoId"
+      EntityUsage="ItemBaixa"
+      AliasName="SYS_ENTIDADES_ANULUCAO_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ComentarioAnulacao"
+      EntityAttrName="ComentarioAnulacao"
+      EntityUsage="ItemBaixa"
+      AliasName="COMENTARIO_ANULACAO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProProfissidPessoalId"
+      EntityAttrName="ProProfissidPessoalId"
+      EntityUsage="ItemBaixa"
+      AliasName="PRO_PROFISSID_PESSOAL_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProProfissidPesAnulacaoId"
+      EntityAttrName="ProProfissidPesAnulacaoId"
+      EntityUsage="ItemBaixa"
+      AliasName="PRO_PROFISSID_PES_ANULACAO_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CirurgiaAmbulatorio"
+      EntityAttrName="CirurgiaAmbulatorio"
+      EntityUsage="ItemBaixa"
+      AliasName="CIRURGIA_AMBULATORIO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NumEpisodio"
+      EntityAttrName="NumEpisodio"
+      EntityUsage="ItemBaixa"
+      AliasName="NUM_EPISODIO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgCodModuloId"
+      EntityAttrName="ScgCodModuloId"
+      EntityUsage="ItemBaixa"
+      AliasName="SCG_COD_MODULO_ID" >
+   </ViewAttribute>
+</ViewObject>

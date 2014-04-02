@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="sics"
+   SeparateXMLFiles="true"
+   PackageName="ora.pt.cons.igif.sics" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+   </DesignTime>
+   <Containee
+      Name="InformacaoUtente"
+      FullName="ora.pt.cons.igif.sics.InformacaoUtente"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="InformacaoUtilizador"
+      FullName="ora.pt.cons.igif.sics.InformacaoUtilizador"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaParametros"
+      FullName="ora.pt.cons.igif.sics.ListaParametros"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="OpcoesMenuUtilizador"
+      FullName="ora.pt.cons.igif.sics.OpcoesMenuUtilizador"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="RootAppModule"
+      FullName="ora.pt.cons.igif.sics.RootAppModule"
+      ObjectType="AppModule" >
+   </Containee>
+</JboPackage>

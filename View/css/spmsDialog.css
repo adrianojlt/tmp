@@ -1,0 +1,115 @@
+
+input[type="button"].spms-button, button.spms-button {
+	display: block;
+	float: left;
+	padding: 5px 10px;
+	border: 1px none;
+	border-color: #357ebd;	
+	cursor: pointer;
+	text-indent: 0px;
+	color: white;
+	background-color: #438EBD;
+	height: inherit; /* the height of class */
+	*height: 30px;
+}
+
+input[type="button"].right { float: right; border-left: 2px solid white; }
+input[type="button"].left { float: left; border-right: 2px solid white; }
+
+
+/*** DIALOG ***/
+.dialog-container {
+	width: 400px;
+	margin: 0 auto;
+	background-color: white;
+	border: 1px solid white;
+}
+
+.dialog-close {
+	width: 15px; height: 15px; background-color: white; float: right; margin-right: 5px;
+}
+
+.dialog-overlay {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: 1001;
+	opacity: 0.6;
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+    filter: alpha(opacity=60);  
+	background-color: #777777;
+}
+
+.dialog-fixed-container {
+	display: block;
+	position: fixed;
+	width: 380px;
+	height: 205px;
+	*height: 215px;
+	top: 50%;
+	left: 50%;
+	margin-left: -190px;
+	margin-top: -100px;
+	background-color: #ffffff;
+	border: 0px solid #336699;
+	padding: 0px;
+	z-index: 1002;
+}
+
+.dialog-header { 
+	height: 25px;
+	*height: 30px;
+	margin: 5px;
+	margin-bottom: 2px;
+	padding: 5px 0px 0px 10px;
+	color: white;
+	background-color: #666666;
+	font-weight: bold;
+}
+.dialog-header img { 
+	float: right;
+	margin-right: 10px;
+	margin-top: 2px;
+	cursor: pointer;
+}
+.dialog-content {
+	/* position: relative; */
+	height: 132px;
+	margin: 5px;
+	margin-top: 2px;
+	background-color: #e8e8e8;
+	border: 0px solid blue;
+}
+
+.dialog-content img {
+	float: left;
+	margin: 15px 0px 0px 10px;
+}
+
+.dialog-image {
+	float: left;
+	width: 50px;
+	height: 40px;
+	margin: 10px 0px 0px 20px;
+	border: 1px solid green;
+}
+.dialog-message { 
+	float: right;
+	width: 280px;
+	margin: 10px;
+	padding: 5px;
+	/*position: absolute; */
+	border: 0px solid blue;
+}
+.dialog-footer { 
+	height: 25px;
+	*height: 30px;
+	margin: 5px;
+	background-color: #999999;
+}
+
+

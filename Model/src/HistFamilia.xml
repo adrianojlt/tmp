@@ -1,0 +1,324 @@
+<?xml version='1.0' encoding='ISO-8859-15' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="HistFamilia"
+   DBObjectType="table"
+   DBObjectName="IDU_HIST_FAMILIA"
+   AliasName="HistFamilia"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.utentes.HistFamiliaImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_FAMILIA"
+      PrimaryKey="true"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="IduFamiliaId"
+      IsNotNull="true"
+      ColumnName="IDU_FAMILIA_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="IduInscrId"
+      IsNotNull="true"
+      ColumnName="IDU_INSCR_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgParentescoId"
+      IsNotNull="true"
+      ColumnName="SCG_PARENTESCO_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Nop"
+      IsNotNull="true"
+      ColumnName="NOP"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataIni"
+      IsNotNull="true"
+      ColumnName="DATA_INI"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataFim"
+      ColumnName="DATA_FIM"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      IsUpdateable="while_insert"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      IsUpdateable="while_insert"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_FAMILIA"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="Familia"
+      Association="ora.pt.cons.igif.sics.utentes.IhfIfaFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.utentes.IhfIfaFkAssoc.Familia"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.utentes.IhfIfaFkAssoc.HistFamilia"
+      Type="ora.pt.cons.igif.sics.utentes.FamiliaImpl" >
+   </AccessorAttribute>
+   <Key
+      Name="IhfPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="IHF_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005764" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005764" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005765" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.IduFamiliaId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;IDU_FAMILIA_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005765" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005766" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.IduInscrId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;IDU_INSCR_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005766" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005767" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.ScgParentescoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SCG_PARENTESCO_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005767" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005768" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.Nop" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;NOP&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005768" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005769" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.DataIni" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DATA_INI&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005769" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005770" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005770" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005771" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005771" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005772" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005772" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005773" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005773" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IhfIfaFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.IduFamiliaId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="IFA_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IHF_IFA_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IhfScgPareFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.HistFamilia.ScgParentescoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IHF_SCG_PARE_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

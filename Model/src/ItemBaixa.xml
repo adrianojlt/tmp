@@ -1,0 +1,1234 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="ItemBaixa"
+   DBObjectType="table"
+   DBObjectName="GIT_ITEMS_BAIXAS"
+   AliasName="ItemBaixa"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.baixas.ItemBaixaImpl"
+   MsgBundleClass="ora.pt.cons.igif.sics.baixas.common.ItemBaixaImplMsgBundle" >
+   <Data>
+      <Property Name ="COMPLETE_LIBRARY" Value ="FALSE" />
+      <Property Name ="ID" Value ="e7baa483-0112-1000-8234-7f000001601b::::EntityObject" />
+      <Property Name ="IS_ABSTRACT" Value ="FALSE" />
+      <Property Name ="IS_ACTIVE" Value ="FALSE" />
+      <Property Name ="IS_LEAF" Value ="FALSE" />
+      <Property Name ="IS_ROOT" Value ="FALSE" />
+      <Property Name ="VISIBILITY" Value ="PUBLIC" />
+   </Data>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access|Msg" />
+   </DesignTime>
+   <Attribute
+      Name="Anulado"
+      Precision="1"
+      ColumnName="ANULADO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-8235-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="AutorizSaida"
+      Precision="1"
+      ColumnName="AUTORIZ_SAIDA"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-8236-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ComunicacaoAnulacaoCrss"
+      Precision="1"
+      ColumnName="COMUNICACAO_ANULACAO_CRSS"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-8237-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ComunicacaoCrss"
+      Precision="1"
+      ColumnName="COMUNICACAO_CRSS"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-8238-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-8239-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-823a-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CuidadosInadiaveis"
+      Precision="1"
+      ColumnName="CUIDADOS_INADIAVEIS"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-823b-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataAnulado"
+      ColumnName="DATA_ANULADO"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-823c-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataInicio"
+      IsNotNull="true"
+      ColumnName="DATA_INICIO"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-823d-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataTermo"
+      ColumnName="DATA_TERMO"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-823e-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="GitBaixasId"
+      IsNotNull="true"
+      ColumnName="GIT_BAIXAS_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-823f-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      IsUnique="true"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      PrimaryKey="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc458-0112-1000-8240-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="IdPai"
+      ColumnName="ID_PAI"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-8241-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Incapacitado"
+      Precision="1"
+      ColumnName="INCAPACITADO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-8242-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Internamento"
+      Precision="1"
+      ColumnName="INTERNAMENTO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-8243-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="JustificacaoSaida"
+      Precision="100"
+      ColumnName="JUSTIFICACAO_SAIDA"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-8244-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-8245-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-8246-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgClassifdoencaId"
+      ColumnName="SCG_CLASSIFDOENCA_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-824a-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgTipoaltaId"
+      ColumnName="SCG_TIPOALTA_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-824c-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgTiporegistoId"
+      IsNotNull="true"
+      ColumnName="SCG_TIPOREGISTO_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-824d-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysEntidadesId"
+      ColumnName="SYS_ENTIDADES_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e7bbc459-0112-1000-824e-7f000001601b::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgMotivoAnulacaoId"
+      ColumnName="SCG_MOTIVO_ANULACAO_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysEntidadesAnulucaoId"
+      ColumnName="SYS_ENTIDADES_ANULUCAO_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ComentarioAnulacao"
+      Precision="150"
+      ColumnName="COMENTARIO_ANULACAO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="150" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataComunicaoCrss"
+      ColumnName="DATA_COMUNICAO_CRSS"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataComunicacaoAnulacaoCrss"
+      ColumnName="DATA_COMUNICACAO_ANULACAO_CRSS"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ProProfissidPessoalId"
+      ColumnName="PRO_PROFISSID_PESSOAL_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ProProfissidPesAnulacaoId"
+      ColumnName="PRO_PROFISSID_PES_ANULACAO_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CirurgiaAmbulatorio"
+      Precision="1"
+      ColumnName="CIRURGIA_AMBULATORIO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="NumEpisodio"
+      ColumnName="NUM_EPISODIO"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgCodModuloId"
+      ColumnName="SCG_COD_MODULO_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="GIT_ITEMS_BAIXAS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="Baixa"
+      Association="ora.pt.cons.igif.sics.baixas.ItemsDaBaixaAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.baixas.ItemsDaBaixaAssoc.Baixa"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.baixas.ItemsDaBaixaAssoc.ItemBaixa"
+      Type="ora.pt.cons.igif.sics.baixas.BaixaImpl" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="OperacoesLog"
+      Association="ora.pt.cons.igif.sics.baixas.GoeGitItemsBaixasIdAFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.baixas.GoeGitItemsBaixasIdAFkAssoc.OperacoesLog"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.baixas.GoeGitItemsBaixasIdAFkAssoc.ItemBaixa"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="OperacoesLog1"
+      Association="ora.pt.cons.igif.sics.baixas.GoeGitItemsBaixasIdNFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.baixas.GoeGitItemsBaixasIdNFkAssoc.OperacoesLog1"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.baixas.GoeGitItemsBaixasIdNFkAssoc.ItemBaixa1"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <Key
+      Name="Avcon1172865496Anula001" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Anulado" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="ANULADO IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_ANULA_001" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1172865496Autor000" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.AutorizSaida" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="AUTORIZ_SAIDA IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_AUTOR_000" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1172865496Comun000" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ComunicacaoCrss" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="COMUNICACAO_CRSS IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_COMUN_000" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1172865496Comun001" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ComunicacaoAnulacaoCrss" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="COMUNICACAO_ANULACAO_CRSS IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_COMUN_001" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1172865496Cuida000" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.CuidadosInadiaveis" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="CUIDADOS_INADIAVEIS IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_CUIDA_000" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1172865496Incap000" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Incapacitado" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="INCAPACITADO IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_INCAP_000" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1172865496Inter000" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Internamento" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="INTERNAMENTO IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_INTER_000" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibConsCirurgiaAmbulatorio" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.CirurgiaAmbulatorio" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="CIRURGIA_AMBULATORIO IN (&#39;S&#39;,&#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_CONS_CIRURGIA_AMBULATORIO" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018927" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018927" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018928" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.GitBaixasId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;GIT_BAIXAS_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018928" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018929" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ScgTiporegistoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SCG_TIPOREGISTO_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018929" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018930" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.DataInicio" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DATA_INICIO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018930" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018931" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.DataTermo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DATA_TERMO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018931" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018932" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Incapacitado" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;INCAPACITADO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018932" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018933" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.CuidadosInadiaveis" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CUIDADOS_INADIAVEIS&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018933" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018934" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Internamento" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;INTERNAMENTO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018934" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018935" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.AutorizSaida" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;AUTORIZ_SAIDA&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018935" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018936" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ComunicacaoCrss" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;COMUNICACAO_CRSS&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018936" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018937" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ComunicacaoAnulacaoCrss" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;COMUNICACAO_ANULACAO_CRSS&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018937" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018938" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Anulado" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ANULADO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018938" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018939" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018939" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018940" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018940" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018941" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018941" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0018942" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0018942" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0053145" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.SysEntidadesId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_ENTIDADES_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0053145" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0053146" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.DataTermo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DATA_TERMO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0053146" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0055055" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Incapacitado" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;INCAPACITADO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0055055" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0055056" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.CuidadosInadiaveis" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CUIDADOS_INADIAVEIS&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0055056" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0055057" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Internamento" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;INTERNAMENTO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0055057" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0055058" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.AutorizSaida" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;AUTORIZ_SAIDA&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0055058" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0055059" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ComunicacaoCrss" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;COMUNICACAO_CRSS&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0055059" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0055060" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ComunicacaoAnulacaoCrss" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;COMUNICACAO_ANULACAO_CRSS&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0055060" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0055061" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Anulado" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ANULADO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0055061" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0055144" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ScgTiporegistoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SCG_TIPOREGISTO_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0055144" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005608" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005608" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005609" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.GitBaixasId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;GIT_BAIXAS_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005609" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005610" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ScgTiporegistoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SCG_TIPOREGISTO_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005610" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005611" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.DataInicio" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DATA_INICIO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005611" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005612" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005612" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005613" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005613" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005614" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005614" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005615" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005615" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC0061409" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.CirurgiaAmbulatorio" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CIRURGIA_AMBULATORIO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C0061409" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibGbaFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.GitBaixasId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="GBA_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_GBA_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibPppAnulFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ProProfissidPesAnulacaoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="PPP_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_PPP_ANUL_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibPppFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ProProfissidPessoalId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="PPP_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_PPP_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibScgCtrgFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ScgTiporegistoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_SCG_CTRG_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibScgGcldFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ScgClassifdoencaId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_SCG_GCLD_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibScgGtanFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ScgMotivoAnulacaoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_SCG_GTAN_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibScgGtiaFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ScgTipoaltaId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_SCG_GTIA_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibScgModFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.ScgCodModuloId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_SCG_MOD_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibSenAnulFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.SysEntidadesAnulucaoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SEN_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_SEN_ANUL_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="GibSenFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.SysEntidadesId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SEN_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="GIB_SEN_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

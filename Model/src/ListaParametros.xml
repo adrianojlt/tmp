@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="ListaParametros"
+   OrderBy="nome"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="ora.pt.cons.igif.sics.ListaParametrosRowImpl"
+   ComponentClass="ora.pt.cons.igif.sics.ListaParametrosImpl"
+   ComponentInterface="ora.pt.cons.igif.sics.common.ListaParametros"
+   ClientProxyName="ora.pt.cons.igif.sics.client.ListaParametrosClient"
+   RowInterface="ora.pt.cons.igif.sics.common.ListaParametrosRow"
+   ClientRowProxyName="ora.pt.cons.igif.sics.client.ListaParametrosRowClient"
+   FetchMode="FETCH_ALL"
+   FetchSize="100"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|Prog|VarAccess" />
+   </DesignTime>
+   <Variable
+      Name="Path"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <SQLQuery><![CDATA[
+select nome,val_text, val_number, val_date
+  from (
+  select nome
+       , val_text
+       , val_number
+       , val_date
+       , SYS_CONNECT_BY_PATH(nome, '.') PATH
+    from sys_conf_param
+   start with sys_conf_param_id is null
+   connect by sys_conf_param_id = prior id
+   )
+  where PATH like :Path || '%'
+   ]]></SQLQuery>
+   <ViewAttribute
+      Name="Nome"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="250"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOME"
+      Expression="NOME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="250" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ValText"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="500"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="VAL_TEXT"
+      Expression="VAL_TEXT"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="200" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ValNumber"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="VAL_NUMBER"
+      Expression="VAL_NUMBER"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ValDate"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="VAL_DATE"
+      Expression="VAL_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

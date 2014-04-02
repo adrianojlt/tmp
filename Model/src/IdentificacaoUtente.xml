@@ -1,0 +1,1073 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="IdentificacaoUtente"
+   DBObjectType="table"
+   DBObjectName="IDU_IDENT_UT"
+   AliasName="IdentificacaoUtente"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.utentes.IdentificacaoUtenteImpl" >
+   <Data>
+      <Property Name ="COMPLETE_LIBRARY" Value ="FALSE" />
+      <Property Name ="ID" Value ="b8b8cf72-0112-1000-80a4-c0a801f0474c::::EntityObject" />
+      <Property Name ="IS_ABSTRACT" Value ="FALSE" />
+      <Property Name ="IS_ACTIVE" Value ="FALSE" />
+      <Property Name ="IS_LEAF" Value ="FALSE" />
+      <Property Name ="IS_ROOT" Value ="FALSE" />
+      <Property Name ="VISIBILITY" Value ="PUBLIC" />
+   </Data>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      PrimaryKey="true"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80ac-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Apelidos"
+      Precision="110"
+      ColumnName="APELIDOS"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80a5-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="110" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ApelidosMae"
+      Precision="110"
+      ColumnName="APELIDOS_MAE"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80a6-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="110" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ApelidosPai"
+      Precision="110"
+      ColumnName="APELIDOS_PAI"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80a7-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="110" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Bi"
+      Precision="13"
+      ColumnName="BI"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80a8-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="13" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CidadeNat"
+      Precision="50"
+      ColumnName="CIDADE_NAT"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80a9-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataUltContacto"
+      ColumnName="DATA_ULT_CONTACTO"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80aa-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DtaNasc"
+      IsNotNull="true"
+      ColumnName="DTA_NASC"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80ab-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LocalidadeNat"
+      Precision="50"
+      ColumnName="LOCALIDADE_NAT"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80ad-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Nacional"
+      Precision="1"
+      ColumnName="NACIONAL"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80ae-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Nics"
+      IsUnique="true"
+      IsNotNull="true"
+      Precision="23"
+      Scale="0"
+      ColumnName="NICS"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80af-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Nif"
+      Precision="9"
+      Scale="0"
+      ColumnName="NIF"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b0-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Nir"
+      IsUnique="true"
+      Precision="9"
+      Scale="0"
+      ColumnName="NIR"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b1-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Niss"
+      Precision="11"
+      Scale="0"
+      ColumnName="NISS"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b2-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="NomesProprios"
+      Precision="50"
+      ColumnName="NOMES_PROPRIOS"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b3-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="NomesPropriosMae"
+      Precision="50"
+      ColumnName="NOMES_PROPRIOS_MAE"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b4-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="NomesPropriosPai"
+      Precision="50"
+      ColumnName="NOMES_PROPRIOS_PAI"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b5-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="NomeCompleto"
+      Precision="160"
+      ColumnName="NOME_COMPLETO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b6-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="160" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="NumVias"
+      Precision="3"
+      Scale="0"
+      ColumnName="NUM_VIAS"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b7-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="RegiaoNat"
+      Precision="50"
+      ColumnName="REGIAO_NAT"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b8-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="RegUmic"
+      IsNotNull="true"
+      Precision="1"
+      ColumnName="REG_UMIC"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80b9-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgProfissaoId"
+      ColumnName="SCG_PROFISSAO_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80bb-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgSitprofId"
+      ColumnName="SCG_SITPROF_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80bc-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgTipobiId"
+      ColumnName="SCG_TIPOBI_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80bd-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SchCdaineNacId"
+      IsNotNull="true"
+      ColumnName="SCH_CDAINE_NAC_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80be-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SchCdaineNatId"
+      ColumnName="SCH_CDAINE_NAT_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80bf-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SchPaisNatId"
+      ColumnName="SCH_PAIS_NAT_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80c0-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Sexo"
+      IsNotNull="true"
+      Precision="1"
+      ColumnName="SEXO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b8b9cffa-0112-1000-80c1-c0a801f0474c::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Activo"
+      Precision="1"
+      ColumnName="ACTIVO"
+      Type="java.lang.String"
+      ColumnType="CHAR"
+      SQLType="CHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SchCdaineNatAntId"
+      ColumnName="SCH_CDAINE_NAT_ANT_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Chave1"
+      Precision="305"
+      ColumnName="CHAVE1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="305" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Chave2"
+      Precision="300"
+      ColumnName="CHAVE2"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="300" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="AplSolteiro"
+      Precision="110"
+      ColumnName="APL_SOLTEIRO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="110" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="NomePesquisa"
+      Precision="255"
+      ColumnName="NOME_PESQUISA"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="255" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SincDmlId"
+      ColumnName="SINC_DML_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SincDate"
+      ColumnName="SINC_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="ScgNhabilitId"
+      ColumnName="SCG_NHABILIT_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_IDENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="InscricaoUtente"
+      Association="ora.pt.cons.igif.sics.utentes.IinIiuFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.utentes.IinIiuFkAssoc.InscricaoUtente"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.utentes.IinIiuFkAssoc.IdentificacaoUtente"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="EntidadeUtente"
+      Association="ora.pt.cons.igif.sics.utentes.IheIiuFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.utentes.IheIiuFkAssoc.EntidadeUtente"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.utentes.IheIiuFkAssoc.IdentificacaoUtente"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="BeneficioDoUtente"
+      Association="ora.pt.cons.igif.sics.utentes.IhbIiuFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.utentes.IhbIiuFkAssoc.BeneficioDoUtente"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.utentes.IhbIiuFkAssoc.IdentificacaoUtente"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <Key
+      Name="Avcon1171554354RegU001" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.RegUmic" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="REG_UMIC IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1171554354_REG_U_001" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1172865496RegU001" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.RegUmic" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="REG_UMIC IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_REG_U_001" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1180618368Sexo001" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.Sexo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="SEXO IN (&#39;M&#39;, &#39;F&#39;, &#39;I&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1180618368_SEXO_001" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuUk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.Nics" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isUnique" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_UK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuUkNir" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.Nir" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isUnique" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_UK_NIR" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005829" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005829" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005830" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.Nics" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;NICS&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005830" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005831" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.DtaNasc" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DTA_NASC&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005831" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005832" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.Sexo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SEXO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005832" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005833" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.SchCdaineNacId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SCH_CDAINE_NAC_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005833" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005834" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.RegUmic" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;REG_UMIC&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005834" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005835" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005835" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005836" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005836" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005837" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005837" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005838" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005838" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuScgNhabFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.ScgNhabilitId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_SCG_NHAB_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuScgProfFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.ScgProfissaoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_SCG_PROF_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuScgSputFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.ScgSitprofId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_SCG_SPUT_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuScgTpbiFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.ScgTipobiId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCG_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_SCG_TPBI_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuSchChreNacFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.SchCdaineNacId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCH_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_SCH_CHRE_NAC_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuSchChreNatFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.SchCdaineNatId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCH_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_SCH_CHRE_NAT_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IiuSchPaisNatFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente.SchPaisNatId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SCH_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IIU_SCH_PAIS_NAT_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

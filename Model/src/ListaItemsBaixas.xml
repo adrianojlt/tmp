@@ -1,0 +1,668 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="ListaItemsBaixas"
+   OrderBy="DATAINICIO desc"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="ora.pt.cons.igif.sics.baixas.ListaItemsBaixasRowImpl"
+   ComponentClass="ora.pt.cons.igif.sics.baixas.ListaItemsBaixasImpl"
+   MsgBundleClass="ora.pt.cons.igif.sics.baixas.common.ListaItemsBaixasRowImplMsgBundle"
+   FetchMode="FETCH_ALL"
+   FetchSize="100"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|Msg|VarAccess" />
+   </DesignTime>
+   <Variable
+      Name="idBaixa"
+      Kind="where"
+      Type="oracle.jbo.domain.Number" >
+   </Variable>
+   <Data>
+      <Property Name ="COMPLETE_LIBRARY" Value ="FALSE" />
+      <Property Name ="ID" Value ="aef8dc5f-0112-1000-8035-c0a801f0975c::::ViewObject" />
+      <Property Name ="IS_ABSTRACT" Value ="FALSE" />
+      <Property Name ="IS_ACTIVE" Value ="FALSE" />
+      <Property Name ="IS_LEAF" Value ="FALSE" />
+      <Property Name ="IS_ROOT" Value ="FALSE" />
+      <Property Name ="VISIBILITY" Value ="PUBLIC" />
+   </Data>
+   <SQLQuery><![CDATA[
+SELECT 
+    git.ID AS Id,
+    git.GIT_BAIXAS_ID AS GitBaixasId, 
+    gib.NOME_FAMILIAR AS Nomefamiliar, 
+    (SELECT scg.DESCRICAO 
+       FROM SYS_COD_GENERICOS scg 
+      WHERE scg.ID = gib.SCG_PARENTESCO_ID) AS Parentesco, 
+    gib.SCG_PARENTESCO_ID as idParentesco,
+    gib.parentesco_outro as OutroGrauParentesco,
+ gib.niss_familiar                  as nissFamiliar,
+     	gib.dta_nasc_familiar              as dtaNascFamiliar,
+     	gib.idu_ident_ut_id_familiar       as idIdentUtIdFfamiliar,
+    (SELECT  scg.DESCRICAO 
+    FROM  SYS_COD_GENERICOS scg 
+    WHERE scg.ID = git.SCG_TIPOREGISTO_ID) AS TipoRegisto,
+    (SELECT  scg.Codigo
+    FROM  SYS_COD_GENERICOS scg 
+    WHERE scg.ID = git.SCG_TIPOREGISTO_ID) AS codigoItemBaixa,
+    
+    case 
+      when ( select codigo from sys_cod_genericos where id = git.scg_tiporegisto_id ) = 'A' 
+         then (SELECT  scg.DESCRICAO 
+                 FROM  SYS_COD_GENERICOS scg 
+                WHERE scg.ID = git.SCG_tipoalta_id)
+          else (SELECT  scg.DESCRICAO 
+                  FROM  SYS_COD_GENERICOS scg 
+                  WHERE scg.ID = git.SCG_CLASSIFDOENCA_ID)
+    end as ClassDoenca,
+    git.SCG_CLASSIFDOENCA_ID as idClassDoenca,
+    
+    (select scg.codigo from sys_cod_genericos scg where scg.id =  git.SCG_CLASSIFDOENCA_ID ) as codClassDoenca,   
+    git.DATA_INICIO AS DataInicio, 
+    git.DATA_TERMO AS DataTermo, 
+    git.INCAPACITADO AS Incapacitado, 
+    git.CUIDADOS_INADIAVEIS AS CuidadosInadiaveis, 
+    git.INTERNAMENTO AS Internamento,
+    git.AUTORIZ_SAIDA AS AutorizSaida,
+    IGIF.Geral.NORMALIZA_NOME(git.justificacao_saida) as justificacao,
+    sen.DESIGNACAO AS Entidade, 
+    pro_ps.NOMECLIN AS Medico,
+    TRUNC(sysdate - git.CREATION_DATE) as diasDiferenca,    --Dias de diferença da data de registo
+    git.CREATION_DATE as DataCriacao,
+    CASE git.comunicacao_crss WHEN 'S' THEN 'JA_ENVIADA' ELSE 'NAO_ENVIADA' END as altaEnviada,
+    git.cirurgia_ambulatorio   as cirurgiaAmbulatorio,
+    gib.niss_progenitor_imp    as nissProgenitor,
+    gib.niss                   as nissUtente,
+    gib.num_benef              as num_benefUtente,
+    ((git.DATA_TERMO - git.DATA_INICIO)+1) as diasBaixa
+FROM 
+    GIT_ITEMS_BAIXAS git, 
+    SYS_ENTIDADES sen,
+    PRO_PROFISSID_PESSOAL pro_ps,
+    git_baixas            gib
+WHERE 
+    git.SYS_ENTIDADES_ID = sen.ID(+) 
+AND git.PRO_PROFISSID_PESSOAL_ID = pro_ps.id (+)
+AND git.anulado       <> 'S'
+AND git.GIT_BAIXAS_ID = :idBaixa
+AND gib.id            = git.git_baixas_id
+   ]]></SQLQuery>
+   <ViewAttribute
+      Name="Id"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ID"
+      Expression="ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Gitbaixasid"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="GITBAIXASID"
+      Expression="GITBAIXASID"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e63-0113-1000-80f0-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nomefamiliar"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOMEFAMILIAR"
+      Expression="NOMEFAMILIAR"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e64-0113-1000-80f1-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Parentesco"
+      IsPersistent="false"
+      Precision="130"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PARENTESCO"
+      Expression="PARENTESCO"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e64-0113-1000-80f2-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="130" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Idparentesco"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDPARENTESCO"
+      Expression="IDPARENTESCO"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Outrograuparentesco"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="OUTROGRAUPARENTESCO"
+      Expression="OUTROGRAUPARENTESCO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nissfamiliar"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NISSFAMILIAR"
+      Expression="NISSFAMILIAR"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Dtanascfamiliar"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DTANASCFAMILIAR"
+      Expression="DTANASCFAMILIAR"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Ididentutidffamiliar"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDIDENTUTIDFFAMILIAR"
+      Expression="IDIDENTUTIDFFAMILIAR"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Tiporegisto"
+      IsPersistent="false"
+      Precision="130"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="TIPOREGISTO"
+      Expression="TIPOREGISTO"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e64-0113-1000-80f3-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="130" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Codigoitembaixa"
+      IsPersistent="false"
+      Precision="15"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CODIGOITEMBAIXA"
+      Expression="CODIGOITEMBAIXA"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="15" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Classdoenca"
+      IsPersistent="false"
+      Precision="130"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CLASSDOENCA"
+      Expression="CLASSDOENCA"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e64-0113-1000-80f4-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="130" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Idclassdoenca"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDCLASSDOENCA"
+      Expression="IDCLASSDOENCA"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Codclassdoenca"
+      IsPersistent="false"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CODCLASSDOENCA"
+      Expression="CODCLASSDOENCA"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Datainicio"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATAINICIO"
+      Expression="DATAINICIO"
+      SQLType="DATE" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e64-0113-1000-80f5-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Datatermo"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATATERMO"
+      Expression="DATATERMO"
+      SQLType="DATE" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e64-0113-1000-80f6-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Incapacitado"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="INCAPACITADO"
+      Expression="INCAPACITADO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Cuidadosinadiaveis"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CUIDADOSINADIAVEIS"
+      Expression="CUIDADOSINADIAVEIS"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e64-0113-1000-80f7-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Internamento"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="INTERNAMENTO"
+      Expression="INTERNAMENTO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Autorizsaida"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="AUTORIZSAIDA"
+      Expression="AUTORIZSAIDA"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e65-0113-1000-80f8-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Justificacao"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="JUSTIFICACAO"
+      Expression="JUSTIFICACAO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Entidade"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ENTIDADE"
+      Expression="ENTIDADE"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e65-0113-1000-80f9-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Medico"
+      IsPersistent="false"
+      Precision="20"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MEDICO"
+      Expression="MEDICO"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="016d3e65-0113-1000-80fa-7f0000019055::baixas.ListaItemsBaixas::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Diasdiferenca"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="DIASDIFERENCA"
+      Expression="DIASDIFERENCA"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Datacriacao"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATACRIACAO"
+      Expression="DATACRIACAO"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Altaenviada"
+      IsPersistent="false"
+      Precision="11"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ALTAENVIADA"
+      Expression="ALTAENVIADA"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="11" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Cirurgiaambulatorio"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CIRURGIAAMBULATORIO"
+      Expression="CIRURGIAAMBULATORIO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nissprogenitor"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NISSPROGENITOR"
+      Expression="NISSPROGENITOR"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nissutente"
+      IsPersistent="false"
+      Precision="11"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NISSUTENTE"
+      Expression="NISSUTENTE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NumBenefutente"
+      IsPersistent="false"
+      Precision="15"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NUM_BENEFUTENTE"
+      Expression="NUM_BENEFUTENTE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="15" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Diasbaixa"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="DIASBAIXA"
+      Expression="DIASBAIXA"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

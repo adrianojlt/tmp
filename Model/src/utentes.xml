@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="utentes"
+   SeparateXMLFiles="true"
+   PackageName="ora.pt.cons.igif.sics.utentes" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+   </DesignTime>
+   <Containee
+      Name="BeneficioDoUtente"
+      FullName="ora.pt.cons.igif.sics.utentes.BeneficioDoUtente"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="DetalheUtente"
+      FullName="ora.pt.cons.igif.sics.utentes.DetalheUtente"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="EntidadeUtente"
+      FullName="ora.pt.cons.igif.sics.utentes.EntidadeUtente"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="Familia"
+      FullName="ora.pt.cons.igif.sics.utentes.Familia"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="HistFamilia"
+      FullName="ora.pt.cons.igif.sics.utentes.HistFamilia"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="IdentificacaoUtente"
+      FullName="ora.pt.cons.igif.sics.utentes.IdentificacaoUtente"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="IdentificacaoUtenteModule"
+      FullName="ora.pt.cons.igif.sics.utentes.IdentificacaoUtenteModule"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="IfaIfaOrigFkAssoc"
+      FullName="ora.pt.cons.igif.sics.utentes.IfaIfaOrigFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="IhbIiuFkAssoc"
+      FullName="ora.pt.cons.igif.sics.utentes.IhbIiuFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="IheIiuFkAssoc"
+      FullName="ora.pt.cons.igif.sics.utentes.IheIiuFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="IhfIfaFkAssoc"
+      FullName="ora.pt.cons.igif.sics.utentes.IhfIfaFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="IinIiuFkAssoc"
+      FullName="ora.pt.cons.igif.sics.utentes.IinIiuFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="InscricaoActiva"
+      FullName="ora.pt.cons.igif.sics.utentes.InscricaoActiva"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="InscricaoUtente"
+      FullName="ora.pt.cons.igif.sics.utentes.InscricaoUtente"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="ListaAgregadoFamiliar"
+      FullName="ora.pt.cons.igif.sics.utentes.ListaAgregadoFamiliar"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaBeneficiosDoUtente"
+      FullName="ora.pt.cons.igif.sics.utentes.ListaBeneficiosDoUtente"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaFamilia"
+      FullName="ora.pt.cons.igif.sics.utentes.ListaFamilia"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaUtentes"
+      FullName="ora.pt.cons.igif.sics.utentes.ListaUtentes"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaUtentesDup"
+      FullName="ora.pt.cons.igif.sics.utentes.ListaUtentesDup"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="UtentesPesquisa"
+      FullName="ora.pt.cons.igif.sics.utentes.UtentesPesquisa"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

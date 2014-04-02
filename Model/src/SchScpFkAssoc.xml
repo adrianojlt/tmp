@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+
+<Association
+   Name="SchScpFkAssoc" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+   </DesignTime>
+   <AssociationEnd
+      Name="CodigoPostal"
+      Cardinality="1"
+      Source="true"
+      Owner="ora.pt.cons.igif.sics.suporte.CodigoPostal" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoPostal.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="CodigoPostal" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_foreignKey" Value="ora.pt.cons.igif.sics.suporte.CodigoPostal.ScpPk" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+   <AssociationEnd
+      Name="CodigoHierarquico"
+      Cardinality="-1"
+      Owner="ora.pt.cons.igif.sics.suporte.CodigoHierarquico" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoHierarquico.SysCodigoPostalId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="CodigoHierarquico" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_foreignKey" Value="ora.pt.cons.igif.sics.suporte.CodigoHierarquico.SchScpFk" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+</Association>

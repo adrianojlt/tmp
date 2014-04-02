@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="igif"
+   SeparateXMLFiles="true"
+   PackageName="ora.pt.cons.igif" >
+   <Data>
+      <Property Name ="ID" Value ="813ac502-0119-1000-800a-c0a801e7fd49::::BC4JPackage" />
+      <Property Name ="NAMESPACE_REFERENCE" Value ="813ac502-0119-1000-8009-c0a801e7fd49::::BC4JPackage" />
+   </Data>
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+   </DesignTime>
+</JboPackage>

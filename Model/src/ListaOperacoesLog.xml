@@ -1,0 +1,302 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="ListaOperacoesLog"
+   OrderBy="CREATION_DATE desc"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   ComponentClass="ora.pt.cons.igif.sics.baixas.ListaOperacoesLogImpl"
+   MsgBundleClass="ora.pt.cons.igif.sics.baixas.common.ListaOperacoesLogRowImplMsgBundle"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|Msg|VarAccess" />
+   </DesignTime>
+   <Variable
+      Name="idBaixa"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <SQLQuery><![CDATA[
+SELECT OperacoesLog.ID, 
+       OperacoesLog.GIT_BAIXAS_ID, 
+       OperacoesLog.GIT_ITEMS_BAIXAS_ID_NOVO, 
+       OperacoesLog.GIT_ITEMS_BAIXAS_ID_ANTIGO, 
+       OperacoesLog.DATA_OPERACAO, 
+       OperacoesLog.SYS_COD_GENERICOS_ID,
+       scg1.DESC_ABRV TipoOperacao,
+       OperacoesLog.PRO_PROFISSID_ID, 
+       profPessoal.NOMECLIN NomeProfissional,
+       OperacoesLog.SYS_ENTIDADES_ID, 
+       sysE.DESIGNACAO DescCentroSaude,
+       OperacoesLog.CREATED_BY, 
+       OperacoesLog.CREATION_DATE, 
+       OperacoesLog.LAST_UPDATED_BY, 
+       OperacoesLog.LAST_UPDATE_DATE, 
+       OperacoesLog.COMENTARIO_ANULACAO, 
+       OperacoesLog.SCG_MOTIVO_ANULACAO_ID,
+       scg2.DESCRICAO MotivoAnulacao
+FROM GIT_OPERACOES_ESP_LOG OperacoesLog,
+     SYS_COD_GENERICOS scg1,
+     PRO_PROFISSID prof,
+     PRO_PROFISSID_PESSOAL profPessoal,
+     SYS_ENTIDADES sysE,
+     SYS_COD_GENERICOS scg2
+WHERE OperacoesLog.SYS_COD_GENERICOS_ID = scg1.ID
+      and OperacoesLog.PRO_PROFISSID_ID = prof.ID
+      and prof.PRO_PROFISSID_PESSOAL_ID = profPessoal.ID
+      and OperacoesLog.SYS_ENTIDADES_ID = sysE.ID
+      and OperacoesLog.SCG_MOTIVO_ANULACAO_ID = scg2.ID
+      and OperacoesLog.GIT_BAIXAS_ID = nvl(:idBaixa, OperacoesLog.GIT_BAIXAS_ID)
+   ]]></SQLQuery>
+   <ViewAttribute
+      Name="Id"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ID"
+      Expression="ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="GitBaixasId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="GIT_BAIXAS_ID"
+      Expression="GIT_BAIXAS_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="GitItemsBaixasIdNovo"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="GIT_ITEMS_BAIXAS_ID_NOVO"
+      Expression="GIT_ITEMS_BAIXAS_ID_NOVO"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="GitItemsBaixasIdAntigo"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="GIT_ITEMS_BAIXAS_ID_ANTIGO"
+      Expression="GIT_ITEMS_BAIXAS_ID_ANTIGO"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DataOperacao"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATA_OPERACAO"
+      Expression="DATA_OPERACAO"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SysCodGenericosId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SYS_COD_GENERICOS_ID"
+      Expression="SYS_COD_GENERICOS_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Tipooperacao"
+      IsPersistent="false"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="TIPOOPERACAO"
+      Expression="TIPOOPERACAO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProProfissidId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="PRO_PROFISSID_ID"
+      Expression="PRO_PROFISSID_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nomeprofissional"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOMEPROFISSIONAL"
+      Expression="NOMEPROFISSIONAL"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SysEntidadesId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SYS_ENTIDADES_ID"
+      Expression="SYS_ENTIDADES_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Desccentrosaude"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DESCCENTROSAUDE"
+      Expression="DESCCENTROSAUDE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="30"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CREATED_BY"
+      Expression="CREATED_BY"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="CREATION_DATE"
+      Expression="CREATION_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="30"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="LAST_UPDATED_BY"
+      Expression="LAST_UPDATED_BY"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="LAST_UPDATE_DATE"
+      Expression="LAST_UPDATE_DATE"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ComentarioAnulacao"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="300"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="COMENTARIO_ANULACAO"
+      Expression="COMENTARIO_ANULACAO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="300" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgMotivoAnulacaoId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SCG_MOTIVO_ANULACAO_ID"
+      Expression="SCG_MOTIVO_ANULACAO_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Motivoanulacao"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="130"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MOTIVOANULACAO"
+      Expression="MOTIVOANULACAO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="130" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

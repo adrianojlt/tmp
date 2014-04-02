@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboPackage SYSTEM "jbo_03_01.dtd">
+
+<JboPackage
+   Name="suporte"
+   SeparateXMLFiles="true"
+   PackageName="ora.pt.cons.igif.sics.suporte" >
+   <DesignTime>
+      <Attr Name="_ejbPackage" Value="false" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+   </DesignTime>
+   <Containee
+      Name="CodigoGenerico"
+      FullName="ora.pt.cons.igif.sics.suporte.CodigoGenerico"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="CodigoHierarquico"
+      FullName="ora.pt.cons.igif.sics.suporte.CodigoHierarquico"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="CodigoPostal"
+      FullName="ora.pt.cons.igif.sics.suporte.CodigoPostal"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="Entidade"
+      FullName="ora.pt.cons.igif.sics.suporte.Entidade"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="Feriado"
+      FullName="ora.pt.cons.igif.sics.suporte.Feriado"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="FuncionalidadesModulos"
+      FullName="ora.pt.cons.igif.sics.suporte.FuncionalidadesModulos"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="ListaCodigosGenericos"
+      FullName="ora.pt.cons.igif.sics.suporte.ListaCodigosGenericos"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaCodigosHierarquicosLov"
+      FullName="ora.pt.cons.igif.sics.suporte.ListaCodigosHierarquicosLov"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ListaEntidadesResponsaveis"
+      FullName="ora.pt.cons.igif.sics.suporte.ListaEntidadesResponsaveis"
+      ObjectType="ViewObject" >
+   </Containee>
+   <Containee
+      Name="ModulosSuporteModule"
+      FullName="ora.pt.cons.igif.sics.suporte.ModulosSuporteModule"
+      ObjectType="AppModule" >
+   </Containee>
+   <Containee
+      Name="OpcoesMenu"
+      FullName="ora.pt.cons.igif.sics.suporte.OpcoesMenu"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="Perfis"
+      FullName="ora.pt.cons.igif.sics.suporte.Perfis"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="PerfisUtilizador"
+      FullName="ora.pt.cons.igif.sics.suporte.PerfisUtilizador"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="ScgStcFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.ScgStcFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SchScgFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SchScgFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SchSchFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SchSchFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SchSchNutFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SchSchNutFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SchScpFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SchScpFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SchStcFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SchStcFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SenScgEresFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SenScgEresFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SenSchFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SenSchFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SenSenFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SenSenFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SenStcFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SenStcFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SfeSenFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SfeSenFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SfmSomFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SfmSomFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="ShoSomFuncFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.ShoSomFuncFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="ShoSomMenuFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.ShoSomMenuFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SupSpeFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SupSpeFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SupSusFkAssoc"
+      FullName="ora.pt.cons.igif.sics.suporte.SupSusFkAssoc"
+      ObjectType="Association" >
+   </Containee>
+   <Containee
+      Name="SysHierOpcoes"
+      FullName="ora.pt.cons.igif.sics.suporte.SysHierOpcoes"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="TipoCodigo"
+      FullName="ora.pt.cons.igif.sics.suporte.TipoCodigo"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="Utilizador"
+      FullName="ora.pt.cons.igif.sics.suporte.Utilizador"
+      ObjectType="Entity" >
+   </Containee>
+   <Containee
+      Name="UtilizadorView"
+      FullName="ora.pt.cons.igif.sics.suporte.UtilizadorView"
+      ObjectType="ViewObject" >
+   </Containee>
+</JboPackage>

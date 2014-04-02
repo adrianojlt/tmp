@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+
+<Association
+   Name="SupSpeFkAssoc" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+   </DesignTime>
+   <AssociationEnd
+      Name="Perfis"
+      Cardinality="1"
+      Source="true"
+      Owner="ora.pt.cons.igif.sics.suporte.Perfis" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.Perfis.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="Perfis" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_foreignKey" Value="ora.pt.cons.igif.sics.suporte.Perfis.SpePk" />
+         <Attr Name="_minCardinality" Value="1" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+   <AssociationEnd
+      Name="PerfisUtilizador"
+      Cardinality="-1"
+      Owner="ora.pt.cons.igif.sics.suporte.PerfisUtilizador" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.SysPerfisId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="PerfisUtilizador" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_foreignKey" Value="ora.pt.cons.igif.sics.suporte.PerfisUtilizador.SupSpeFk" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+</Association>

@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="SysHierOpcoes"
+   DBObjectType="table"
+   DBObjectName="SYS_HIER_OPCOES"
+   AliasName="SysHierOpcoes"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.suporte.SysHierOpcoesImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      IsNotNull="true"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_HIER_OPCOES"
+      PrimaryKey="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysOpcoesMenuFilhoId"
+      IsUnique="true"
+      IsNotNull="true"
+      ColumnName="SYS_OPCOES_MENU_FILHO_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_HIER_OPCOES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysOpcoesMenuPaiId"
+      IsUnique="true"
+      IsNotNull="true"
+      ColumnName="SYS_OPCOES_MENU_PAI_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_HIER_OPCOES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_HIER_OPCOES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      IsNotNull="true"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_HIER_OPCOES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      IsNotNull="true"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_HIER_OPCOES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      IsNotNull="true"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_HIER_OPCOES" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="OpcoesMenu"
+      Association="ora.pt.cons.igif.sics.suporte.ShoSomMenuFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.ShoSomMenuFkAssoc.OpcoesMenu"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.ShoSomMenuFkAssoc.SysHierOpcoes"
+      Type="ora.pt.cons.igif.sics.suporte.OpcoesMenuImpl" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="OpcoesMenu1"
+      Association="ora.pt.cons.igif.sics.suporte.ShoSomFuncFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.ShoSomFuncFkAssoc.OpcoesMenu2"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.ShoSomFuncFkAssoc.SysHierOpcoes1"
+      Type="ora.pt.cons.igif.sics.suporte.OpcoesMenuImpl" >
+   </AccessorAttribute>
+   <Key
+      Name="ShoPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="SHO_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="ShoUk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.SysOpcoesMenuFilhoId" />
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.SysOpcoesMenuPaiId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isUnique" Value="true" />
+         <Attr Name="_DBObjectName" Value="SHO_UK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006571" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006571" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006572" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.SysOpcoesMenuFilhoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_OPCOES_MENU_FILHO_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006572" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006573" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.SysOpcoesMenuPaiId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_OPCOES_MENU_PAI_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006573" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006574" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006574" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006575" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006575" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006576" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006576" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006577" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006577" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="ShoSomFuncFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.SysOpcoesMenuFilhoId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SOM_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="SHO_SOM_FUNC_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="ShoSomMenuFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.SysHierOpcoes.SysOpcoesMenuPaiId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SOM_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="SHO_SOM_MENU_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

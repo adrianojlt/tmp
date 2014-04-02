@@ -1,0 +1,284 @@
+div#breadtd1 {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display:block;
+    width: 160px;
+    height: 45px;
+    background: #666666;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+
+div#breadtd2 {
+    position: fixed;
+    top: 0px;
+    left: 180px;
+    width: 100%; 
+    background: #666666;  
+    height: 50px;
+    max-height: 50px;
+    text-align: right;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight:bold;
+    color: #ffffff;    
+    line-height: 17px;
+}
+
+div#breadtd3 {
+    position: fixed;
+    display: block;
+    top: 0px;
+    right: 0px;
+    max-height: 25px;
+    width: 25px; 
+    background: #438DBC;
+}
+
+div#breadtd4 {
+    position: fixed;
+    display: block;
+    top: 25px;
+    right: 0px;
+    max-height: 25px;
+    width: 25px; 
+    background: #438DBC;
+}
+
+img.selected:hover {
+    background-color: #006699;
+}
+
+/********************************* SUBMENU ********************************************/
+div#submenu {
+    position:fixed;
+    top: 50px;
+    right: 0px;
+    width: 150px;
+    height: 42px;
+    padding-top: 1px;
+    background: #FFFFFF;
+    text-align: center;
+    font-family: Arial;
+    font-size: 10px;
+    color: #ffffff;
+    display: none;
+    z-index: 1;
+}
+
+div#submenu1 {
+    width: 150px;
+    height: 20px;
+    background: #555555; 
+    margin-bottom: 1px;
+    margin-left: 1px;
+    vertical-align:middle;
+    line-height: 20px; 
+}
+
+.submenuclass {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: default;
+}
+
+div#submenu1:hover {
+   background-color: #438EBD;
+   border-color: #ffffff;
+}
+
+/********************************* POPUP *********************************************/
+div#backgroundPopup { 
+    z-index:1;
+    opacity: 0.7;
+    position: fixed;
+    display:none;
+    height:100%;
+    width:100%;
+    background:#000000;	
+    top:0px;  
+    left:0px;
+}
+
+div#changepass {
+    z-index:2;
+    right: auto;
+    min-height: 100%;
+    width: 100%;
+}
+
+div#changepassheader {
+    background-color: #438EBD;
+    color: #FFFFFF;
+    font: bold 12px "arial";
+    height: 25px;
+    margin: 5px auto 0;
+    padding: 5px 0 0 10px;
+    width: 97%;
+}
+
+div#changecontent {
+    font-family: Arial;
+    font-size: 11px;
+    font-weight:bold;
+    z-index:2;
+    height: 245px;
+    margin-top: 1px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    background-color: #e7e7e7;
+    font-family: Arial;
+    font-size: 11px;
+    color: #333333;
+}
+
+div#name {
+    font-family: Arial;
+    font-size: 18px;
+    color: #666666;
+    padding-right: 15px;
+    padding-bottom: 30px;
+    text-transform: uppercase;
+}
+
+div#changepassfooter {
+    height: 30px;
+    width: 96%;
+    background-color: #999999;
+    padding-left: 15px;
+}
+
+.classclose {
+    z-index:2;
+    position: absolute;
+    right: 12px;
+    top: 14px;
+}
+
+input.changepass {
+    width: 105px;
+    background-color: #ff0000;
+}
+
+.bread_buttons { 
+    font-family: Arial;
+    font-size: 11px;
+    margin-left: 2px;
+    height: 30px;
+    width: 70px;
+    float: right;
+    background: #438DBC;
+    border: 0px;
+    color: #FFFFFF;
+}
+
+div#sucess {
+    display: none;
+    z-index: 3;
+    position:absolute;
+    top:57px;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -150px;
+    height: 20px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 300px;
+    font-family: Arial;
+    font-size: 12px;
+    background-color: #FFFFFF;
+    color: #666666;
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+/******************************************************************************/
+
+div#warnning1 {
+    z-index:2;
+    min-width: 1024px;
+    width: 100%;
+    height: 45px;
+/*    background-color: #bb0808;*/
+    font-family: Arial;
+    font-size: 12px;
+    font-weight:bold;
+    color: #ffffff;
+    padding-left: 15px;
+    /*display: none;*/
+}
+
+div#warnning2 {
+    z-index:2;
+    width: 300px;
+    height: 200px;
+/*    background-color: #bb0808;*/
+    font-family: Arial;
+    font-size: 12px;
+    font-weight:bold;
+    color: #ffffff;
+    padding-left: 15px;
+    /*display: none;*/
+}
+
+div#tooltipmsg {
+    z-index:2;
+    width: 385px;
+    background-color: #FFFFFF;
+    font-family: Arial;
+    font-size: 12px;
+    color: #333333;
+    padding: 10px;
+    text-align:justify;
+     -webkit-box-shadow: 1px 1px 10px 2px #000000;
+    box-shadow: 1px 1px 10px 2px #000000;
+    display: none;
+}
+
+.errorMessageLabel{
+    z-index:2;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight:bold;
+    color: #ffffff;
+    padding-left: 20px;
+}
+
+.errorMessageText{
+    z-index:2;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight:bold;
+    color: #ffffff;
+    padding-left: 20px;
+}
+
+.warningMessageLabel{
+    z-index:2;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight:bold;
+    color: #666666;
+    padding-left: 20px;
+}
+
+.warningMessageText{
+    z-index:2;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight:bold;
+    color: #666666;
+    padding-left: 20px;
+}
+
+.successMessageLabel{
+
+}
+
+.successMessageText{
+
+}

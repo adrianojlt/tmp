@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="OperacoesLogView"
+   SelectList="OperacoesLog.ID, 
+       OperacoesLog.GIT_BAIXAS_ID, 
+       OperacoesLog.GIT_ITEMS_BAIXAS_ID_NOVO, 
+       OperacoesLog.GIT_ITEMS_BAIXAS_ID_ANTIGO, 
+       OperacoesLog.DATA_OPERACAO, 
+       OperacoesLog.SYS_COD_GENERICOS_ID, 
+       OperacoesLog.PRO_PROFISSID_ID, 
+       OperacoesLog.SYS_ENTIDADES_ID, 
+       OperacoesLog.CREATED_BY, 
+       OperacoesLog.CREATION_DATE, 
+       OperacoesLog.LAST_UPDATED_BY, 
+       OperacoesLog.LAST_UPDATE_DATE, 
+       OperacoesLog.COMENTARIO_ANULACAO, 
+       OperacoesLog.SCG_MOTIVO_ANULACAO_ID"
+   FromList="GIT_OPERACOES_ESP_LOG OperacoesLog"
+   BindingStyle="OracleName"
+   CustomQuery="false"
+   RowClass="ora.pt.cons.igif.sics.baixas.OperacoesLogViewRowImpl"
+   ComponentClass="ora.pt.cons.igif.sics.baixas.OperacoesLogViewImpl"
+   FetchMode="FETCH_AS_NEEDED"
+   MaxFetchSize="0"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="OperacoesLog"
+      Entity="ora.pt.cons.igif.sics.baixas.OperacoesLog" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      EntityAttrName="Id"
+      EntityUsage="OperacoesLog"
+      AliasName="ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="GitBaixasId"
+      IsNotNull="true"
+      EntityAttrName="GitBaixasId"
+      EntityUsage="OperacoesLog"
+      AliasName="GIT_BAIXAS_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="GitItemsBaixasIdNovo"
+      IsNotNull="true"
+      EntityAttrName="GitItemsBaixasIdNovo"
+      EntityUsage="OperacoesLog"
+      AliasName="GIT_ITEMS_BAIXAS_ID_NOVO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="GitItemsBaixasIdAntigo"
+      IsNotNull="true"
+      EntityAttrName="GitItemsBaixasIdAntigo"
+      EntityUsage="OperacoesLog"
+      AliasName="GIT_ITEMS_BAIXAS_ID_ANTIGO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DataOperacao"
+      IsNotNull="true"
+      EntityAttrName="DataOperacao"
+      EntityUsage="OperacoesLog"
+      AliasName="DATA_OPERACAO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SysCodGenericosId"
+      EntityAttrName="SysCodGenericosId"
+      EntityUsage="OperacoesLog"
+      AliasName="SYS_COD_GENERICOS_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProProfissidId"
+      EntityAttrName="ProProfissidId"
+      EntityUsage="OperacoesLog"
+      AliasName="PRO_PROFISSID_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SysEntidadesId"
+      EntityAttrName="SysEntidadesId"
+      EntityUsage="OperacoesLog"
+      AliasName="SYS_ENTIDADES_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      EntityAttrName="CreatedBy"
+      EntityUsage="OperacoesLog"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      EntityAttrName="CreationDate"
+      EntityUsage="OperacoesLog"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="OperacoesLog"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="OperacoesLog"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ComentarioAnulacao"
+      EntityAttrName="ComentarioAnulacao"
+      EntityUsage="OperacoesLog"
+      AliasName="COMENTARIO_ANULACAO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgMotivoAnulacaoId"
+      EntityAttrName="ScgMotivoAnulacaoId"
+      EntityUsage="OperacoesLog"
+      AliasName="SCG_MOTIVO_ANULACAO_ID" >
+   </ViewAttribute>
+</ViewObject>

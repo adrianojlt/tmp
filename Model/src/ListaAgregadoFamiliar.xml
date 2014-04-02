@@ -1,0 +1,556 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="ListaAgregadoFamiliar"
+   OrderBy="cod_parentesco"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="ora.pt.cons.igif.sics.utentes.ListaAgregadoFamiliarRowImpl"
+   ComponentClass="ora.pt.cons.igif.sics.utentes.ListaAgregadoFamiliarImpl"
+   MsgBundleClass="ora.pt.cons.igif.sics.utentes.common.ListaAgregadoFamiliarRowImplMsgBundle"
+   FetchMode="FETCH_AS_NEEDED"
+   UseGlueCode="false" >
+   <Data>
+      <Property Name ="COMPLETE_LIBRARY" Value ="FALSE" />
+      <Property Name ="ID" Value ="b2f0e9f8-0112-1000-8084-010000011bc8::::ViewObject" />
+      <Property Name ="IS_ABSTRACT" Value ="FALSE" />
+      <Property Name ="IS_ACTIVE" Value ="FALSE" />
+      <Property Name ="IS_LEAF" Value ="FALSE" />
+      <Property Name ="IS_ROOT" Value ="FALSE" />
+      <Property Name ="VISIBILITY" Value ="PUBLIC" />
+   </Data>
+   <SQLQuery><![CDATA[
+SELECT ihf.idu_familia_id
+,      ihf.idu_inscr_id
+,      ihf.data_fim ihf_data_fim
+,      scg_parentesco.codigo cod_parentesco
+,      scg_parentesco.descricao desc_parentesco
+,      idu.id	idu_ident_ut_id
+,      idu.nir nutente
+,      idu.nome_completo
+,      idu.dta_nasc
+,      idu.niss
+,      peq.nome_equipa
+,      ihf.id id_hist_familia
+,      peq.ID idEquipa
+,      phe.id idProHistEquipas
+,      idu.bi
+,      GERAL.normaliza_nome(idu.nome_completo) nome_normalizado
+,      iheu.numbenef
+,      ib.id obito_id	
+FROM   PRO_EQUIPAS peq
+,      PRO_HIST_EQUIPAS phe
+,      IDU_IDENT_UT idu
+,      IDU_INSCR iin
+,      SYS_COD_GENERICOS scg_parentesco
+,      SYS_ENTIDADES sen
+,      IDU_FAMILIA ifa
+,      IDU_HIST_FAMILIA ihf
+,      IDU_HIST_ENT_UT iheu
+,      IDU_OBITOS ib
+WHERE  peq.id (+) = phe.pro_equipas_id
+AND    phe.idu_inscr_id (+) = iin.id
+AND    idu.id = iin.idu_ident_ut_id
+AND    iin.id = ihf.idu_inscr_id
+AND    scg_parentesco.id = ihf.scg_parentesco_id
+AND    sen.id = ifa.sys_entidades_centro_id
+AND    ifa.id = ihf.idu_familia_id
+AND    idu.id = iheu.idu_ident_ut_id(+)
+AND    idu.id = ib.idu_ident_ut_id(+)
+AND    phe.data_fim is null
+and    iheu.data_fim is null
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|Msg|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="IduFamiliaId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDU_FAMILIA_ID"
+      Expression="IDU_FAMILIA_ID"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-812f-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IduInscrId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDU_INSCR_ID"
+      Expression="IDU_INSCR_ID"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-8130-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IhfDataFim"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="IHF_DATA_FIM"
+      Expression="IHF_DATA_FIM"
+      SQLType="DATE" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-8131-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CodParentesco"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="15"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="COD_PARENTESCO"
+      Expression="COD_PARENTESCO"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-8132-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="15" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DescParentesco"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="130"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DESC_PARENTESCO"
+      Expression="DESC_PARENTESCO"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-8133-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="130" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IduIdentUtId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDU_IDENT_UT_ID"
+      Expression="IDU_IDENT_UT_ID"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="02dcc1cd-0133-1000-803c-c0a80159ce21::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nutente"
+      IsPersistent="false"
+      Precision="9"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NUTENTE"
+      Expression="NUTENTE"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-8134-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NomeCompleto"
+      IsPersistent="false"
+      Precision="160"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOME_COMPLETO"
+      Expression="NOME_COMPLETO"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-8135-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="160" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DtaNasc"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DTA_NASC"
+      Expression="DTA_NASC"
+      SQLType="DATE" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-8136-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Niss"
+      IsPersistent="false"
+      Precision="11"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NISS"
+      Expression="NISS"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="02dcc1ce-0133-1000-8040-c0a80159ce21::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NomeEquipa"
+      IsPersistent="false"
+      Precision="30"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOME_EQUIPA"
+      Expression="NOME_EQUIPA"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-8137-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IdHistFamilia"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ID_HIST_FAMILIA"
+      Expression="ID_HIST_FAMILIA"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="02dcc1ce-0133-1000-8042-c0a80159ce21::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Idequipa"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDEQUIPA"
+      Expression="IDEQUIPA"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="02dcc1cf-0133-1000-8043-c0a80159ce21::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Idprohistequipas"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDPROHISTEQUIPAS"
+      Expression="IDPROHISTEQUIPAS"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="02dcc1cf-0133-1000-8044-c0a80159ce21::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DataFim"
+      IsSelected="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATA_FIM"
+      SQLType="DATE" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="802656d5-0119-1000-8138-c0a801e7de38::::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Bi"
+      IsPersistent="false"
+      Precision="13"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="BI"
+      Expression="BI"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="13" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NomeNormalizado"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOME_NORMALIZADO"
+      Expression="NOME_NORMALIZADO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Numbenef"
+      IsPersistent="false"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NUMBENEF"
+      Expression="NUMBENEF"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ObitoId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="OBITO_ID"
+      Expression="OBITO_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

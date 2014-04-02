@@ -1,0 +1,372 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="EntidadeUtente"
+   DBObjectType="table"
+   DBObjectName="IDU_HIST_ENT_UT"
+   AliasName="EntidadeUtente"
+   BindingStyle="JDBC"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.utentes.EntidadeUtenteImpl" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Cartao"
+      Precision="1"
+      ColumnName="CARTAO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataFim"
+      ColumnName="DATA_FIM"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataIni"
+      IsNotNull="true"
+      ColumnName="DATA_INI"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DtaVal"
+      ColumnName="DTA_VAL"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="EntDefault"
+      IsNotNull="true"
+      Precision="1"
+      ColumnName="ENT_DEFAULT"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_ENT_UT"
+      PrimaryKey="true"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="IduIdentUtId"
+      IsNotNull="true"
+      ColumnName="IDU_IDENT_UT_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Numbenef"
+      Precision="20"
+      ColumnName="NUMBENEF"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="RowID"
+      IsUpdateable="false"
+      ColumnName="ROWID"
+      Type="oracle.jbo.domain.RowID"
+      ColumnType="ROWID"
+      SQLType="ROWID"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+   </Attribute>
+   <Attribute
+      Name="SysEntidadesRespId"
+      IsNotNull="true"
+      ColumnName="SYS_ENTIDADES_RESP_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="IDU_HIST_ENT_UT"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="IdentificacaoUtente"
+      Association="ora.pt.cons.igif.sics.utentes.IheIiuFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.utentes.IheIiuFkAssoc.IdentificacaoUtente"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.utentes.IheIiuFkAssoc.EntidadeUtente"
+      Type="ora.pt.cons.igif.sics.utentes.IdentificacaoUtenteImpl" >
+   </AccessorAttribute>
+   <Key
+      Name="Avcon1172865496Carta002" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.Cartao" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="CARTAO IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_CARTA_002" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1172865496EntD001" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.EntDefault" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="ENT_DEFAULT IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_ENT_D_001" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IhePk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="IHE_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005636" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005636" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005637" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.SysEntidadesRespId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_ENTIDADES_RESP_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005637" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005638" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.IduIdentUtId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;IDU_IDENT_UT_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005638" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005639" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.DataIni" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DATA_INI&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005639" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005640" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.EntDefault" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ENT_DEFAULT&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005640" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005641" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005641" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005642" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005642" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005643" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005643" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC005644" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C005644" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IheIiuFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.IduIdentUtId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="IIU_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IHE_IIU_FK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="IheSenEresFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.utentes.EntidadeUtente.SysEntidadesRespId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="SEN_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="IHE_SEN_ERES_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

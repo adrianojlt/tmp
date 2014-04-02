@@ -1,0 +1,515 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="ListaHistItemsBaixas"
+   OrderBy="DATAINICIO desc, id desc"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   ComponentClass="ora.pt.cons.igif.sics.baixas.ListaHistItemsBaixasImpl"
+   MsgBundleClass="ora.pt.cons.igif.sics.baixas.common.ListaHistItemsBaixasRowImplMsgBundle"
+   UseGlueCode="false" >
+   <DesignTime>
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|Msg|VarAccess" />
+   </DesignTime>
+   <Variable
+      Name="idBaixa"
+      Kind="where"
+      Type="java.lang.String" >
+   </Variable>
+   <SQLQuery><![CDATA[
+SELECT 
+    git.ID AS Id,
+    git.GIT_BAIXAS_ID AS GitBaixasId, 
+    git.NOME_FAMILIAR AS Nomefamiliar, 
+    (SELECT scg.DESCRICAO 
+       FROM SYS_COD_GENERICOS scg 
+      WHERE scg.ID = git.SCG_PARENTESCO_ID) AS Parentesco, 
+    git.SCG_PARENTESCO_ID as idParentesco,
+    (SELECT  scg.DESCRICAO 
+    FROM  SYS_COD_GENERICOS scg 
+    WHERE scg.ID = git.SCG_TIPOREGISTO_ID) AS TipoRegisto,
+    (SELECT  scg.Codigo
+    FROM  SYS_COD_GENERICOS scg 
+    WHERE scg.ID = git.SCG_TIPOREGISTO_ID) AS codigoItemBaixa,
+    
+    case 
+      when ( select codigo from sys_cod_genericos where id = git.scg_tiporegisto_id ) = 'A' 
+         then (SELECT  scg.DESCRICAO 
+                 FROM  SYS_COD_GENERICOS scg 
+                WHERE scg.ID = git.SCG_tipoalta_id)
+          else (SELECT  scg.DESCRICAO 
+                  FROM  SYS_COD_GENERICOS scg 
+                  WHERE scg.ID = git.SCG_CLASSIFDOENCA_ID)
+    end as ClassDoenca,
+    git.SCG_CLASSIFDOENCA_ID as idClassDoenca,
+    
+        
+    git.DATA_INICIO AS DataInicio, 
+    git.DATA_TERMO AS DataTermo, 
+    git.INCAPACITADO AS Incapacitado, 
+    git.CUIDADOS_INADIAVEIS AS CuidadosInadiaveis, 
+    git.INTERNAMENTO AS Internamento, 
+    git.AUTORIZ_SAIDA AS AutorizSaida,
+    IGIF.Geral.NORMALIZA_NOME(git.justificacao_saida) as justificacao,
+    sen.DESIGNACAO AS Entidade, 
+    pro_ps.NOMECLIN AS Medico,
+    TRUNC(sysdate - git.DATA_INICIO) as diasDiferenca,
+    git.anulado AS Estado,
+    git.DATA_ANULADO AS DataAnulado,	
+    git.CREATION_DATE as DataCriacao,
+    git.comunicacao_crss comunicadoCRSS, 
+    git.comunicacao_anulacao_crss dataComunicadoCRSS,
+    nvl( (select * from (select id 
+       from git_items_baixas
+      where GIT_BAIXAS_ID = :idBaixa
+        and ANULADO <> 'S' 
+      order by DATA_INICIO desc, id desc) where rownum = 1
+    ), 0) As itemPossivelAnular,
+    nvl( (select id from git_items_baixas git 
+      where data_inicio =
+          (select min(git.data_inicio) 
+             from git_items_baixas git,
+                  SYS_COD_GENERICOS scg
+            where git.GIT_BAIXAS_ID = :idBaixa
+              and scg.ID = git.SCG_TIPOREGISTO_ID
+              and git.ANULADO <> 'S' 
+              and scg.codigo = 'I'
+        ) and rownum = 1 and git.GIT_BAIXAS_ID = :idBaixa and git.ANULADO <> 'S' 
+    ), 0) as itemPossivelAlterarIP,
+    nvl( (select id from git_items_baixas git 
+      where 
+      data_inicio =
+          (select min(git.data_inicio) 
+             from git_items_baixas git,
+                  SYS_COD_GENERICOS scg
+            where git.GIT_BAIXAS_ID = :idBaixa
+              and scg.ID = git.SCG_TIPOREGISTO_ID
+              and git.ANULADO <> 'S' 
+              and scg.codigo = 'P'
+        ) and rownum = 1 and git.GIT_BAIXAS_ID = :idBaixa and git.ANULADO <> 'S' 
+      ), 0 ) as itemPossivelAlterarPI,
+    nvl( (select id from git_items_baixas git 
+      where 
+      data_inicio =
+          (select min(git.data_inicio) 
+             from git_items_baixas git,
+                  SYS_COD_GENERICOS scg
+            where git.GIT_BAIXAS_ID = :idBaixa
+              and scg.ID = git.SCG_TIPOREGISTO_ID
+              and git.ANULADO <> 'S' 
+              and (scg.codigo = 'P' or scg.codigo = 'I')
+        ) and rownum = 1 and git.GIT_BAIXAS_ID = :idBaixa and git.ANULADO <> 'S' 
+      ), 0 ) as itemPossivelAlterarTipo,
+    nvl( (select id from git_items_baixas git 
+      where 
+      data_inicio =
+          (select min(git.data_inicio) 
+             from git_items_baixas git,
+                  SYS_COD_GENERICOS scg
+            where git.GIT_BAIXAS_ID = :idBaixa
+              and scg.ID = git.SCG_TIPOREGISTO_ID
+              and git.ANULADO <> 'S' 
+              and scg.codigo = 'M'
+        ) and rownum = 1 and git.GIT_BAIXAS_ID = :idBaixa and git.ANULADO <> 'S' 
+      ), 0 ) as itemManAAnularAlteracaoInicial
+FROM 
+    GIT_ITEMS_BAIXAS git, 
+    SYS_ENTIDADES sen, 
+    PRO_PROFISSID pro,
+    PRO_PROFISSID_PESSOAL pro_ps
+WHERE 
+    git.SYS_ENTIDADES_ID = sen.ID(+) AND git.PRO_PROFISSID_ID = pro.ID(+) 
+AND git.GIT_BAIXAS_ID = :idBaixa
+AND pro_ps.ID(+)      = pro.pro_profissid_pessoal_id
+   ]]></SQLQuery>
+   <ViewAttribute
+      Name="Id"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ID"
+      Expression="ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Gitbaixasid"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="GITBAIXASID"
+      Expression="GITBAIXASID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nomefamiliar"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOMEFAMILIAR"
+      Expression="NOMEFAMILIAR"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Parentesco"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="130"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PARENTESCO"
+      Expression="PARENTESCO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="130" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Idparentesco"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDPARENTESCO"
+      Expression="IDPARENTESCO"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Tiporegisto"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="130"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="TIPOREGISTO"
+      Expression="TIPOREGISTO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="130" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Codigoitembaixa"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CODIGOITEMBAIXA"
+      Expression="CODIGOITEMBAIXA"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Classdoenca"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="130"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CLASSDOENCA"
+      Expression="CLASSDOENCA"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="130" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Idclassdoenca"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDCLASSDOENCA"
+      Expression="IDCLASSDOENCA"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Datainicio"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATAINICIO"
+      Expression="DATAINICIO"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Datatermo"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATATERMO"
+      Expression="DATATERMO"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Incapacitado"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="INCAPACITADO"
+      Expression="INCAPACITADO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Cuidadosinadiaveis"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CUIDADOSINADIAVEIS"
+      Expression="CUIDADOSINADIAVEIS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Internamento"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="INTERNAMENTO"
+      Expression="INTERNAMENTO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Autorizsaida"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="AUTORIZSAIDA"
+      Expression="AUTORIZSAIDA"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Justificacao"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="JUSTIFICACAO"
+      Expression="JUSTIFICACAO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Entidade"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ENTIDADE"
+      Expression="ENTIDADE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Medico"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="20"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MEDICO"
+      Expression="MEDICO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Diasdiferenca"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="DIASDIFERENCA"
+      Expression="DIASDIFERENCA"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Estado"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ESTADO"
+      Expression="ESTADO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Dataanulado"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATAANULADO"
+      Expression="DATAANULADO"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Datacriacao"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATACRIACAO"
+      Expression="DATACRIACAO"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Comunicadocrss"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="COMUNICADOCRSS"
+      Expression="COMUNICADOCRSS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Datacomunicadocrss"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DATACOMUNICADOCRSS"
+      Expression="DATACOMUNICADOCRSS"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Itempossivelanular"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ITEMPOSSIVELANULAR"
+      Expression="ITEMPOSSIVELANULAR"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Itempossivelalterarip"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ITEMPOSSIVELALTERARIP"
+      Expression="ITEMPOSSIVELALTERARIP"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Itempossivelalterarpi"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ITEMPOSSIVELALTERARPI"
+      Expression="ITEMPOSSIVELALTERARPI"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Itempossivelalterartipo"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ITEMPOSSIVELALTERARTIPO"
+      Expression="ITEMPOSSIVELALTERARTIPO"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Itemmanaanularalteracaoinicial"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="ITEMMANAANULARALTERACAOINICIAL"
+      Expression="ITEMMANAANULARALTERACAOINICIAL"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

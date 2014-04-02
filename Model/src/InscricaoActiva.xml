@@ -1,0 +1,383 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="InscricaoActiva"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="ora.pt.cons.igif.sics.utentes.InscricaoActivaRowImpl"
+   ComponentClass="ora.pt.cons.igif.sics.utentes.InscricaoActivaImpl"
+   MsgBundleClass="ora.pt.cons.igif.sics.utentes.common.InscricaoActivaRowImplMsgBundle"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT iin.idu_ident_ut_id
+,      iin.id iin_id
+,      phe.id phe_id
+,      iin.scg_tipoutente_id
+,      scg_ut.descricao scg_tipoutente
+,      iin.scg_tipoinscr_id
+,      scg_ins.descricao scg_tipoinscr
+,      iin.dta_insc
+,      iin.data_ini
+,      iin.data_fim
+,      sen.id sen_unid_saude_id
+,      sen.codigo sen_unid_saude_cod
+,      (select case scg.codigo
+                  when 'UNIS' then 
+                  (
+                    ( select designacao from sys_entidades where id = e.sys_entidades_id ) || '/' || e.designacao   
+                  )           
+                  else e.designacao
+                end case
+        from sys_entidades e,
+             sys_cod_genericos scg
+        where e.sys_subtipo_entidades_id = scg.id
+          and e.id = sen_csaude.id
+         ) as sen_unid_saude
+,      peq.id pro_equipa_id
+,      peq.nome_equipa pro_equipa_nome
+,      sen_csaude.id csaude_equipa_id
+,      sen_csaude.codigo csaude_equipa_codigo
+,      sen_csaude.designacao csaude_equipa_nome
+,      iiu.nir as nutente
+,      scg_ins.codigo as scg_tipoinscrCod 
+,      phe.data_fim as phe_data_fim
+, (select num_cedula 
+  from pro_profissid_pessoal 
+ where id in (
+       select pro_profissid_pessoal_id 
+         from pro_profissid where id in (select pro_profissid_id from pro_hist_elem_equipas where pro_equipas_id = 150409 and responsavel = 'S' and data_fim is null)
+               
+ ) and rownum = 1) num_cedula
+FROM   SYS_ENTIDADES sen_csaude
+,      PRO_EQUIPAS peq
+,      PRO_HIST_EQUIPAS phe
+,      SYS_ENTIDADES sen
+,      SYS_COD_GENERICOS scg_ins
+,      SYS_COD_GENERICOS scg_ut
+,      IDU_IDENT_UT iiu
+,      IDU_INSCR iin
+WHERE  sen_csaude.id (+) = peq.sen_entidades_id
+AND    peq.id (+) = phe.pro_equipas_id
+AND    phe.idu_inscr_id (+) = iin.id
+AND    sen.id = iin.sys_entidades_id
+AND    scg_ins.id = iin.scg_tipoinscr_id
+AND    scg_ut.id = iin.scg_tipoutente_id
+AND    iiu.id = iin.idu_ident_ut_id
+AND    phe.data_fim is null
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|Msg|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="IduIdentUtId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDU_IDENT_UT_ID"
+      Expression="IDU_IDENT_UT_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IinId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IIN_ID"
+      Expression="IIN_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PheId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="PHE_ID"
+      Expression="PHE_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgTipoutenteId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SCG_TIPOUTENTE_ID"
+      Expression="SCG_TIPOUTENTE_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgTipoutente"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="400"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SCG_TIPOUTENTE"
+      Expression="SCG_TIPOUTENTE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="400" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgTipoinscrId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SCG_TIPOINSCR_ID"
+      Expression="SCG_TIPOINSCR_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgTipoinscr"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="400"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SCG_TIPOINSCR"
+      Expression="SCG_TIPOINSCR"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="400" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DtaInsc"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DTA_INSC"
+      Expression="DTA_INSC"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DataIni"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATA_INI"
+      Expression="DATA_INI"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DataFim"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DATA_FIM"
+      Expression="DATA_FIM"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SenUnidSaudeId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SEN_UNID_SAUDE_ID"
+      Expression="SEN_UNID_SAUDE_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SenUnidSaudeCod"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="7"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="SEN_UNID_SAUDE_COD"
+      Expression="SEN_UNID_SAUDE_COD"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="SenUnidSaude"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="250"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SEN_UNID_SAUDE"
+      Expression="SEN_UNID_SAUDE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="250" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProEquipaId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="PRO_EQUIPA_ID"
+      Expression="PRO_EQUIPA_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProEquipaNome"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="30"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PRO_EQUIPA_NOME"
+      Expression="PRO_EQUIPA_NOME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsaudeEquipaId"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CSAUDE_EQUIPA_ID"
+      Expression="CSAUDE_EQUIPA_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsaudeEquipaCodigo"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="7"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CSAUDE_EQUIPA_CODIGO"
+      Expression="CSAUDE_EQUIPA_CODIGO"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsaudeEquipaNome"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="250"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CSAUDE_EQUIPA_NOME"
+      Expression="CSAUDE_EQUIPA_NOME"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="250" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nutente"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Precision="9"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NUTENTE"
+      Expression="NUTENTE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ScgTipoinscrcod"
+      IsUpdateable="false"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SCG_TIPOINSCRCOD"
+      Expression="SCG_TIPOINSCRCOD"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PheDataFim"
+      IsUpdateable="false"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="PHE_DATA_FIM"
+      Expression="PHE_DATA_FIM"
+      SQLType="DATE" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NumCedula"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NUM_CEDULA"
+      Expression="NUM_CEDULA"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>

@@ -1,0 +1,673 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="ListaUtentes"
+   OrderBy="nome_completo"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="ora.pt.cons.igif.sics.utentes.ListaUtentesRowImpl"
+   ComponentClass="ora.pt.cons.igif.sics.utentes.ListaUtentesImpl"
+   MsgBundleClass="ora.pt.cons.igif.sics.utentes.common.ListaUtentesRowImplMsgBundle"
+   FetchMode="FETCH_ALL"
+   FetchSize="100"
+   UseGlueCode="false" >
+   <Data>
+      <Property Name ="COMPLETE_LIBRARY" Value ="FALSE" />
+      <Property Name ="ID" Value ="2b2baaf6-0113-1000-8067-7f00000191a5::::ViewObject" />
+      <Property Name ="IS_ABSTRACT" Value ="FALSE" />
+      <Property Name ="IS_ACTIVE" Value ="FALSE" />
+      <Property Name ="IS_LEAF" Value ="FALSE" />
+      <Property Name ="IS_ROOT" Value ="FALSE" />
+      <Property Name ="VISIBILITY" Value ="PUBLIC" />
+   </Data>
+   <SQLQuery><![CDATA[
+SELECT * FROM 
+(SELECT /*+  ORDERED */
+       iiu.id   iiu_id,
+       INSCR.id iin_id,
+       iiu.nome_completo,
+       iiu.niss niss,
+       iiu.nir,
+       iiu.nomes_proprios,
+       iiu.apelidos,
+       ihf.nop,
+       iiu.dta_nasc,
+       IIU.bi AS num_id,
+       SCG_TIPDOC.CODIGO codigo_id,
+       SCG_TIPDOC.desc_abrv tipo_id,
+       SE_CS.codigo csaude_cod,
+       (select case scg.codigo
+                  when 'UNIS' then 
+                  (
+                    ( select designacao from sys_entidades where id = e.sys_entidades_id ) || '/' || e.designacao   
+                  )           
+                  else e.designacao
+                end case
+        from sys_entidades e,
+             sys_cod_genericos scg
+        where e.sys_subtipo_entidades_id = scg.id
+          and e.id = SE_CS.id
+         ) as csaude_desig,
+       sch_pais_nat.descricao pais_natalidade,
+       iiu.sch_pais_nat_id pais_natalidade_id,
+       sch_pais_nac.descricao pais_nacionalidade,
+       iiu.sch_cdaine_nac_id pais_nacionalidade_id,
+       sch_dist.descricao distrito,
+       sch_dist.id distrito_id,
+       sch_conc.descricao concelho,
+       sch_conc.id concelho_id,
+       sch_freg.descricao freguesia,
+       IIU.sch_cdaine_nat_id freguesia_id,
+       -- MORADA
+       IDU.GET_MORADA(iiu.id) as morada,     
+       TRUNC(MONTHS_BETWEEN(SYSDATE, iiu.dta_nasc) / 12) AS idade,
+       ihe.numbenef,
+       ihe.id ihe_id,
+       SE_ER.designacao entresp_desig,
+       SE_ER.desc_abrv entresp_abrv,
+       SE_CS.id csaude_id,
+       CASE WHEN IDU_OBT.ID IS NOT NULL THEN 'S'
+            WHEN SCG_TPINSCR.CODIGO = '6' THEN 'S'
+            ELSE 'N'
+       END AS obito, 
+       'O' tab_inscr,
+       (select /*+ FIRST_ROWS(1) */ idp.idu_ident_ut_id FROM idu_ident_ut_pot_dup idp where idp.idu_ident_ut_id = iiu.id and rownum < 2) as idp_pot_dup,
+       IIU.sexo       as sexoUtente,
+       GERAL.normaliza_nome(iiu.nome_completo) nome_normalizado
+  FROM 
+       -- 1. IDENTIFICACAO
+       IDU_IDENT_UT      IIU,
+       -- MORADA
+       IDU_CORREIO       ICO,
+       SYS_COD_GENERICOS RUA,
+       SYS_COD_GENERICOS PORTA,
+       SYS_COD_GENERICOS ANDAR,
+       SYS_CODIGO_POSTAL POSTAL,
+       -- Distrito, Concelho e Freguesia
+       SYS_COD_HIER      SCH_DIST,
+       SYS_COD_HIER      SCH_CONC,
+       SYS_COD_HIER      SCH_FREG,
+       -- Naturalidade e Nacionalidade
+       SYS_COD_HIER      SCH_PAIS_NAT,
+       SYS_COD_HIER      SCH_PAIS_NAC,
+       -- Tipo Documento
+       SYS_COD_GENERICOS SCG_TIPDOC,
+       -- Obitos
+       IDU_OBITOS         IDU_OBT,
+       -- 2. INSCRICAO
+       IDU_INSCR         INSCR,
+       SYS_COD_GENERICOS SCG_TPINSCR,
+       -- Familia
+       IDU_HIST_FAMILIA  IHF,
+       -- 3. ENTIDADES (Centro Saude e Entidades Relacionadas c Utente)
+       SYS_ENTIDADES     SE_CS,
+       IDU_HIST_ENT_UT   IHE,
+       SYS_ENTIDADES     SE_ER
+ WHERE IIU.ID                    = ICO.IDU_IDENT_UT_ID(+)
+   AND IIU.scg_tipobi_id         = SCG_TIPDOC.ID(+)
+   AND ICO.Scg_Tiporua_Id        = RUA.ID(+)
+   AND ICO.Scg_Tipoporta_Id      = PORTA.ID(+)
+   AND ICO.Scg_Tipoandar_Id      = ANDAR.ID(+)
+   AND ICO.SYS_CODIGO_POSTAL_ID  = POSTAL.ID(+)
+   AND INSCR.ID                  = IHF.idu_inscr_id(+)
+   AND IHF.data_fim(+)   IS NULL
+   AND INSCR.sys_entidades_id    = SE_CS.ID(+)
+   AND IIU.ID                    = INSCR.idu_ident_ut_id(+)
+   AND INSCR.Data_Fim(+) IS NULL
+   AND IIU.sch_cdaine_nat_id      = SCH_FREG.ID(+)
+   AND SCH_FREG.sys_cod_hier_id   = SCH_CONC.ID(+)
+   AND SCH_CONC.sys_cod_hier_id   = SCH_DIST.ID(+)
+   AND IIU.sch_pais_nat_id        = SCH_PAIS_NAT.id (+)
+   AND IIU.sch_cdaine_nac_id      = SCH_PAIS_NAC.ID(+)
+   AND SCG_TPINSCR.id (+)         = INSCR.scg_tipoinscr_id
+   AND IHE.idu_ident_ut_id (+)    = iiu.id
+   AND IHE.data_fim (+) IS NULL
+   AND IHE.sys_entidades_resp_id (+) IS NOT NULL
+   AND SE_ER.id (+)               = IHE.sys_entidades_resp_id
+   AND IIU.ID                     = IDU_OBT.idu_ident_ut_id (+)
+   AND ihe.cartao (+) = 'S'
+)
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|Msg|VarAccess" />
+   </DesignTime>
+   <ViewAttribute
+      Name="IiuId"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IIU_ID"
+      Expression="IIU_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IinId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IIN_ID"
+      Expression="IIN_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NomeCompleto"
+      IsPersistent="false"
+      Precision="160"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOME_COMPLETO"
+      Expression="NOME_COMPLETO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="160" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Niss"
+      IsPersistent="false"
+      Precision="11"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NISS"
+      Expression="NISS"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nir"
+      IsPersistent="false"
+      Precision="9"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NIR"
+      Expression="NIR"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NomesProprios"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOMES_PROPRIOS"
+      Expression="NOMES_PROPRIOS"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="2b2baaf8-0113-1000-807a-7f00000191a5::utentes.ListaUtentes::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Apelidos"
+      IsPersistent="false"
+      Precision="255"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="APELIDOS"
+      Expression="APELIDOS"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="2b2baaf7-0113-1000-806f-7f00000191a5::utentes.ListaUtentes::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nop"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NOP"
+      Expression="NOP"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DtaNasc"
+      IsPersistent="false"
+      IsNotNull="true"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      AliasName="DTA_NASC"
+      Expression="DTA_NASC"
+      SQLType="DATE" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="2b2baaf7-0113-1000-8075-7f00000191a5::utentes.ListaUtentes::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NumId"
+      IsPersistent="false"
+      Precision="13"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NUM_ID"
+      Expression="NUM_ID"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="13" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CodigoId"
+      IsPersistent="false"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CODIGO_ID"
+      Expression="CODIGO_ID"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="TipoId"
+      IsPersistent="false"
+      Precision="50"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="TIPO_ID"
+      Expression="TIPO_ID"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsaudeCod"
+      IsPersistent="false"
+      Precision="7"
+      Scale="0"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CSAUDE_COD"
+      Expression="CSAUDE_COD"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsaudeDesig"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CSAUDE_DESIG"
+      Expression="CSAUDE_DESIG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PaisNatalidade"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PAIS_NATALIDADE"
+      Expression="PAIS_NATALIDADE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PaisNatalidadeId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="PAIS_NATALIDADE_ID"
+      Expression="PAIS_NATALIDADE_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PaisNacionalidade"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="PAIS_NACIONALIDADE"
+      Expression="PAIS_NACIONALIDADE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="PaisNacionalidadeId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="PAIS_NACIONALIDADE_ID"
+      Expression="PAIS_NACIONALIDADE_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Distrito"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="DISTRITO"
+      Expression="DISTRITO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="DistritoId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="DISTRITO_ID"
+      Expression="DISTRITO_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Concelho"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="CONCELHO"
+      Expression="CONCELHO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ConcelhoId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CONCELHO_ID"
+      Expression="CONCELHO_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Freguesia"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="FREGUESIA"
+      Expression="FREGUESIA"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="FreguesiaId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="FREGUESIA_ID"
+      Expression="FREGUESIA_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Morada"
+      IsPersistent="false"
+      Precision="60"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="MORADA"
+      Expression="MORADA"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="60" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Idade"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDADE"
+      Expression="IDADE"
+      SQLType="NUMERIC" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="2b2baaf7-0113-1000-806d-7f00000191a5::utentes.ListaUtentes::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Numbenef"
+      IsPersistent="false"
+      Precision="20"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NUMBENEF"
+      Expression="NUMBENEF"
+      SQLType="VARCHAR" >
+      <Data>
+         <Property Name ="ATTR_LOAD" Value ="LOAD_EACH" />
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="2b2baaf6-0113-1000-806c-7f00000191a5::utentes.ListaUtentes::ViewObjectAttribute" />
+         <Property Name ="IS_NOT_NULL" Value ="TRUE" />
+         <Property Name ="IS_OVERRIDE_ATTR" Value ="FALSE" />
+         <Property Name ="IS_PERSISTENT" Value ="TRUE" />
+         <Property Name ="IS_QUERIABLE" Value ="TRUE" />
+         <Property Name ="IS_SUPER_ATTR" Value ="FALSE" />
+         <Property Name ="IS_UNIQUE" Value ="FALSE" />
+         <Property Name ="IS_UPDATEABLE" Value ="UPDATEABLE" />
+         <Property Name ="IS_VISIBLE" Value ="TRUE" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="20" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IheId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IHE_ID"
+      Expression="IHE_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EntrespDesig"
+      IsPersistent="false"
+      Precision="100"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ENTRESP_DESIG"
+      Expression="ENTRESP_DESIG"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="EntrespAbrv"
+      IsPersistent="false"
+      Precision="30"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="ENTRESP_ABRV"
+      Expression="ENTRESP_ABRV"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CsaudeId"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="CSAUDE_ID"
+      Expression="CSAUDE_ID"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Obito"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="CHAR"
+      AliasName="OBITO"
+      Expression="OBITO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="TabInscr"
+      IsPersistent="false"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="CHAR"
+      AliasName="TAB_INSCR"
+      Expression="TAB_INSCR"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="IdpPotDup"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="IDP_POT_DUP"
+      Expression="IDP_POT_DUP"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Sexoutente"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="1"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="SEXOUTENTE"
+      Expression="SEXOUTENTE"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NomeNormalizado"
+      IsPersistent="false"
+      Precision="4000"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOME_NORMALIZADO"
+      Expression="NOME_NORMALIZADO"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4000" />
+      </DesignTime>
+   </ViewAttribute>
+   <AttrArray Name="KeyAttributes">
+      <Item Value="IiuId" />
+   </AttrArray>
+</ViewObject>

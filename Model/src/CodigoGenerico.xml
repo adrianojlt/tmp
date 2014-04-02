@@ -1,0 +1,639 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="CodigoGenerico"
+   DBObjectType="table"
+   DBObjectName="SYS_COD_GENERICOS"
+   AliasName="CodigoGenerico"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.suporte.CodigoGenericoImpl" >
+   <Data>
+      <Property Name ="COMPLETE_LIBRARY" Value ="FALSE" />
+      <Property Name ="ID" Value ="af188318-0112-1000-803b-c0a801f09e36::::EntityObject" />
+      <Property Name ="IS_ABSTRACT" Value ="FALSE" />
+      <Property Name ="IS_ACTIVE" Value ="FALSE" />
+      <Property Name ="IS_LEAF" Value ="FALSE" />
+      <Property Name ="IS_ROOT" Value ="FALSE" />
+      <Property Name ="VISIBILITY" Value ="PUBLIC" />
+   </Data>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_COD_GENERICOS"
+      PrimaryKey="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00e4-0112-1000-803d-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Activo"
+      IsNotNull="true"
+      Precision="1"
+      ColumnName="ACTIVO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-803e-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Codigo"
+      IsUnique="true"
+      IsNotNull="true"
+      Precision="50"
+      ColumnName="CODIGO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-803f-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="15" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CodigoAntigo"
+      Precision="23"
+      ColumnName="CODIGO_ANTIGO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8040-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="23" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataActivo"
+      ColumnName="DATA_ACTIVO"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8041-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DataInactivo"
+      IsUnique="true"
+      ColumnName="DATA_INACTIVO"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8042-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Descricao"
+      IsNotNull="true"
+      Precision="130"
+      ColumnName="DESCRICAO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8043-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="130" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="DescAbrv"
+      Precision="50"
+      ColumnName="DESC_ABRV"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8044-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="50" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LimiteMax"
+      ColumnName="LIMITE_MAX"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8045-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LimiteMin"
+      ColumnName="LIMITE_MIN"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8046-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Observacoes"
+      Precision="250"
+      ColumnName="OBSERVACOES"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8047-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="250" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Ordenacao"
+      ColumnName="ORDENACAO"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8048-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysEntidadesId"
+      IsUnique="true"
+      ColumnName="SYS_ENTIDADES_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-8049-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="SysTiposCodigosId"
+      IsUnique="true"
+      IsNotNull="true"
+      ColumnName="SYS_TIPOS_CODIGOS_ID"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af1c00f4-0112-1000-804a-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b9543723-0112-1000-80fe-c0a801f00a56::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b9543723-0112-1000-80ff-c0a801f00a56::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b9543723-0112-1000-8100-c0a801f00a56::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_COD_GENERICOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="b9543723-0112-1000-8101-c0a801f00a56::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="TipoCodigo"
+      Association="ora.pt.cons.igif.sics.suporte.ScgStcFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.ScgStcFkAssoc.TipoCodigo"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.ScgStcFkAssoc.CodigoGenerico"
+      Type="ora.pt.cons.igif.sics.suporte.TipoCodigoImpl" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="CodigoHierarquico"
+      Association="ora.pt.cons.igif.sics.suporte.SchScgFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.SchScgFkAssoc.CodigoHierarquico"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.SchScgFkAssoc.CodigoGenerico"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="Entidade"
+      Association="ora.pt.cons.igif.sics.suporte.SenScgEresFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.SenScgEresFkAssoc.Entidade"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.SenScgEresFkAssoc.CodigoGenerico"
+      Type="oracle.jbo.RowIterator" >
+   </AccessorAttribute>
+   <Key
+      Name="Avcon1172865496Activ004" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Activo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="ACTIVO IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_ACTIV_004" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="ScgPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="SCG_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="ScgUk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.SysTiposCodigosId" />
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Codigo" />
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.SysEntidadesId" />
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.DataInactivo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isUnique" Value="true" />
+         <Attr Name="_DBObjectName" Value="SCG_UK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006478" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006478" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006479" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Codigo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CODIGO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006479" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006480" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Descricao" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DESCRICAO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006480" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006481" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Activo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ACTIVO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006481" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006483" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.SysTiposCodigosId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_TIPOS_CODIGOS_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006483" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006793" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006793" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006794" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Codigo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CODIGO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006794" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006795" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Descricao" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DESCRICAO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006795" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006796" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.Activo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ACTIVO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006796" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006797" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.DataActivo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DATA_ACTIVO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006797" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006798" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.SysTiposCodigosId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;SYS_TIPOS_CODIGOS_ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006798" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006799" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006799" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006800" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006800" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006801" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006801" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC006802" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C006802" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="ScgStcFk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.CodigoGenerico.SysTiposCodigosId" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_referencedKey" Value="STC_PK" />
+         <Attr Name="_isForeign" Value="true" />
+         <Attr Name="_DBObjectName" Value="SCG_STC_FK" />
+      </DesignTime>
+   </Key>
+</Entity>

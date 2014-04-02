@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+
+<Association
+   Name="GoeGitItemsBaixasIdAFkAssoc" >
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+   </DesignTime>
+   <AssociationEnd
+      Name="ItemBaixa"
+      Cardinality="1"
+      Source="true"
+      Owner="ora.pt.cons.igif.sics.baixas.ItemBaixa" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="ItemBaixa" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_foreignKey" Value="ora.pt.cons.igif.sics.baixas.ItemBaixa.GibPk" />
+         <Attr Name="_minCardinality" Value="1" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+   <AssociationEnd
+      Name="OperacoesLog"
+      Cardinality="-1"
+      Owner="ora.pt.cons.igif.sics.baixas.OperacoesLog" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.baixas.OperacoesLog.GitItemsBaixasIdAntigo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_finderName" Value="OperacoesLog" />
+         <Attr Name="_aggregation" Value="0" />
+         <Attr Name="_foreignKey" Value="ora.pt.cons.igif.sics.baixas.OperacoesLog.GoeGitItemsBaixasIdAFk" />
+         <Attr Name="_isUpdateable" Value="true" />
+      </DesignTime>
+   </AssociationEnd>
+</Association>

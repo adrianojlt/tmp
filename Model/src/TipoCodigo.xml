@@ -1,0 +1,470 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+
+<Entity
+   Name="TipoCodigo"
+   DBObjectType="table"
+   DBObjectName="SYS_TIPOS_CODIGOS"
+   AliasName="TipoCodigo"
+   BindingStyle="OracleName"
+   UseGlueCode="false"
+   RowClass="ora.pt.cons.igif.sics.suporte.TipoCodigoImpl" >
+   <Data>
+      <Property Name ="COMPLETE_LIBRARY" Value ="FALSE" />
+      <Property Name ="ID" Value ="af3b30e6-0112-1000-807b-c0a801f09e36::::EntityObject" />
+      <Property Name ="IS_ABSTRACT" Value ="FALSE" />
+      <Property Name ="IS_ACTIVE" Value ="FALSE" />
+      <Property Name ="IS_LEAF" Value ="FALSE" />
+      <Property Name ="IS_ROOT" Value ="FALSE" />
+      <Property Name ="VISIBILITY" Value ="PUBLIC" />
+   </Data>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_version" Value="10.1.3.39.84" />
+      <AttrArray Name="_publishEvents">
+      </AttrArray>
+      <Attr Name="_codeGenFlag2" Value="Access" />
+   </DesignTime>
+   <Attribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      DefaultValue="@0"
+      ColumnName="ID"
+      Domain="oracle.jbo.domain.DBSequence"
+      Type="oracle.jbo.domain.DBSequence"
+      ColumnType="NUMBER"
+      SQLType="NUMERIC"
+      TableName="SYS_TIPOS_CODIGOS"
+      PrimaryKey="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af3c1c9e-0112-1000-807c-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CodTipo"
+      IsUnique="true"
+      IsNotNull="true"
+      Precision="100"
+      ColumnName="COD_TIPO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af3c1c9e-0112-1000-807d-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="4" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Descricao"
+      IsNotNull="true"
+      Precision="100"
+      ColumnName="DESCRICAO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af3c1c9e-0112-1000-807e-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="100" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Editar"
+      IsNotNull="true"
+      Precision="1"
+      ColumnName="EDITAR"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af3c1c9e-0112-1000-807f-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Central"
+      IsNotNull="true"
+      Precision="1"
+      ColumnName="CENTRAL"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af3c1c9e-0112-1000-8080-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="Destino"
+      IsNotNull="true"
+      Precision="1"
+      ColumnName="DESTINO"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="af3c1c9e-0112-1000-8081-c0a801f09e36::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreatedBy"
+      Precision="30"
+      ColumnName="CREATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e374c946-0112-1000-82e9-7f0000012f64::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CreationDate"
+      ColumnName="CREATION_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e374c946-0112-1000-82ea-7f0000012f64::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdatedBy"
+      Precision="30"
+      ColumnName="LAST_UPDATED_BY"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e374c946-0112-1000-82eb-7f0000012f64::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="30" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="LastUpdateDate"
+      ColumnName="LAST_UPDATE_DATE"
+      Type="oracle.jbo.domain.Date"
+      ColumnType="DATE"
+      SQLType="DATE"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <Data>
+         <Property Name ="CHANGEABILITY" Value ="CHANGEABLE" />
+         <Property Name ="ID" Value ="e374c946-0112-1000-82ec-7f0000012f64::::EntityObjectAttribute" />
+         <Property Name ="MULTIPLICITY" Value ="1" />
+         <Property Name ="OWNER_SCOPE" Value ="INSTANCE" />
+         <Property Name ="VISIBILITY" Value ="PACKAGE" />
+      </Data>
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="7" />
+      </DesignTime>
+   </Attribute>
+   <Attribute
+      Name="CodigoTabela"
+      IsNotNull="true"
+      Precision="1"
+      ColumnName="CODIGO_TABELA"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      SQLType="VARCHAR"
+      TableName="SYS_TIPOS_CODIGOS"
+      RetrievedOnUpdate="true"
+      RetrievedOnInsert="true" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="1" />
+      </DesignTime>
+   </Attribute>
+   <AccessorAttribute
+      Name="CodigoGenerico"
+      Association="ora.pt.cons.igif.sics.suporte.ScgStcFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.ScgStcFkAssoc.CodigoGenerico"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.ScgStcFkAssoc.TipoCodigo"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="CodigoHierarquico"
+      Association="ora.pt.cons.igif.sics.suporte.SchStcFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.SchStcFkAssoc.CodigoHierarquico"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.SchStcFkAssoc.TipoCodigo"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <AccessorAttribute
+      Name="Entidade"
+      Association="ora.pt.cons.igif.sics.suporte.SenStcFkAssoc"
+      AssociationEnd="ora.pt.cons.igif.sics.suporte.SenStcFkAssoc.Entidade"
+      AssociationOtherEnd="ora.pt.cons.igif.sics.suporte.SenStcFkAssoc.TipoCodigo"
+      Type="oracle.jbo.RowIterator"
+      IsUpdateable="false" >
+   </AccessorAttribute>
+   <Key
+      Name="Avcon1172865496Centr000" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Central" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="CENTRAL IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_CENTR_000" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1172865496Edita000" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Editar" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="EDITAR IN (&#39;S&#39;, &#39;N&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1172865496_EDITA_000" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="Avcon1179760570Desti000" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Destino" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="DESTINO IN (&#39;G&#39;, &#39;H&#39;, &#39;E&#39;)" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="AVCON_1179760570_DESTI_000" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="StcPk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isPrimary" Value="true" />
+         <Attr Name="_DBObjectName" Value="STC_PK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="StcUk" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.CodTipo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_isUnique" Value="true" />
+         <Attr Name="_DBObjectName" Value="STC_UK" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007088" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.CodTipo" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;COD_TIPO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007088" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007089" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Id" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;ID&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007089" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007090" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Central" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CENTRAL&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007090" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007091" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Editar" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;EDITAR&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007091" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007092" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.CreatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007092" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007093" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.CreationDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CREATION_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007093" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007094" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.LastUpdatedBy" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATED_BY&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007094" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007095" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.LastUpdateDate" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;LAST_UPDATE_DATE&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007095" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007096" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Destino" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DESTINO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007096" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysC007097" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.CodigoTabela" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CODIGO_TABELA&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_C007097" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysTiposCodigosCodigoTabelaCheck" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.CodigoTabela" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;CODIGO_TABELA&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_isNotNull" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_TIPOS_CODIGOS_CODIGO_TABEL" />
+      </DesignTime>
+   </Key>
+   <Key
+      Name="SysTiposCodigosDescricaoCheck" >
+      <AttrArray Name="Attributes">
+         <Item Value="ora.pt.cons.igif.sics.suporte.TipoCodigo.Descricao" />
+      </AttrArray>
+      <DesignTime>
+         <Attr Name="_checkCondition" Value="&#34;DESCRICAO&#34; IS NOT NULL" />
+         <Attr Name="_isCheck" Value="true" />
+         <Attr Name="_isNotNull" Value="true" />
+         <Attr Name="_DBObjectName" Value="SYS_TIPOS_CODIGOS_DESCRICAO_CH" />
+      </DesignTime>
+   </Key>
+</Entity>

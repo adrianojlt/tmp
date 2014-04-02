@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+
+<ViewObject
+   Name="UtilizadorView"
+   BindingStyle="OracleName"
+   CustomQuery="true"
+   RowClass="ora.pt.cons.igif.sics.suporte.UtilizadorViewRowImpl"
+   ComponentClass="ora.pt.cons.igif.sics.suporte.UtilizadorViewImpl"
+   FetchMode="FETCH_AS_NEEDED"
+   FetchSize="30000"
+   MaxFetchSize="0"
+   UseGlueCode="false" >
+   <SQLQuery><![CDATA[
+SELECT Utilizador.ID, 
+       Utilizador.ACTIVO, 
+       Utilizador.NOME, 
+       Utilizador.NUM_MECANOG, 
+       Utilizador.ROWID, 
+       Utilizador.SENHA, 
+       Utilizador.CREATED_BY, 
+       Utilizador.CREATION_DATE, 
+       Utilizador.LAST_UPDATED_BY, 
+       Utilizador.LAST_UPDATE_DATE, 
+       Utilizador.PRO_PROFISSID_PESSOAL_ID,
+       Profissional.Nome as NomeProfissional,
+       Profissional.Num_Prof_Saude
+FROM SYS_USERS Utilizador,
+     PRO_PROFISSID_PESSOAL Profissional
+WHERE Utilizador.Pro_Profissid_Pessoal_Id = Profissional.Id
+   ]]></SQLQuery>
+   <DesignTime>
+      <Attr Name="_isCodegen" Value="true" />
+      <Attr Name="_isExpertMode" Value="true" />
+      <Attr Name="_version" Value="10.1.3.43.6" />
+      <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess" />
+   </DesignTime>
+   <EntityUsage
+      Name="Utilizador"
+      Entity="ora.pt.cons.igif.sics.suporte.Utilizador" >
+      <DesignTime>
+         <Attr Name="_queryClause" Value="false" />
+      </DesignTime>
+   </EntityUsage>
+   <ViewAttribute
+      Name="Id"
+      IsUpdateable="while_insert"
+      IsNotNull="true"
+      EntityAttrName="Id"
+      EntityUsage="Utilizador"
+      AliasName="ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Activo"
+      IsNotNull="true"
+      EntityAttrName="Activo"
+      EntityUsage="Utilizador"
+      AliasName="ACTIVO" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nome"
+      IsNotNull="true"
+      EntityAttrName="Nome"
+      EntityUsage="Utilizador"
+      AliasName="NOME" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NumMecanog"
+      IsUnique="true"
+      EntityAttrName="NumMecanog"
+      EntityUsage="Utilizador"
+      AliasName="NUM_MECANOG" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="RowID"
+      IsUpdateable="false"
+      EntityAttrName="RowID"
+      EntityUsage="Utilizador"
+      AliasName="ROWID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Senha"
+      EntityAttrName="Senha"
+      EntityUsage="Utilizador"
+      AliasName="SENHA" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreatedBy"
+      IsNotNull="true"
+      EntityAttrName="CreatedBy"
+      EntityUsage="Utilizador"
+      AliasName="CREATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="CreationDate"
+      IsNotNull="true"
+      EntityAttrName="CreationDate"
+      EntityUsage="Utilizador"
+      AliasName="CREATION_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdatedBy"
+      IsNotNull="true"
+      EntityAttrName="LastUpdatedBy"
+      EntityUsage="Utilizador"
+      AliasName="LAST_UPDATED_BY" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="LastUpdateDate"
+      IsNotNull="true"
+      EntityAttrName="LastUpdateDate"
+      EntityUsage="Utilizador"
+      AliasName="LAST_UPDATE_DATE" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="ProProfissidPessoalId"
+      EntityAttrName="ProProfissidPessoalId"
+      EntityUsage="Utilizador"
+      AliasName="PRO_PROFISSID_PESSOAL_ID" >
+   </ViewAttribute>
+   <ViewAttribute
+      Name="Nomeprofissional"
+      IsPersistent="false"
+      IsNotNull="true"
+      Precision="40"
+      Type="java.lang.String"
+      ColumnType="VARCHAR2"
+      AliasName="NOMEPROFISSIONAL"
+      Expression="NOMEPROFISSIONAL"
+      SQLType="VARCHAR" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="40" />
+      </DesignTime>
+   </ViewAttribute>
+   <ViewAttribute
+      Name="NumProfSaude"
+      IsPersistent="false"
+      Type="oracle.jbo.domain.Number"
+      ColumnType="NUMBER"
+      AliasName="NUM_PROF_SAUDE"
+      Expression="NUM_PROF_SAUDE"
+      SQLType="NUMERIC" >
+      <DesignTime>
+         <Attr Name="_DisplaySize" Value="22" />
+      </DesignTime>
+   </ViewAttribute>
+</ViewObject>
