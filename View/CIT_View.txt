@@ -1,3 +1,6 @@
+find ./ -regex ".*\(jsp\|java\|js\|css\)$" > CIT_View.txt
+find ./ -regex ".*\(jsp\|java\|js\|css\)$" -type f -exec cp {} ./destination_folder \;
+
 ./public_html/index.jsp
 
 ./public_html/com/ajaxServices.jsp
