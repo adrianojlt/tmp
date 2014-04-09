@@ -624,10 +624,10 @@
                                                 <td style="text-align:center;text-indent:0px">
                                                     <c:choose>
                                                         <c:when test="${RowListaItemsBaixas[\'Cirurgiaambulatorio\']=='S'}">   
-                                                            <input class="pesquisacheckbox" type="checkbox" title="Cirurgia Ambulatorio" checked="checked" disabled/>
+                                                            <input class="pesquisacheckbox" type="checkbox" title="Cirurgia Ambulatório" checked="checked" disabled/>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <input class="pesquisacheckbox" type="checkbox" title="Cirurgia Ambulatorio" disabled/>
+                                                            <input class="pesquisacheckbox" type="checkbox" title="Cirurgia Ambulatório" disabled/>
                                                         </c:otherwise>
                                                     </c:choose> 
                                                 </td>

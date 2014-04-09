@@ -191,6 +191,7 @@ div#footer {
     bottom: 0px;
     min-width: 1024px;
     width: 100%;
+    /*box-shadow: 1px 1px 10px 2px black;*/
 }
 
 /***************************** Pagina pesquisa ********************************/
@@ -247,6 +248,8 @@ select.pesquisa {
     height: 25px;
     color: #333333;
 }
+
+select.pesquisa[disabled] { background-color: #E7E7E7; }
 
 table.pesquisaresultados {
     cursor: default;
@@ -524,7 +527,8 @@ button.detalhe:hover {
 .subContainerButtons{
     color: #666666;
     background:#DFDFDF ;
-    width:98%;
+    width:97%;
+    padding-left: 10px;
 }
 
 table.baixas {

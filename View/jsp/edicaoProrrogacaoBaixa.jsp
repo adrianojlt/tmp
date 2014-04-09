@@ -200,13 +200,14 @@
                                                            value="${param['dp-dtermo']}" id="dp-dtermo" name="dp-dtermo" type="text" 
                                                            class="inputDate w8em format-d-m-y divider-dash highlight-days-67 range-low-1900-01-01 range-high-2100-12-31 no-transparency" maxlength="10" />
                                                 </td>
+
                                                 <td class="outputLabel">
                                                     <c:choose>
                                                         <c:when test="${param['internamento'] == 'on' || param['internamento'] == 'S'}">
-                                                            <input class="pesquisacheckbox" id="internamento" name="internamento" type="radio" checked onclick="document.getElementById('cirurgiaAmbulatorio').checked=false;"/> 
+                                                            <input class="pesquisacheckbox" id="internamento" name="internamento" type="checkbox" checked onclick="document.getElementById('cirurgiaAmbulatorio').checked=false;"/> 
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <input class="pesquisacheckbox" id="internamento" name="internamento" type="radio" onclick="document.getElementById('cirurgiaAmbulatorio').checked=false;" />
+                                                            <input class="pesquisacheckbox" id="internamento" name="internamento" type="checkbox" onclick="document.getElementById('cirurgiaAmbulatorio').checked=false;" />
                                                         </c:otherwise>
                                                     </c:choose>    
                                                 </td>
@@ -214,14 +215,15 @@
                                                 <td class="outputLabel">
                                                     <c:choose>
                                                         <c:when test="${param['cirurgiaAmbulatorio'] == 'on' || param['cirurgiaAmbulatorio'] == 'S'}">
-                                                            <input class="pesquisacheckbox" id="cirurgiaAmbulatorio" name="cirurgiaAmbulatorio" type="radio" checked onclick="document.getElementById('internamento').checked=false;"/>
+                                                            <input class="pesquisacheckbox" id="cirurgiaAmbulatorio" name="cirurgiaAmbulatorio" type="checkbox" checked onclick="document.getElementById('internamento').checked=false;"/>
                                                         </c:when>
                                                         <c:otherwise>
-                                                            <input class="pesquisacheckbox" id="cirurgiaAmbulatorio" name="cirurgiaAmbulatorio" type="radio" onclick="document.getElementById('internamento').checked=false;"/>
+                                                            <input class="pesquisacheckbox" id="cirurgiaAmbulatorio" name="cirurgiaAmbulatorio" type="checkbox" onclick="document.getElementById('internamento').checked=false;"/>
                                                         </c:otherwise>
                                                     </c:choose>
                                                 </td>
                                                 <td class="outputLabel" colspan="2">Cirurgia Ambulatório</td>
+
                                             </tr>                                                
                                         </table>
                                     </td>                                        

@@ -31,7 +31,7 @@
         
             function voltar(){
                 var form = document.getElementById('formAlta');
-                //splash(true);
+                splash(true);
                 form.action='../git/baixasUtente.do';
                 form.submit();
                 return true;    
@@ -69,14 +69,25 @@
             */        
         
             function validaDataDeAlta () {
+
                 var dataStringAlta  = document.getElementById('dp-dalta').value; 
                 var dataStringInicioTotal = document.getElementById('DataInicioTotal').value; 
                 var dataAlta = Date.parseString(dataStringAlta,"dd-MM-yyyy");
                 var dataInicioTotal = Date.parseString(dataStringInicioTotal,"dd-MM-yyyy");
-                if(dataStringInicioTotal.length>0){ 
-                    if (!dataAlta.isAfter(dataInicioTotal)) {
-                        alert('Não pode emitir uma Alta para um período anterior ou igual ao CIT Inicial.');
+
+                if( dataStringInicioTotal.length > 0 ){ 
+
+                    if ( !dataAlta.isAfter(dataInicioTotal) ) {
+
+                        $.spmsDialog( 'error', 
+                            { 
+                                title: 'Erro', 
+                                message: 'Não pode emitir uma Alta para um período anterior ou igual ao CIT Inicial.'
+                            }
+                        );
+
                         return false;
+
                     } else {    
                         return true;
                     }
@@ -92,7 +103,7 @@
                             title: 'Continuar?', 
                             message: 'Os dados serão gravados. Deseja continuar?', 
                             callback: function() {
-                                //console.log('gravado !!!');
+                                splash(true);
                                 document.getElementById('hidden').value='insertAlta'; 
                                 arg.form.submit(); 
                             } 
@@ -113,6 +124,7 @@
                     <jsp:param name="pTitle" value="Alta de Baixas/Prorrogra&ccedil;&atilde;o de Baixa"/>
                     <jsp:param name="pBackEnabled" value="true"/>
                 </jsp:include>
+                <jsp:include page="/com/splash.jsp" flush="true"/>
             </div>
             <div id ="formContainer" align ="left">         
                 <jsp:include page="/com/error.jsp" flush="true"/>    

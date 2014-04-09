@@ -122,6 +122,7 @@
           settings +='left='+winl+',';
           settings +='scrollbars=yes,';
           settings +='resizable=yes';
+          console.log(settings);
           
           param += txtPage;    
           //param += txtIdItemBaixa;
@@ -149,7 +150,7 @@
           settings +='width='+width+',';
           settings +='top='+wint+',';
           settings +='left='+winl+',';
-          settings +='scrollbars=yes,';
+          settings +='scrollbars=1,';
           settings +='resizable=yes';
           
           param += txtPage;    
@@ -1358,8 +1359,8 @@ function popUpCodHierLovLOV(paramCampoId, paramCampoDesc, paramIdPai,paramLabel,
         }
         
         function detalheUtentePopUp(idUtente){
-          var width = 900;
-          var height = 500;
+          var width = 800;
+          var height = 600;
           var trackingWindow = null;
           var txtPage    = 'detalheUtente.do';
           var txtEvent   = '';

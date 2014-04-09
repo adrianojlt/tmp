@@ -5,6 +5,7 @@
  
 <html>
   <head>
+
     <title>Pesquisar Beneficiário</title>
 
     <script type="text/javascript">
@@ -215,7 +216,7 @@
             var dataHoje = diaHoje + '-' + mesHoje + '-' + anoHoje;
             
             var dateObject1 = Date.parseString (date,"dd-MM-yyyy");
-            var dateObject2 = Date.parseString (dataHoje,"dd-MM-yyyy");
+            var dateObject2 = Date.parseString (dataHoje,"d-MM-yyyy");
             
             var one_day=1000*60*60*24;
             var diffData = Math.floor((dateObject1.getTime()-dateObject2.getTime())/(one_day));
@@ -255,7 +256,9 @@
                      }
                   }
                 } else {
-                    document.getElementById('divPesquisaUtente').innerHTML = '<img src="../imagens_cit_v3/ajax-loader.gif" alt="Loading..." />';
+                    var div = document.getElementById('divPesquisaUtente');
+                    div.innerHTML = '<img src="../imagens_cit_v3/ajax-loader.gif" alt="Loading..." />';
+                    div.style.display = "block";
                 }
                  return true;
         }
@@ -371,7 +374,7 @@
                         document.getElementById('trEntidadesDummy').style.display='none';
                         retiraNumBenef(document.getElementById('entResp').value);
                         
-                        adicionarWarning(document.getElementById('entResp'));
+                        //adicionarWarning(document.getElementById('entResp'));
                        
                      }
                   }
@@ -482,7 +485,7 @@
             
             // se niss introduzido validar niss
             if(idUtente!=''){
-                httpRequestSplashOption("GET", "../com/ajaxServices.do?event=getEntidadesResponsaveis"+params, true, actualizaComboEntidades, false);
+                httpRequestSplashOption("GET", "../com/ajaxServices.do?event=getEntidadesResponsaveis"+params, false, actualizaComboEntidades, false);
             } else {
                 return false;
             }
@@ -580,7 +583,7 @@
 
 <div class="spms" id="inputForm"> 
 
-    <div class="header">Pesquisa de familiar</div>
+    <div class="header">Pesquisa Beneficiário</div>
     
     <div style="margin-left:20px">
         <jsp:include page="/com/error.jsp" flush="true"/>
@@ -681,7 +684,7 @@
             </div>
             <div class="col-1-4"> 
                 <div class="labelfield">NISS fam. impedido</div> 
-                <input type="text" class="inputfield newinput" id="textNissImpedido" name="textNissImpedido" value="" maxlength="30" disabled style="width: 85%; float: left; margin-right: 5px;"/>
+                <input type="text" class="inputfield newinput" id="textNissImpedido" name="textNissImpedido" value="" maxlength="30" disabled style="width: 80%; float: left; margin-right: 5px;"/>
                 <img alt=""  title="Deverá preencher o NISS do progenitor impedido de prestar assistência, se o beneficiário for o avô/avó ou equiparado do familiar doente."  style="padding-left:2px;padding-right:2px;padding-top:1px;margin-top: 4px;" src="../imagens_cit_v3/info.png" align="top" />
                 <input type="hidden" name="hiddenNissImpedido" id="hiddenNissImpedido" value=""/>  
             </div>
@@ -900,33 +903,26 @@
             passarUtenteManual();
         }
 
+        function testEvent() {
+           console.log('testEvent'); 
+        }
+
         function trClicked(self, data) {
 
-            /*
-            Nutente: '<c:out value="${RowListaAgregadoFamiliar[\'Nutente\']}"/>', 
-            HasNutente: <c:out value="${not empty RowListaAgregadoFamiliar.Nutente}"/>, 
-            DtaNasc: '<c:out value="${RowListaAgregadoFamiliar[\'DtaNasc\']}"/>', 
-            NomeNormalizado: '<c:out value="${RowListaAgregadoFamiliar[\'NomeNormalizado\']}"/>', 
-            NomeCompleto: '<c:out value="${RowListaAgregadoFamiliar[\'NomeCompleto\']}"/>', 
-            Niss: '<c:out value="${RowListaAgregadoFamiliar[\'Niss\']}"/>', 
-            IduIdentUtId: '<c:out value="${RowListaAgregadoFamiliar[\'IduIdentUtId\']}"/>',
-            Numbenef: '<c:out value="${RowListaAgregadoFamiliar[\'Numbenef\']}"/>',
-            Bi: '<c:out value="${RowListaAgregadoFamiliar[\'Bi\']}"/>',
-            Count: ${lineListaAgregadoFamiliar.count}
-            */
+            //console.log('trClicked');
+            //gData = data;
 
-            console.log( data.Niss );
+            //if ( idUtenteSessao == data.IduIdentUtId ) { 
+                //console.log('Não pode seleccionar o mesmo utente para quem está a emitir baixa!');
+                //return;
+            //}
 
-            gData = data;
-
-
-            //return;
-
+            // Utente sem entidade responsavel ...
             if ( isNaN(parseInt(data.Niss)) ) {
 
                $.spmsDialog('warning', 
                     { 
-                        title: '', 
+                        title: 'Aviso', 
                         message: 'O beneficiário selecionado não possui NISS registado no RNU nem outro subsistema válido ativo, sem os quais não é possível emitir um CIT!'
                     }
                 );  
@@ -955,12 +951,29 @@
                         document.getElementById('hiddenBiBenef').value = data.Bi; 
                         document.getElementById('hiddenNirBenef').value = data.Nutente; 
                         document.getElementById('hiddenSeleccionaFamilia').value = 'selected'; 
+
                         actualizaEntidades( data.IduIdentUtId ); 
+
+                        var responsibleEntity = document.getElementById('entResp');
+
+                        // Utente com mais do que uma entidade responsavel ...
+                        if ( responsibleEntity.options.length > 1 ) {
+
+                            $.spmsDialog('warning', 
+                                { 
+                                    title: 'Aviso', 
+                                    message: 'O utente tem mais do que uma entidade responsável válida para a emissão do CIT, por favor, confirme a entidade responsável selecionada'
+                                }
+                            );
+
+                            //limparFamiliarSeleccionado();
+                        }
+
                     } 
                     else { 
                         $.spmsDialog('warning', 
                             { 
-                                title: '', 
+                                title: 'Aviso', 
                                 message: 'O beneficiário selecionado não possui NISS registado no RNU nem outro subsistema válido ativo, sem os quais não é possível emitir um CIT!'
                             }
                         ); 
@@ -983,6 +996,92 @@
                 ); 
             }
         }
+
+        function trClickedPesquisaUtente(self, data) {
+
+            //console.log(data);
+            //gData = data;
+
+             // Utente sem entidade responsavel ...
+            if ( isNaN(parseInt(data.Niss)) ) {
+
+               $.spmsDialog('warning', 
+                    { 
+                        title: 'Aviso', 
+                        message: 'O beneficiário selecionado não possui NISS registado no RNU nem outro subsistema válido ativo, sem os quais não é possível emitir um CIT!'
+                    }
+                );  
+
+               return;
+            }
+
+            if ( ( data.Obito != 'S' ) && !data.isNirEmpty ) { 
+
+                if ( idUtenteSessao != data.IiuId ) {
+
+                    if( ( data.Niss != '' ) || ( data.Numbenef != '' ) ) {
+
+                        highlightRow(self,data.Count); 
+                        enableButton(document.getElementById('event_seleccionaAgregado')); 
+
+                        document.getElementById('hiddenNumUtenteBenef').value = data.Nir; 
+                        document.getElementById('numUtenteBenef').value = data.Nir; 
+                        document.getElementById('hiddenDtaNascBenef').value = data.DtaNasc; 
+                        document.getElementById('textDtaNascBenef').value   = data.DtaNasc; 
+                        document.getElementById('hiddenNomeBenef').value = data.NomeNormalizado; 
+                        document.getElementById('textNomeBenef').value = data.NomeNormalizado; 
+                        document.getElementById('hiddenNissBenef').value = data.Niss; 
+                        document.getElementById('textNissBenef').value = data.Niss; 
+                        document.getElementById('hiddenIdBenef').value = data.IiuId; 
+                        document.getElementById('hiddenBiBenef').value = data.NumId; 
+                        document.getElementById('hiddenNirBenef').value = data.Nir; 
+                        document.getElementById('hiddenSeleccionaFamilia').value = 'selected'; 
+
+                        actualizaEntidades( data.IiuId ); 
+
+                        var responsibleEntity = document.getElementById('entResp');
+
+                        // Utente com mais do que uma entidade responsavel ...
+                        if ( responsibleEntity.options.length > 1 ) {
+
+                            $.spmsDialog('warning', 
+                                { 
+                                    title: 'Aviso', 
+                                    message: 'O utente tem mais do que uma entidade responsável válida para a emissão do CIT, por favor, confirme a entidade responsável selecionada'
+                                }
+                            );
+
+                            //limparFamiliarSeleccionado();
+                        }
+                    }
+                    else {
+                        $.spmsDialog('warning', 
+                            { 
+                                title: 'Aviso', 
+                                message: 'O beneficiário selecionado não possui NISS registado no RNU nem outro subsistema válido ativo, sem os quais não é possível emitir um CIT!'
+                            }
+                        );
+                    }
+                }
+                else {
+                    $.spmsDialog('warning', 
+                        { 
+                            title: 'Aviso', 
+                            message: 'Não pode seleccionar o mesmo utente para quem está a emitir baixa!'
+                        }
+                    );
+                }
+            }
+            else {
+                $.spmsDialog('warning', 
+                    { 
+                        title: 'Aviso', 
+                        message: 'Não é possível emitir baixas para o beneficiário selecionado. Por favor, verifique os dados do utente no RNU.'
+                    }
+                ); 
+            }
+        }
+        
   </script>
   
   </body>

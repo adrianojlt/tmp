@@ -11,7 +11,7 @@
 
 <c:set var="rangeBinding" value="${bindings[param.rangeBindingName]}"/>
 <c:set var="totalRows" value="${rangeBinding.estimatedRowCount}"/>
-<span class="paginationResults">${totalRows} resultado</span>
+<span class="paginationResults">${totalRows} resultado(s)</span>
 
 <%-- Need for passe values for java --%>
 <input type="hidden" name="event" id="hidden${rangeBinding}" value=""/>

@@ -64,20 +64,42 @@
 
                 <c:choose>
                   <c:when test="${empty param.pTipoPesq}">
-                    <tr class="${trClassAgregado}" onclick=" if(<c:out value="${RowListaUtentes.Obito!='S' }"/>){if (idUtenteSessao != <c:out value="${RowListaUtentes[\'IiuId\']}"/>) {highlightRow(this,${lineListaUtentes.count}); enableButton(document.getElementById('event_seleccionaAgregado')); document.getElementById('hiddenDtaNascFamiliar').value = '<c:out value="${RowListaUtentes[\'DtaNasc\']}"/>'; document.getElementById('textDtaNascFamiliar').value   = '<c:out value="${RowListaUtentes[\'DtaNasc\']}"/>'; document.getElementById('hiddenNomeFamiliar').value = '<c:out value="${RowListaUtentes[\'NomeNormalizado\']}"/>'; document.getElementById('textNomeFamiliar').value = '<c:out value="${RowListaUtentes[\'NomeNormalizado\']}"/>'; document.getElementById('hiddenNissFamiliar').value = '<c:out value="${RowListaUtentes[\'Niss\']}"/>'; document.getElementById('textNissFamiliar').value = '<c:out value="${RowListaUtentes[\'Niss\']}"/>'; document.getElementById('hiddenIdFamiliar').value = '<c:out value="${RowListaUtentes[\'IiuId\']}"/>'; document.getElementById('hiddenSeleccionaFamilia').value = 'selected'; } else {alert('Não pode seleccionar o mesmo utente para quem está a emitir baixa!'); } } else{alert('Não é possível seleccionar este familiar. Por favor, verifique os dados do familiar no RNU.'); }">
+                    <tr class="${trClassAgregado}" onclick=" if(<c:out value="${RowListaUtentes.Obito!='S' }"/>) {if (idUtenteSessao != <c:out value="${RowListaUtentes[\'IiuId\']}"/>) {highlightRow(this,${lineListaUtentes.count}); enableButton(document.getElementById('event_seleccionaAgregado')); document.getElementById('hiddenDtaNascFamiliar').value = '<c:out value="${RowListaUtentes[\'DtaNasc\']}"/>'; document.getElementById('textDtaNascFamiliar').value   = '<c:out value="${RowListaUtentes[\'DtaNasc\']}"/>'; document.getElementById('hiddenNomeFamiliar').value = '<c:out value="${RowListaUtentes[\'NomeNormalizado\']}"/>'; document.getElementById('textNomeFamiliar').value = '<c:out value="${RowListaUtentes[\'NomeNormalizado\']}"/>'; document.getElementById('hiddenNissFamiliar').value = '<c:out value="${RowListaUtentes[\'Niss\']}"/>'; document.getElementById('textNissFamiliar').value = '<c:out value="${RowListaUtentes[\'Niss\']}"/>'; document.getElementById('hiddenIdFamiliar').value = '<c:out value="${RowListaUtentes[\'IiuId\']}"/>'; document.getElementById('hiddenSeleccionaFamilia').value = 'selected'; } else {alert('Não pode seleccionar o mesmo utente para quem está a emitir baixa!'); } } else{alert('Não é possível seleccionar este familiar. Por favor, verifique os dados do familiar no RNU.'); } ">
                       <td class="numeric"><c:out value="${RowListaUtentes[\'Nir\']}"/></td>
                       <td class="text"><c:out value="${RowListaUtentes[\'NomeCompleto\']}"/></td>
                       <td class="date"><c:out value="${RowListaUtentes[\'DtaNasc\']}"/></td>
                       <td class="text last"><c:out value="${RowListaUtentes[\'Niss\']}"/></td>
                     </tr>
+
                   </c:when>
                   <c:otherwise>
-                    <tr class="${trClassAgregado}" onclick=" if(<c:out value="${RowListaUtentes.Obito!='S' and not empty RowListaUtentes.Nir}"/>){if (idUtenteSessao != <c:out value="${RowListaUtentes[\'IiuId\']}"/>) {if(('<c:out value="${RowListaUtentes[\'Niss\']}"/>'!='' ) || ('<c:out value="${RowListaUtentes[\'Numbenef\']}"/>'!='' ) ) {highlightRow(this,${lineListaUtentes.count}); enableButton(document.getElementById('event_seleccionaAgregado')); document.getElementById('hiddenNumUtenteBenef').value = '<c:out value="${RowListaUtentes[\'Nir\']}"/>'; document.getElementById('numUtenteBenef').value = '<c:out value="${RowListaUtentes[\'Nir\']}"/>'; document.getElementById('hiddenDtaNascBenef').value = '<c:out value="${RowListaUtentes[\'DtaNasc\']}"/>'; document.getElementById('textDtaNascBenef').value   = '<c:out value="${RowListaUtentes[\'DtaNasc\']}"/>'; document.getElementById('hiddenNomeBenef').value = '<c:out value="${RowListaUtentes[\'NomeNormalizado\']}"/>'; document.getElementById('textNomeBenef').value = '<c:out value="${RowListaUtentes[\'NomeNormalizado\']}"/>'; document.getElementById('hiddenNissBenef').value = '<c:out value="${RowListaUtentes[\'Niss\']}"/>'; document.getElementById('textNissBenef').value = '<c:out value="${RowListaUtentes[\'Niss\']}"/>'; document.getElementById('hiddenIdBenef').value = '<c:out value="${RowListaUtentes[\'IiuId\']}"/>'; document.getElementById('hiddenBiBenef').value = '<c:out value="${RowListaUtentes[\'NumId\']}"/>'; document.getElementById('hiddenNirBenef').value = '<c:out value="${RowListaUtentes[\'Nir\']}"/>'; document.getElementById('hiddenSeleccionaFamilia').value = 'selected'; actualizaEntidades( '<c:out value="${RowListaUtentes[\'IiuId\']}"/>'); } else {alert('O beneficiário selecionado não possui NISS registado no RNU nem outro subsistema válido ativo, sem os quais não é possível emitir um CIT!'); } } else {alert('Não pode seleccionar o mesmo utente para quem está a emitir baixa!'); } } else{alert('Não é possível emitir baixas para o beneficiário selecionado. Por favor, verifique os dados do utente no RNU.'); }">
+
+                    <tr class="${trClassAgregado}" onclick="
+                       trClickedPesquisaUtente(
+                          this, 
+                          { 
+                              Obito: '${RowListaUtentes.Obito}', 
+                              Nir: '<c:out value="${RowListaUtentes[\'Nir\']}"/>', 
+                              isNirEmpty: ${empty RowListaUtentes.Nir},
+                              IiuId: '<c:out value="${RowListaUtentes[\'IiuId\']}"/>', 
+                              Niss: '<c:out value="${RowListaUtentes[\'Niss\']}"/>', 
+                              DtaNasc: '<c:out value="${RowListaUtentes[\'DtaNasc\']}"/>', 
+                              Numbenef: '<c:out value="${RowListaUtentes[\'Numbenef\']}"/>', 
+                              DtaNasc: '<c:out value="${RowListaUtentes[\'DtaNasc\']}"/>', 
+                              NomeNormalizado: '<c:out value="${RowListaUtentes[\'NomeNormalizado\']}"/>', 
+                              NumId: '<c:out value="${RowListaUtentes[\'NumId\']}"/>', 
+                              Niss: '<c:out value="${RowListaUtentes[\'Niss\']}"/>', 
+                              Numbenef: '<c:out value="${RowListaUtentes[\'Numbenef\']}"/>',
+                              Count: ${lineListaUtentes.count}
+                          }
+                      );
+                    ">
                       <td class="numeric"><c:out value="${RowListaUtentes[\'Nir\']}"/></td>
                       <td class="text"><c:out value="${RowListaUtentes[\'NomeCompleto\']}"/></td>
                       <td class="date"><c:out value="${RowListaUtentes[\'DtaNasc\']}"/></td>
                       <td class="text last"><c:out value="${RowListaUtentes[\'Niss\']}"/></td>
                     </tr>
+
                   </c:otherwise>
                 </c:choose>
 

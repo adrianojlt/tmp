@@ -50,22 +50,21 @@
         
         function retirarUtenteSessao(){
 
-            var answer = false;
-
             $.spmsDialog( 'confirm', 
                 { 
                     title: 'Confirmar?', 
                     message: "O Utente será retirado da sessão. Confirma? O Utente será retirado da sessão. Confirma?", 
-                    callback: function() { answer = true; } 
+                    callback: function() { 
+                        document.forms[0].action = "../idu/pesquisaUtente.do";
+                        document.getElementById('idEvent').value='RetirarUtenteSessao';
+                        document.forms[0].submit();
+                    } 
                 }
             );
 
             //if(confirm("O Utente será retirado da sessão. Confirma?")){
-            if( answer ){
-                document.forms[0].action = "../idu/pesquisaUtente.do";
-                document.getElementById('idEvent').value='RetirarUtenteSessao';
-                document.forms[0].submit();
-            }
+            //if( answer ){}
+            
             return false;
         }
         

@@ -4,26 +4,19 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt">
     <head>
-        <% 
-           String contextPath = request.getContextPath().replaceAll("/","");
-        %>
+
+        <% String contextPath = request.getContextPath().replaceAll("/",""); %>
+
         <jsp:include page="/com/head.jsp" flush="true"/>       
 
-        <!--
-        <title></title>
-        <script type="text/javascript" src="../js_cit_v3/pesquisa.js"></script>
-        -->
-    
-        <!--
-        <link rel="stylesheet" type="text/css" href="../css_cit_v3/cit_v3_base.css" title="style"/> 
-        <link rel="stylesheet" type="text/css" href="../css_cit_v3/cit_v3_bread.css" title="style"/>
-        <link rel="stylesheet" type="text/css" href="/<%=contextPath%>/css_cit_v3/datepicker.css" title="style"/>
-        -->
-
-        <!--<link href="../css_cit_v3/edicaoBaixa.css" rel="stylesheet" type="text/css" />-->
 
         <link href="../css_cit_v3/spms-grid.css" rel="stylesheet" type="text/css" />
         <link href="../css_cit_v3/spms-theme.css" rel="stylesheet" type="text/css" />
+
+
+        <style type="text/css" media="Screen"> 
+            .subTitle { box-sizing: border-box; width: 98%; }
+        </style>
 
         <!--
         <script type="text/javascript" src="../js_cit_v3/breadcrumb.js"></script>  
@@ -286,15 +279,19 @@
             }
         
             function voltar(){
+
                 var form = document.getElementById('formBaixa');
-                //splash(true);
-                if(document.getElementById('gitad').value == 'S'){ 
+
+                splash(true);
+
+                if( document.getElementById('gitad').value == 'S' ) { 
                     form.action='../git/edicaoBaixasUtente.do';
                 } else {
                     form.action='../git/baixasUtente.do';
                 }
+
                 form.submit();
-                return;
+                return true;
             }
         
             function genericAction (buttonPressed) {
@@ -439,7 +436,7 @@
                             </script>                     
                         </c:when>
                         <c:when test="${param['opcaoSeleccionada'] == 'Alterar'}">
-                            <div class="subTitle">Alterar Baixa</div>
+                            <div class="subTitle" style="">Alterar Baixa</div>
                             <input type="hidden" id="novaBaixa" name="novaBaixa" value="alterarBaixa" /> 
                             <script type="text/javascript">
                                 tipoRegisto = 'A';
@@ -567,7 +564,7 @@
                                     <div class="labelfield">Familiar doente
                                         <span style="color:#cc3333">*</span>
                                     </div> 
-                                    <div class="inputfield">
+                                    <div class="displayfield">
                                         <div id="nomeFamiliar" style="width:500px;"></div>
                                         <input id="inputFamiliarNome" type="hidden" name="inputFamiliarNome" value="${param['inputFamiliarNome']}" />
                                         <input id="inputFamiliarSelected" type="hidden" name="inputFamiliarSelected" value="${param['inputFamiliarSelected']}" />
@@ -582,7 +579,7 @@
                                     <div class="labelfield">Data nascimento
                                         <span style="color:#cc3333">*</span>
                                     </div> 
-                                    <div class="inputfield">
+                                    <div class="displayfield">
                                         <div id="dtaNascFamiliar"></div>
                                         <input id="inputFamiliarDtaNasc" type="hidden" name="inputFamiliarDtaNasc" value="${param['inputFamiliarDtaNasc']}" class="inputTextTwo" />
                                         <script type="text/javascript"> 
@@ -593,7 +590,7 @@
                                 </div>    
                                 <div class="col-1-6"> 
                                     <div class="labelfield">Parentesco</div> 
-                                    <div class="inputfield">                
+                                    <div class="displayfield">                
                                         <div id="parentescoFamiliar"></div>                             
                                         <input id="inputFamiliarIdParentesco" type="hidden" name="inputFamiliarIdParentesco" value="${param['inputFamiliarIdParentesco']}" />
                                         <input id="inputFamiliarOutroParentesco" type="hidden" name="inputFamiliarOutroParentesco" value="${param['inputFamiliarOutroParentesco']}" />
@@ -617,7 +614,7 @@
                                     <div class="labelfield">NISS familiar doente
                                         <span style="color:#cc3333">*</span>
                                     </div> 
-                                    <div class="inputfield">
+                                    <div class="displayfield">
                                         <div id="nissFamiliar"></div>
                                         <input id="inputFamiliarNiss" type="hidden" name="inputFamiliarNiss" value="${param['inputFamiliarNiss']}" />  
                                         <script type="text/javascript">
@@ -628,7 +625,7 @@
                                 </div>
                                 <div class="col-1-6"> 
                                     <div class="labelfield">NISS familiar impedido</div> 
-                                    <div class="inputfield" style="width: 80%; float: left;">
+                                    <div class="displayfield" style="width: 80%; float: left;">
                                         <div id="nissFamiliarImpedido" style="display: inline;"></div>
                                         <input type="hidden" name="inputnissFamiliarImpedido" id="inputnissFamiliarImpedido" value="${param['inputnissFamiliarImpedido']}" />    
                                         <script type="text/javascript">
@@ -692,7 +689,7 @@
                                         <input type="hidden" name="dp-dinicio" id="dp-dinicio" value="${param['dp-dinicio']}"  />
                                     </c:if>
                                 </div>
-                                <div class="col-1-8" style="width: 10%;"> 
+                                <div class="col-1-8" style="width: 12%;"> 
                                     <div class="labelfield">Nº de dias
                                         <c:if test="${param['opcaoSeleccionada'] == 'Nova Baixa'}">
                                             <span id="ast_num_dias" style="color:#cc3333">*</span>
@@ -701,7 +698,7 @@
                                             <span id="ast_num_dias" style="color:#cc3333;visibility:hidden">*</span>
                                         </c:if>
                                     </div> 
-                                    <input type="text" id="dp-dias" name="dp-dias" onkeypress="keyCheck(event,document.getElementById('dp-dtermo'));"  onBlur="controlNrDias(document.getElementById('dp-dinicio'),document.getElementById('dp-dtermo'),document.getElementById('dp-dias'));" value="${param['dp-dias']}"></input>
+                                    <input type="text" id="dp-dias" style="width: 80%" name="dp-dias" onkeypress="keyCheck(event,document.getElementById('dp-dtermo'));"  onBlur="controlNrDias(document.getElementById('dp-dinicio'),document.getElementById('dp-dtermo'),document.getElementById('dp-dias'));" value="${param['dp-dias']}"></input>
                                 </div>
                                 <div class="col-1-6"> 
                                     <div class="labelfield">Data de termo
@@ -721,10 +718,10 @@
                                     <div class="checkboxfield" style="line-height:23px">
                                         <c:choose>
                                             <c:when test="${param['internamento'] == 'on' || param['internamento'] == 'S'}">
-                                                <input style="margin-top:4px" type="radio" id="internamento" class="pesquisacheckbox" name="internamento" checked onclick="document.getElementById('cirurgiaAmbulatorio').checked=false;"><span style="padding-left: 5px;vertical-align: top;font-size: 14px;">Internamento</span></input>
+                                                <input style="margin-top:4px" type="checkbox" id="internamento" class="pesquisacheckbox" name="internamento" checked onclick="document.getElementById('cirurgiaAmbulatorio').checked=false;"><span style="padding-left: 5px;vertical-align: top;font-size: 14px;">Internamento</span></input>
                                             </c:when>
                                             <c:otherwise>
-                                                <input style="margin-top:4px" id="internamento" class="pesquisacheckbox" name="internamento" type="radio" onclick="document.getElementById('cirurgiaAmbulatorio').checked=false;"><span style="padding-left: 5px;vertical-align: top;font-size: 14px;">Internamento</span></input>
+                                                <input style="margin-top:4px" id="internamento" class="pesquisacheckbox" name="internamento" type="checkbox" onclick="document.getElementById('cirurgiaAmbulatorio').checked=false;"><span style="padding-left: 5px;vertical-align: top;font-size: 14px;">Internamento</span></input>
                                             </c:otherwise>
                                         </c:choose> 
                                         <!--<input type="checkbox" class=""> Internamento </input>-->
@@ -736,10 +733,10 @@
                                     <div class="checkboxfield" style="line-height:23px">
                                         <c:choose>
                                             <c:when test="${param['cirurgiaAmbulatorio'] == 'on' || param['cirurgiaAmbulatorio'] == 'S'}">
-                                                <input style="margin-top:4px" id="cirurgiaAmbulatorio" class="pesquisacheckbox" name="cirurgiaAmbulatorio" type="radio" checked onclick="document.getElementById('internamento').checked=false;"><span style="padding-left: 5px;vertical-align: top;font-size: 14px;">Cirurgia ambulatório</span></input>
+                                                <input style="margin-top:4px" id="cirurgiaAmbulatorio" class="pesquisacheckbox" name="cirurgiaAmbulatorio" type="checkbox" checked onclick="document.getElementById('internamento').checked=false;"><span style="padding-left: 5px;vertical-align: top;font-size: 14px;">Cirurgia ambulatório</span></input>
                                             </c:when>
                                             <c:otherwise>   
-                                                <input style="margin-top:4px" id="cirurgiaAmbulatorio" class="pesquisacheckbox" name="cirurgiaAmbulatorio" type="radio" onclick="document.getElementById('internamento').checked=false;"><span style="padding-left: 5px;vertical-align: top;font-size: 14px;">Cirurgia ambulatório</span></input>
+                                                <input style="margin-top:4px" id="cirurgiaAmbulatorio" class="pesquisacheckbox" name="cirurgiaAmbulatorio" type="checkbox" onclick="document.getElementById('internamento').checked=false;"><span style="padding-left: 5px;vertical-align: top;font-size: 14px;">Cirurgia ambulatório</span></input>
                                             </c:otherwise>
                                         </c:choose>
                                         <!--<input type="checkbox" class="" disabled> Cirugia ambulatório </input>-->
@@ -750,9 +747,9 @@
                                 </div>
                             </div>
                             <div class="row" style="*width: 100%;"> 
-                                <div class="col-1-6" style="width: 21%;"> 
+                                <div class="col-1-6" style="width: 18%;"> 
                                     <div class="labelfield"></div> 
-                                    <div class="checkboxfield" style="width: 70%; float:left;line-height:18px">
+                                    <div class="checkboxfield" style="width: 80%; float:left;line-height:18px">
                                         <c:choose>
                                             <c:when test="${param['autorizacao'] == 'on' || param['autorizacao'] == 'S' }">
                                                 <input style="margin-top:1px" id="autorizacao" name="autorizacao" type="checkbox" checked
@@ -784,13 +781,13 @@
                                     </div>
                                     <img alt="" title="Nos casos de incapacidade por doença, ao selecionar esta opção é obrigatório preencher a Justificação da necessidade de ausência do beneficiário do domicílio no horário estabelecido. O doente só pode ausentar-se do domicílio para tratamento. Em casos devidamente fundamentados o médico pode autorizar a ausência no período das 11 às 15h e das 18 às 21h."  style="padding-left:7px;padding-right:2px;padding-top:1 px; margin-top: 5px;" src="../imagens_cit_v3/info.png" align="top" />
                                 </div>
-                                <div class="col-4-5" style="width: 79%;*width: 76%"> 
+                                <div class="col-4-5" style="width: 82%;*width: 76%"> 
                                     <div class="labelfield">Justificação</div> 
                                     <!-- <div class="displayfield"></div> -->
                                     <!--<input type="text" class="" value="Autorização de saida"></input>-->
                                     <c:choose>
                                         <c:when test="${param['autorizacao'] == 'on' || param['autorizacao'] == 'S'}">
-                                            <input type="text" id="justificacao" class="inputTextEight" value="${param['justificacao']}" name="justificacao" maxlength="100" onblur="
+                                            <input type="text" id="justificacao" style="width: 65%;" class="inputTextEight" value="${param['justificacao']}" name="justificacao" maxlength="100" onblur="
                                                                                                                                                                                         if(this.value.length>0 && this.value != 'Não está autorizado a sair'){
                                                                                                                                                                                             document.getElementById('autorizacao').checked = true;
                                                                                                                                                                                         } else {
@@ -799,7 +796,7 @@
                                             "/>
                                         </c:when>
                                         <c:otherwise>
-                                            <input type="text" id="justificacao" class="inputTextEight" value="Não está autorizado a sair" name="justificacao"  maxlength="100" onblur="
+                                            <input type="text" id="justificacao" style="width: 65%;" class="inputTextEight" value="Não está autorizado a sair" name="justificacao"  maxlength="100" onblur="
                                                                                                                                                                                         if(this.value.length>0 && this.value != 'Não está autorizado a sair'){
                                                                                                                                                                                             document.getElementById('autorizacao').checked = true;
                                                                                                                                                                                         } else {

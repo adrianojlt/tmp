@@ -424,10 +424,13 @@
     
     // -- funcao para filtrar introducao de dados e deixar apenas colocar valores numericos
     function noAlpha(obj){
-        reg = /[^\d+$]/g;
-        //var reg = /^\d+$/;
-        if(obj.value.search(reg)!=-1)        
-        obj.value =  obj.value.replace(reg,"");
+
+        //gObj = obj;
+        //reg = /[^\d+$]/g;
+        reg = /[^\d]/g;
+
+        if( obj.value.search(reg) != -1 )        
+            obj.value =  obj.value.replace(reg,"");
     }
     
     // -- funcao para filtrar introducao de datas e deixar apenas colocar valores com a formatacao correcta
@@ -445,15 +448,15 @@
                 keycode = 8;
                 type = "blur";
             }
-	} else if (evt) {
-            if ( evt.which != null ) {
-                keycode = evt.which;
-            }
-            if ( evt.type == 'blur' ) {
-                keycode = 8;
-                type = "blur";
-            }
-	}
+    	} else if (evt) {
+                if ( evt.which != null ) {
+                    keycode = evt.which;
+                }
+                if ( evt.type == 'blur' ) {
+                    keycode = 8;
+                    type = "blur";
+                }
+    	}
         
         if ( keycode != 8 ) {
             if ( valor.length < 10 ) {

@@ -172,11 +172,16 @@ function controlDataFim(dataInicio, dataFim, NrDias) {
 
  //Control the values on the field dp-dNrDias
 function controlNrDias(dataInicio, dataFim, nrDias) {
+
+    gNrDias = nrDias;
+
     //Check if NrDias is Number
-    if (!isNumber(nrDias.value) || nrDias.value == '') {
-        if (!isNumber(nrDias.value)) {
-            alert('Número de Dias inválido!');
-        }
+    if ( !isNumber(nrDias.value) || nrDias.value == '' ) {
+
+        //if (!isNumber(nrDias.value)) {}
+        //alert('Número de Dias inválido!');
+       $.spmsDialog('warning', { title: 'Aviso', message: 'Número de Dias inválido!'});
+
         nrDias.value  = '';
         dataFim.value = '';
         ast_num_dias.style.visibility = "visible";
@@ -193,6 +198,19 @@ function controlNrDias(dataInicio, dataFim, nrDias) {
         dataFim.value = addDaysToDate(dataInicio.value,nrDias.value - 1).format('dd-MM-yyyy');
         ast_num_dias.style.visibility = "hidden";
         ast_data_termo.style.visibility = "hidden";
+    }
+
+    // ... to long 
+    if ( nrDias.value.length > 3 ) {
+
+      //alert('to long ...');
+       $.spmsDialog('warning', { title: 'Aviso', message: 'Número de dias demasiado longo!'});
+
+      nrDias.value  = '';
+      dataFim.value = '';
+      ast_num_dias.style.visibility = "visible";
+      ast_data_termo.style.visibility = "visible";
+      return false;
     }
 }
 
@@ -282,8 +300,10 @@ function dataInicioProValida(){
 
 
 function verifyChange(param){
-    var divSucesso = document.getElementById("sucess");
-    if (divSucesso){
-        divSucesso.style.display="block";
+    if(param){
+        var divSucesso = document.getElementById("sucess");
+        if (divSucesso){
+            divSucesso.style.display="block";
+        }
     }
 }

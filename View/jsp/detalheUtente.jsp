@@ -4,26 +4,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html>
+
   <head>
 
     <base target="_self">
 
     <title>Detalhe Utente</title>
-
-    <%-- <jsp:include page="/com/head.jsp" flush="true"/> --%>
-
-    <!-- <link rel="stylesheet" type="text/css" href="../css/featuredcontentglider.css" /> -->
-
-    <!--
-    <script type="text/javascript" src="../js/jquery-1.2.2.pack.js"></script>
-    <script type="text/javascript" src="../js/featuredcontentglider.js"></script>
-    -->
-
-
-    <!--
-    <link rel="stylesheet" type="text/css" href="../css_cit_v3/cit_v3_base.css" title="style"/>
-    <link rel="stylesheet" type="text/css" href="../css_cit_v3/cit_v3_bread.css" title="style"/>
-    -->
 
     <link href="../css_cit_v3/spms-grid.css" rel="stylesheet" type="text/css" />
     <link href="../css_cit_v3/spms-theme.css" rel="stylesheet" type="text/css" />
@@ -40,6 +26,23 @@
 
       .spms { width: 100%; }
 
+      #tabelaIsencoes {
+        width: 100%;
+        text-align: right;
+      }
+
+      #tabelaIsencoes span {
+        font-family: Verdana;
+        font-size: 12px;
+        font-weight: normal;
+        white-space: normal;
+        text-decoration: none;
+        color: gray;
+        padding-left: 4px;
+        padding-right: 4px;
+        margin-bottom: 0px;
+      }
+
       /*** IE7 Fixes ***/
       ul.tabnav li { *width: 19.3%; }
       .border { *width: 95.8%; }
@@ -51,9 +54,10 @@
     <script type="text/javascript" src="../js_cit_v3/breadcrumb.js"></script>  
     <script type="text/javascript" src="../js_cit_v3/user.js"></script>  
     <script type="text/javascript" src="../js_cit_v3/tabnavigation.js"></script>  
+
   </head>
 
-<body onload="/*splash(false);*/ setAllReadOnly();">
+<body onload="/*splash(false); setAllReadOnly();*/">
 
 <div class="spms">
 
@@ -67,9 +71,11 @@
   <div class="container">
 
     <div class="row">
+
       <div class="col-1"> 
         <div class="subtitle">DADOS PESSOAIS</div>
       </div>
+
     </div>
 
     <div class="row">
@@ -138,7 +144,6 @@
 
 
 
-
     <div id="tabcontainer" class="tabcontainer">
       <ul class="tabnav">
           <li><a href="#" onclick="" class="active">Inscrição</a></li>
@@ -150,7 +155,6 @@
     </div>
 
     <div class="border"></div>
-
 
 
 
@@ -188,7 +192,7 @@
         </div>
 
         <div class="col-3-4" style="*width: 70%;"> 
-          <div class="labelfield">.</div> 
+          <div class="labelfield"></div> 
           <div class="displayfield"><c:out value="${bindings.InscricaoActiva.ProEquipaNome}"/></div> 
         </div>
 
@@ -301,7 +305,7 @@
         </div>
 
         <div class="col-1-8" style="*width: 8.5%;"> 
-          <div class="labelfield">.</div> 
+          <div class="labelfield"></div> 
           <div class="displayfield"><c:out value="${Row.CodPostal2}"/></div> 
         </div>
 
@@ -385,6 +389,21 @@
 
           <c:choose>
               <c:when test="${not empty bindings.ListaBeneficiosDoUtente.currentRow }">
+
+              <table id="tabelaIsencoes">
+                <tbody>
+                  <tr class="navigation">
+                    <td colspan="3">
+                      <jsp:include page="/com/navigationList.jsp" flush="true">
+                        <jsp:param name="rangeBindingName" value="ListaBeneficiosDoUtente"/>                      
+                        <jsp:param name="listaNumRowsName" value="idu.listaBeneficiosUtenteNumRows"/>
+                        <jsp:param name="targetPageName" value="detalheUtente.do"/>
+                      </jsp:include> 
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
               <table id="readOnlyTable" class="spms-table" cellpadding="0" cellspacing="0" border="1">
                   <!--<thead/>-->
                   <thead>
@@ -418,20 +437,6 @@
                       <tr class="navigation">
                      </tr>
                   </tbody>
-              </table>
-
-               <table>
-                <tbody>
-                  <tr class="navigation">
-                    <td colspan="3">
-                      <jsp:include page="/com/navigationList.jsp" flush="true">
-                        <jsp:param name="rangeBindingName" value="ListaBeneficiosDoUtente"/>                      
-                        <jsp:param name="listaNumRowsName" value="idu.listaBeneficiosUtenteNumRows"/>
-                        <jsp:param name="targetPageName" value="detalheUtente.do"/>
-                      </jsp:include> 
-                    </td>
-                  </tr>
-                </tbody>
               </table>
 
               </c:when>
@@ -508,8 +513,6 @@
 
   </c:forEach>
   </div><!--#END .container -->
-
-
 
 
 

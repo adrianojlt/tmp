@@ -5,7 +5,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="pt">
     <head>
-        <title>CIT</title>
+        <title>Registo Nacional de Certificados de Incapacidade Temporária</title>
         <jsp:include page="head.jsp"/>
         <c:set var="logoutReason" value="${param.reason}"/>
         <c:choose>
@@ -14,7 +14,7 @@
             </c:when>
         </c:choose>
     </head>
-    <body><!-- onLoad="splash(false);">-->
+    <body>
         <div id="preload" class="splashDiv"></div>
         <div id="splash" class="loadDiv">
         <script type="text/javascript">
@@ -30,39 +30,14 @@
                 <c:otherwise>
                     <%
                         String contextPath = request.getContextPath().replaceAll("/","");
-                        String index = "/" + contextPath + "/pub/login,do";
+                        String index = "/" + contextPath + "/";
                         response.setHeader("Osso-Return-Url", index);
-                        response.sendRedirect(request.getContextPath() + "/login.do");
                         try{
-                          request.getSession(false).invalidate();
-                          } catch(Exception e){
-                        } finally {
-                            try {
-                                Cookie cookies[] = request.getCookies();  
-                                if(cookies!=null){
-                                    for (int i = 0 ; i < cookies.length ; i++){
-                                        if(cookies[i]!=null){
-                                            String nome = cookies[i].getName();
-                                            // System.out.println("nome: " + nome);
-                                            if(nome!=null){
-                                                if(nome.equalsIgnoreCase("JSESSIONID")){
-                                                   cookies[i].setMaxAge(0);
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-
-                            } catch(Exception ec){
-                              ec.printStackTrace();
-                            }
-                        }
+                        request.getSession(false).invalidate();
+                        }catch(Exception e){ }
                         // Send Dynamic Directive for logout
-                       response.sendError(470, "Oracle SSO");
-                        request.getSession();
-
+                        response.sendError(470, "Oracle SSO");
                     %>  
-                                             
                 </c:otherwise>
             </c:choose>
         </span>

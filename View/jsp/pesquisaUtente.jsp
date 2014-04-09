@@ -252,11 +252,11 @@
                                                 <c:out value="${Row.Nir}"/>                                
                                             </td>
 
-                                            <td id="nomeUtente" class="text pesquisaresultados tdResize" title="${Row.NomeCompleto}" style="width:10%;">
+                                            <td id="nomeUtente" class="text pesquisaresultados tdResize" title="${Row.NomeCompleto}" style="width:25%;">
                                                 <c:out value="${Row.NomeCompleto}"/>
                                             </td>                                                                                        
 
-                                            <td class="date pesquisaresultados" style="width:7%;">
+                                            <td class="date pesquisaresultados" style="width:10%;">
                                                 <c:out value="${Row.DtaNasc}"/>
                                             </td>
 

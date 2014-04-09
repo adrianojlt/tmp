@@ -10,11 +10,6 @@
         <script type="text/javascript" src="../js/xp_progress.js"></script>        
     </head>
     <body onLoad="splash(false);">
-            <div><a id="redirectLink" class="headerLink" href="<%=request.getContextPath()%>/git/baixasUtente.do"></a></div>
-    <script type="text/javascript">
-        var link = document.getElementById("redirectLink").href;
-       // window.location=link;
-    </script> 
         <div id="preload" class="splashDiv"></div>
         <div id="splash" class="loadDiv">
             <script type="text/javascript">

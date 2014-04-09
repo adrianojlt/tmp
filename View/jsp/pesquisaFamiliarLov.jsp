@@ -5,7 +5,14 @@
  
 <html>
   <head>
+
     <title>Pesquisa de Familiar CITv3</title>
+
+    <style type="text/css" media="Screen"> 
+        body {
+            height: 600px;
+        }
+    </style>
 
     <% String contextPath = request.getContextPath().replaceAll("/",""); %>
     <link rel="stylesheet" type="text/css" href="/<%=contextPath%>/css_cit_v3/datepicker.css" title="style"/>
@@ -177,23 +184,30 @@
             if (data == '') {
                 return true;
             }
+
+            //if ( dateBeforeToday(data) ) {}
+
             return Date.isValid(data,'dd-MM-yyyy');
         }
         
         //Verifica se a data fornecida é anterior à data actual. Se sim, retorna true.
         function dateBeforeToday(date) {
+
+            //gDate = date;
+
             var dataH = new Date();
             var diaHoje = dataH.getUTCDate();
             var mesHoje = dataH.getMonth() + 1; // +1 porque os meses começam em 0
 
-            if(mesHoje<10){
+            if( mesHoje < 10 ){
                 mesHoje = '0' + mesHoje;
             }
+
             var anoHoje = dataH.getFullYear();
             var dataHoje = diaHoje + '-' + mesHoje + '-' + anoHoje;
             
             var dateObject1 = Date.parseString (date,"dd-MM-yyyy");
-            var dateObject2 = Date.parseString (dataHoje,"dd-MM-yyyy");
+            var dateObject2 = Date.parseString (dataHoje,"d-MM-yyyy");
             
             var one_day=1000*60*60*24;
             var diffData = Math.floor((dateObject1.getTime()-dateObject2.getTime())/(one_day));
@@ -233,7 +247,9 @@
                      }
                   }
                 } else {
-                    document.getElementById('divPesquisaUtente').innerHTML = '<img src="../imagens_cit_v3/ajax-loader.gif" alt="Loading..." />';
+                    var div = document.getElementById('divPesquisaUtente');
+                    div.innerHTML = '<img src="../imagens_cit_v3/ajax-loader.gif" alt="Loading..." />';
+                    div.style.display = "block";
                 }
                  return true;
         }
@@ -294,7 +310,7 @@
                   }
                } else {
                     var div = document.getElementById('divEsperaNissFamiliarImpedido');
-                    div.innerHTML = '<img src="../img/ajax-loader.gif" alt="Loading..." />';
+                    div.innerHTML = '<img src="../imagens_cit_v3/ajax-loader.gif" alt="Loading..." />';
                     div.style.display = "block";
                }
              return true;
