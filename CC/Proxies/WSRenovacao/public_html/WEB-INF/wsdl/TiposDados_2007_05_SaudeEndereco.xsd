@@ -1,0 +1,185 @@
+<xs:schema xmlns:cm="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" xmlns="http://www.min-saude.pt/schemas/TiposDados/2007/05/Endereco"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:md="http://www.min-saude.pt/schemas/Metadata/2006/11"
+     targetNamespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Endereco" elementFormDefault="qualified"
+     attributeFormDefault="unqualified" version="1">
+    <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" schemaLocation="TiposDados_2007_05_SaudeComum.xsd"/>
+    <xs:complexType name="EstruturaMorada">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:choice>
+                <xs:element name="Portuguesa" type="EstruturaMoradaPortuguesa"/>
+                <xs:element name="Estrangeira" type="EstruturaMoradaEstrangeira"/>
+            </xs:choice>
+            <xs:element name="Versao" type="TipoVersaoMorada"/>
+            <xs:element name="Estado" type="TipoEstadoMorada"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="TipoVersaoMorada">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{6}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoEstadoMorada">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Securizado">
+                <xs:annotation/>
+            </xs:enumeration>
+            <xs:enumeration value="Temporario">
+                <xs:annotation/>
+            </xs:enumeration>
+            <xs:enumeration value="Indeterminado">
+                <xs:annotation/>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EstruturaMoradaPortuguesa">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:element name="DistritoConcelhoFreguesia" type="TipoDistritoConcelhoFreguesia"/>
+            <xs:element name="ViaTipo" type="TipoViaTipo" minOccurs="0"/>
+            <xs:element name="ViaDesignacao" type="TipoViaDesignacao" minOccurs="0"/>
+            <xs:element name="EdificioTipo" type="TipoEdificioTipo" minOccurs="0"/>
+            <xs:element name="Porta" type="TipoPorta" minOccurs="0"/>
+            <xs:element name="Andar" type="TipoAndar" minOccurs="0"/>
+            <xs:element name="Lado" type="TipoLado" minOccurs="0"/>
+            <xs:element name="Lugar" type="TipoLugar" minOccurs="0"/>
+            <xs:element name="CodigoPostalPortugues" type="EstruturaCodigoPostalPortugues"/>
+            <xs:element name="Localidade" type="TipoLocalidade"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="TipoPais">
+        <xs:annotation>
+            <xs:documentation>Código de País de acordo com a norma ISO3166-1
+        (http://www.iso.org/iso/en/prods-services/iso3166ma/index.html)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z]{2}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoDistritoConcelhoFreguesia">
+        <xs:annotation>
+            <xs:documentation>Representa o conjunto Distrito, Concelho e Freguesia conforme especificado pelo
+        INE no Codigo da Divisao Administrativa (http://www.ine.pt/prodserv/nomenclaturas/refter/div_admin.htm)</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="6"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoViaTipo">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoViaDesignacao">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoEdificioTipo">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoPorta">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoAndar">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoLado">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoLugar">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoLocalidade">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EstruturaCodigoPostalPortugues">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:element name="CodigoPostal" type="TipoCodigoPostal"/>
+            <xs:element name="AreaFuncional" type="TipoAreaFuncional" minOccurs="0"/>
+            <xs:element name="LocalidadePostal" type="TipoLocalidadePostal"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="TipoCodigoPostal">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{4}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoAreaFuncional">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoLocalidadePostal">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EstruturaMoradaEstrangeira">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:element name="Pais" type="TipoPais"/>
+            <xs:element name="Endereco" type="TipoEnderecoEstrangeiro"/>
+            <xs:element name="Cidade" type="TipoCidadeEstrangeira" minOccurs="0"/>
+            <xs:element name="Regiao" type="TipoRegiaoEstrangeira" minOccurs="0"/>
+            <xs:element name="CodigoPostal" type="TipoCodigoPostalEstrangeiro"/>
+            <xs:element name="Localidade" type="TipoLocalidadeEstrangeira"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="TipoRegiaoEstrangeira">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCidadeEstrangeira">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoLocalidadeEstrangeira">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoCodigoPostalEstrangeiro">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoEnderecoEstrangeiro">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="150"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,438 @@
+<definitions
+     name="DynamicGatewayService"
+     targetNamespace="http://dynamicgateway.fsc.pt.gov.interop/"
+     xmlns="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="http://dynamicgateway.fsc.pt.gov.interop/"
+     xmlns:wsaw="http://schemas.xmlsoap.org/ws/2003/03/addressing"
+     xmlns:ens="http://www.min-saude.pt/schemas/CartaoCidadao/2007/05"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cc="http://www.min-saude.pt/schemas/CartaoCidadao/2007/05"
+             xmlns:cid="http://www.min-saude.pt/schemas/TiposDados/2007/05/Cidadao" xmlns:cm="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum"
+             xmlns:con="http://www.min-saude.pt/schemas/TiposDados/2007/05/Contacto" xmlns:cript="http://www.min-saude.pt/schemas/TiposDados/2007/05/Criptografia"
+             xmlns:crt="http://www.min-saude.pt/schemas/CartaoCidadao/2007/05/DadosCartao"
+             xmlns:end="http://www.min-saude.pt/schemas/TiposDados/2007/05/Endereco" xmlns:geo="http://www.min-saude.pt/schemas/TiposDados/2007/05/Geografia"
+             xmlns:md="http://www.min-saude.pt/schemas/Metadata/2006/11" xmlns:pes="http://www.min-saude.pt/schemas/TiposDados/2007/05/Pessoa"
+             attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.min-saude.pt/schemas/CartaoCidadao/2007/05"
+             version="3">
+            <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" schemaLocation="TiposDados_2007_05_SaudeComum.xsd"/>
+            <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Endereco"
+                 schemaLocation="TiposDados_2007_05_SaudeEndereco.xsd"/>
+            <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Contacto"
+                 schemaLocation="TiposDados_2007_05_SaudeContacto.xsd"/>
+            <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Pessoa" schemaLocation="TiposDados_2007_05_SaudePessoa.xsd"/>
+            <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Cidadao"
+                 schemaLocation="TiposDados_2007_05_SaudeCidadao.xsd"/>
+            <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Geografia"
+                 schemaLocation="TiposDados_2007_05_SaudeGeografia.xsd"/>
+            <xs:import namespace="http://schemas.xmlsoap.org/ws/2003/03/addressing" schemaLocation="ws_addressing.xsd"/>
+            <xs:element name="DummyOutput">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ReturnValue" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCRenovacaoIdentificarCidadao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="Prioridade" type="cc:TipoPrioridade">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="DetalhesCidadao" type="cc:EstruturaDetalhesCidadaoSaude">
+                            <xs:annotation/>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCRenovacaoResolucaoPendenciaIdentificarCidadao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCRenovacaoRespostaIdentificarCidadao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="Prioridade" type="cc:TipoPrioridade">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="EstadoProcesso" type="cc:EstruturaEstadoProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="NSNS" type="cid:TipoNSNS" minOccurs="0">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="NSNSActivo" type="cid:TipoNSNS" minOccurs="0">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="Cidadaos" type="cc:EstruturaListaCidadaosSaude" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCRenovacaoRespostaNotificarIdentificacaoCidadao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="Prioridade" type="cc:TipoPrioridade">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="EstadoProcesso" type="cc:EstruturaEstadoProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="NSNSActivo" type="cid:TipoNSNS" minOccurs="0">
+                            <xs:annotation/>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCIdentificarCidadao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation>
+                                <xs:documentation>Número de Processo de Pedido de CC</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="Prioridade" type="cc:TipoPrioridade">
+                            <xs:annotation>
+                                <xs:documentation>Prioridade do pedido</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                        <xs:element name="DetalhesCidadao" type="cc:EstruturaDetalhesCidadaoSaude">
+                            <xs:annotation>
+                                <xs:documentation>Detalhes do Cidadão</xs:documentation>
+                            </xs:annotation>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCResolucaoPendenciaIdentificarCidadao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCRespostaIdentificarCidadao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="Prioridade" type="cc:TipoPrioridade">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="EstadoProcesso" type="cc:EstruturaEstadoProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="NSNS" type="cid:TipoNSNS" minOccurs="0">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="NSNSActivo" type="cid:TipoNSNS" minOccurs="0">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="Cidadaos" type="cc:EstruturaListaCidadaosSaude" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCRespostaNotificarIdentificacaoCidadao">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="Prioridade" type="cc:TipoPrioridade">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="EstadoProcesso" type="cc:EstruturaEstadoProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="NSNSActivo" type="cid:TipoNSNS" minOccurs="0">
+                            <xs:annotation/>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCConsultaEstadoProcesso">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCRespostaConsultaEstadoProcessoProxy">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="EstadoProcesso" type="cc:EstruturaEstadoProcesso" minOccurs="0"/>
+                        <xs:element name="ProcessoRecebido" type="xs:boolean"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCReenvioProcesso">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="SaudeCCRespostaReenvioProcesso">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NumeroProcesso" type="cc:TipoNumeroProcesso">
+                            <xs:annotation/>
+                        </xs:element>
+                        <xs:element name="EstadoProcesso" type="cc:EstruturaEstadoProcesso" minOccurs="0"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:simpleType name="TipoPrioridade">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Normal">
+                        <xs:annotation/>
+                    </xs:enumeration>
+                    <xs:enumeration value="Urgente">
+                        <xs:annotation/>
+                    </xs:enumeration>
+                    <xs:enumeration value="ExtremoUrgente">
+                        <xs:annotation/>
+                    </xs:enumeration>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TipoNumeroProcesso">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:length value="16"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="EstruturaEstado">
+                <xs:annotation/>
+                <xs:sequence>
+                    <xs:element name="Codigo" type="cc:TipoCodigoEstado"/>
+                    <xs:element name="SubCodigo" type="cc:TipoSubCodigoEstado"/>
+                    <xs:element name="Mensagem" type="cc:TipoMensagemEstado"/>
+                    <xs:element name="DataHora" type="cm:TipoDataHora"/>
+                    <xs:element name="InformacaoAdicional" type="cc:TipoInformacaoAdicionalEstado"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="TipoCodigoEstado">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="10"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TipoSubCodigoEstado">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="10"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TipoMensagemEstado">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="250"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="EstruturaEstadoProcesso">
+                <xs:annotation/>
+                <xs:sequence>
+                    <xs:element name="Entidade" type="cc:TipoEntidade"/>
+                    <xs:element name="Estado" type="cc:TipoEstado"/>
+                    <xs:element name="Motivo" type="cc:TipoMotivo"/>
+                    <xs:element name="DataHora" type="cm:TipoDataHora"/>
+                    <xs:element minOccurs="0" name="InformacaoAdicional" type="cc:TipoInformacaoAdicionalEstado"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="TipoEntidade">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="6"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TipoEstado">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="6"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TipoMotivo">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="6"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TipoInformacaoAdicionalEstado">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="250"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TipoSubSistemaSaude">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="20"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TipoNumeroSubSistemaSaude">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="20"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="EstruturaIdentificacaoSubSistemaSaude">
+                <xs:sequence>
+                    <xs:element name="SubSistema" type="cc:TipoSubSistemaSaude"/>
+                    <xs:element minOccurs="0" name="Numero" type="cc:TipoNumeroSubSistemaSaude"/>
+                    <xs:element minOccurs="0" name="DataValidade" type="cm:TipoData"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="EstruturaDetalhesCidadaoSaude">
+                <xs:annotation/>
+                <xs:sequence>
+                    <xs:element name="Inscrito" type="cc:TipoCidadaoInscrito"/>
+                    <xs:element name="PretendeInscricao" type="cc:TipoPretendeInscricao"/>
+                    <xs:element minOccurs="0" name="ApresentaDocumento" type="cm:TipoBooleano"/>
+                    <xs:element minOccurs="0" name="NSNS" type="cid:TipoNSNS"/>
+                    <xs:element minOccurs="0" name="SubSistemaSaude" type="cc:EstruturaIdentificacaoSubSistemaSaude"/>
+                    <xs:element name="Cidadao" type="cc:EstruturaDetalhesCidadao"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="EstruturaListaCidadaosSaude">
+                <xs:annotation/>
+                <xs:sequence>
+                    <xs:element maxOccurs="5" name="DetalhesCidadao" type="cc:EstruturaDetalhesCidadaoSaude"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="xEstruturaIdentificacaoCidadaosSaude">
+                <xs:annotation/>
+                <xs:sequence>
+                    <xs:element name="NSNS" type="cid:TipoNSNS">
+                        <xs:annotation/>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="NSNSReferencia" type="cid:TipoNSNS">
+                        <xs:annotation/>
+                    </xs:element>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:simpleType name="TipoCidadaoInscrito">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Sim"/>
+                    <xs:enumeration value="Nao"/>
+                    <xs:enumeration value="NaoSabe"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:simpleType name="TipoPretendeInscricao">
+                <xs:annotation/>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Sim"/>
+                    <xs:enumeration value="Nao"/>
+                    <xs:enumeration value="NaoRelevante"/>
+                </xs:restriction>
+            </xs:simpleType>
+            <xs:complexType name="EstruturaHistoricoNome">
+                <xs:annotation/>
+                <xs:sequence>
+                    <xs:element maxOccurs="3" name="Nome" type="pes:EstruturaNome"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="EstruturaDetalhesCidadao">
+                <xs:annotation/>
+                <xs:sequence>
+                    <xs:element name="Nome" type="pes:EstruturaNome"/>
+                    <xs:element minOccurs="0" name="HistoricoNomes" type="cc:EstruturaHistoricoNome">
+                        <xs:annotation/>
+                    </xs:element>
+                    <xs:element name="DataNascimento" type="cm:TipoData"/>
+                    <xs:element name="Sexo" type="pes:TipoSexo"/>
+                    <xs:element name="Nacionalidade" type="pes:TipoNacionalidade"/>
+                    <xs:element name="EstadoCivil" type="pes:TipoEstadoCivil"/>
+                    <xs:element minOccurs="0" name="FiliacaoPai" type="pes:EstruturaNome"/>
+                    <xs:element minOccurs="0" name="FiliacaoMae" type="pes:EstruturaNome"/>
+                    <xs:element name="Naturalidade" type="pes:EstruturaNaturalidade"/>
+                    <xs:element minOccurs="0" name="Contactos" type="cc:EstruturaContactosCidadao"/>
+                    <xs:element name="Morada" type="end:EstruturaMorada"/>
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="EstruturaContactosCidadao">
+                <xs:annotation/>
+                <xs:sequence>
+                    <xs:element minOccurs="0" name="TelefoneFixo" type="con:EstruturaTelefone"/>
+                    <xs:element minOccurs="0" name="TelefoneMovel" type="con:EstruturaTelefone"/>
+                    <xs:element minOccurs="0" name="CorreioElectronico" type="con:TipoCorreioElectronico"/>
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </types>
+    <message name="SaudeCCRespostaConsultaEstadoProcessoProxy">
+        <part name="SaudeCCRespostaConsultaEstadoProcessoProxyParameters" element="ens:SaudeCCRespostaConsultaEstadoProcessoProxy"/>
+    </message>
+    <message name="SaudeCCRespostaConsultaEstadoProcessoProxyResponse">
+        <part name="output" element="ens:DummyOutput"/>
+    </message>
+    <message name="WSAReplyToHeader">
+        <part name="ReplyTo" element="wsaw:ReplyTo"/>
+    </message>
+    <message name="WSAToHeader">
+        <part name="To" element="wsaw:To"/>
+    </message>
+    <message name="WSARelatesToHeader">
+        <part name="RelatesTo" element="wsaw:RelatesTo"/>
+    </message>
+    <message name="WSAMessageIDHeader">
+        <part name="MessageID" element="wsaw:MessageID"/>
+    </message>
+    <message name="WSAActionHeader">
+        <part name="Action" element="wsaw:Action"/>
+    </message>
+    <portType name="SaudeCCRespostaConsultaEstadoProcessoProxyType">
+        <operation name="SaudeCCRespostaConsultaEstadoProcessoProxy">
+            <input message="tns:SaudeCCRespostaConsultaEstadoProcessoProxy"/>
+            <output message="tns:SaudeCCRespostaConsultaEstadoProcessoProxyResponse"/>
+        </operation>
+    </portType>
+    <binding name="SaudeCCRespostaConsultaEstadoProcessoProxyPortBinding" type="tns:SaudeCCRespostaConsultaEstadoProcessoProxyType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsaw:UsingAddressing/>
+        <operation name="SaudeCCRespostaConsultaEstadoProcessoProxy">
+            <soap:operation soapAction="http://dynamicgateway.fsc.pt.gov.interop/SaudeCCRespostaConsultaEstadoProcessoProxy"/>
+            <input>
+                <soap:header message="tns:WSAMessageIDHeader" part="MessageID" use="literal"/>
+                <soap:header message="tns:WSARelatesToHeader" part="RelatesTo" use="literal" encodingStyle=""/>
+                <soap:header message="tns:WSAActionHeader" part="Action" use="literal"/>
+                <soap:header message="tns:WSAToHeader" part="To" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="SaudeCCRespostaConsultaEstadoProcessoProxyService">
+        <port name="SaudeCCRespostaConsultaEstadoProcessoProxyPort" binding="tns:SaudeCCRespostaConsultaEstadoProcessoProxyPortBinding">
+            <soap:address location="http://PMSINUS11:8888/SaudeProxyServicesWSA-WSCCEstadoProcesso-context-root/SaudeCCRespostaConsultaEstadoProcessoProxyPort"/>
+        </port>
+    </service>
+</definitions>

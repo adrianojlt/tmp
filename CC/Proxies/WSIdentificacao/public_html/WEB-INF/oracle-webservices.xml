@@ -1,0 +1,9 @@
+<oracle-webservices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://xmlns.oracle.com/oracleas/schema/oracle-webservices-10_0.xsd">
+    <webservice-description name="SaudeCCRespostaIdentificarCidadaoProxyService">
+        <port-component name="SaudeCCRespostaIdentificarCidadaoProxyPort">
+            <operations>
+                <operation name="SaudeCCRespostaIdentificarCidadaoProxy" input="{http://www.min-saude.pt/schemas/CartaoCidadao/2007/05}SaudeCCRespostaIdentificarCidadaoProxy"/>
+            </operations>
+        </port-component>
+    </webservice-description>
+</oracle-webservices>

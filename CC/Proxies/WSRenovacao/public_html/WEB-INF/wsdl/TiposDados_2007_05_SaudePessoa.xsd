@@ -1,0 +1,102 @@
+<xs:schema xmlns:cm="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" xmlns:end="http://www.min-saude.pt/schemas/TiposDados/2007/05/Endereco"
+     xmlns:geo="http://www.min-saude.pt/schemas/TiposDados/2007/05/Geografia" xmlns="http://www.min-saude.pt/schemas/TiposDados/2007/05/Pessoa"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:md="http://www.min-saude.pt/schemas/Metadata/2006/11"
+     targetNamespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Pessoa" elementFormDefault="qualified"
+     attributeFormDefault="unqualified" version="1">
+    <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" schemaLocation="TiposDados_2007_05_SaudeComum.xsd"/>
+    <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Endereco" schemaLocation="TiposDados_2007_05_SaudeEndereco.xsd"/>
+    <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Geografia" schemaLocation="TiposDados_2007_05_SaudeGeografia.xsd"/>
+    <xs:simpleType name="TipoSexo">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Feminino"/>
+            <xs:enumeration value="Masculino"/>
+            <xs:enumeration value="Indefinido"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoEstadoCivil">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Solteiro"/>
+            <xs:enumeration value="Casado"/>
+            <xs:enumeration value="Outro">
+                <xs:annotation/>
+            </xs:enumeration>
+            <xs:enumeration value="Divorciado"/>
+            <xs:enumeration value="SeparadoJudicialmente">
+                <xs:annotation/>
+            </xs:enumeration>
+            <xs:enumeration value="Viuvo"/>
+            <xs:enumeration value="Indeterminado">
+                <xs:annotation/>
+            </xs:enumeration>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EstruturaNome">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:element name="NomeProprio" type="TipoNomeProprio"/>
+            <xs:element name="Apelido" type="TipoApelido" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="TipoNomeProprio">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoApelido">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="110"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EstruturaNaturalidade">
+        <xs:annotation/>
+        <xs:choice>
+            <xs:element name="Portuguesa" type="EstruturaNaturalidadePortuguesa"/>
+            <xs:element name="Estrangeira" type="EstruturaNaturalidadeEstrangeira"/>
+            <xs:element name="Bordo" type="EstruturaNaturalidadeBordo">
+                <xs:annotation/>
+            </xs:element>
+        </xs:choice>
+    </xs:complexType>
+    <xs:complexType name="EstruturaNaturalidadePortuguesa">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:element name="Pais" type="end:TipoPais"/>
+            <xs:element name="DistritoConcelhoFreguesia" type="end:TipoDistritoConcelhoFreguesia"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EstruturaNaturalidadeEstrangeira">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:element name="Pais" type="end:TipoPais"/>
+            <xs:element name="Regiao" type="end:TipoRegiaoEstrangeira" minOccurs="0"/>
+            <xs:element name="Cidade" type="end:TipoCidadeEstrangeira" minOccurs="0"/>
+            <xs:element name="Localidade" type="end:TipoLocalidadeEstrangeira" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="EstruturaNaturalidadeBordo">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:element name="LocalNascimento" type="TipoLocalNascimento"/>
+            <xs:element name="Coordenada" type="geo:EstruturaCoordenada"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="TipoLocalNascimento">
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoAltura">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{1,3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNacionalidade">
+        <xs:annotation/>
+        <xs:restriction base="end:TipoPais"/>
+    </xs:simpleType>
+</xs:schema>

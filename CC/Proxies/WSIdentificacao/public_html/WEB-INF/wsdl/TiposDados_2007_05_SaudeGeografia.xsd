@@ -1,0 +1,27 @@
+<xs:schema xmlns:cm="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" xmlns:geo="http://www.min-saude.pt/schemas/TiposDados/2007/05/Geografia"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:md="http://www.min-saude.pt/schemas/Metadata/2006/11"
+     targetNamespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Geografia" elementFormDefault="qualified"
+     attributeFormDefault="unqualified" version="1">
+    <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" schemaLocation="TiposDados_2007_05_SaudeComum.xsd"/>
+    <xs:simpleType name="TipoEixoCoordenada">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoDivisaoDecimal">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{0,3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EstruturaCoordenada">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:element name="Latitude" type="geo:TipoDivisaoDecimal"/>
+            <xs:element name="EixoLatitude" type="geo:TipoEixoCoordenada"/>
+            <xs:element name="Longitude" type="geo:TipoDivisaoDecimal"/>
+            <xs:element name="EixoLongitude" type="geo:TipoEixoCoordenada"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

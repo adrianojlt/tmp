@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebService xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webservice">
+   <list n="CHILD_NODES">
+      <url path="../../../../../../../../public_html/WEB-INF/wsdl/SaudeCCRespostaReenvioProcessoProxyService.wsdl"/>
+      <url path="SaudeCCRespostaReenvioProcessoProxyType.java"/>
+      <url path="../../../../../../../../public_html/WEB-INF/SaudeCCRespostaReenvioProcessoProxyService-java-wsdl-mapping.xml"/>
+      <url path="SaudeCCRespostaReenvioProcessoProxyTypeImpl.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="ATTACHMENT_MIME"/>
+      <list n="BD_">
+         <hash>
+            <value n="BD_DEFAULT_DOCUMENT_WRAPPED" v="false"/>
+            <value n="BOUND_PORT_TYPE" v="{http://dynamicgateway.fsc.pt.gov.interop/}SaudeCCRespostaReenvioProcessoProxyType"/>
+            <value n="DEFAULT_NAME" v="false"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPBinding"/>
+            <value n="NAME" v="{http://dynamicgateway.fsc.pt.gov.interop/}SaudeCCRespostaReenvioProcessoProxyPortBinding"/>
+            <list n="OP_BINDINGS">
+               <hash>
+                  <value n="BOUND_OPERATION" v="pt.min_saude.schemas.cartaocidadao._2007._05.DummyOutput.saudeCCRespostaReenvioProcessoProxy.pt.min_saude.schemas.cartaocidadao._2007._05.SaudeCCRespostaReenvioProcessoProxy"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPOperationBinding"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </list>
+            <hash n="PROPERTY_GROUPS"/>
+         </hash>
+      </list>
+      <value n="GUID" v="3e80f7af-0127-1000-8006-a9fe1981d530"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaWebService"/>
+      <list n="PO_">
+         <hash>
+            <value n="DEFAULT_NAME" v="false"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.SOAPPort"/>
+            <value n="NAME" v="SaudeCCRespostaReenvioProcessoProxyPort"/>
+            <value n="PORT_BINDING_NAME" v="{http://dynamicgateway.fsc.pt.gov.interop/}SaudeCCRespostaReenvioProcessoProxyPortBinding"/>
+            <list n="PORT_OPS">
+               <hash>
+                  <value n="EXPOSED_BD_OPERATION" v="pt.min_saude.schemas.cartaocidadao._2007._05.DummyOutput.saudeCCRespostaReenvioProcessoProxy.pt.min_saude.schemas.cartaocidadao._2007._05.SaudeCCRespostaReenvioProcessoProxy"/>
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.PortOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </list>
+            <hash n="PROPERTY_GROUPS"/>
+            <url n="URL" protocol="http" host="192.168.1.240" port="8888" path="/SaudeProxyServicesWSA-WSIdentificacao-context-root/SaudeCCRespostaReenvioProcessoProxyPort"/>
+         </hash>
+      </list>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="ora.pt.cons.igif.services.ws.reenvioprocesso"/>
+            <value n="WSDL2JAVA_GENERATE_DATA_BINDING" v="false"/>
+            <value n="WSDL2JAVA_MAP_HEADERS_TO_PARAMETERS" v="false"/>
+            <value n="WSDL2JAVA_UNWRAP_PARAMETERS" v="false"/>
+         </hash>
+      </hash>
+      <list n="PT_">
+         <hash>
+            <value n="AUTO_SERVICE_INTERFACE"/>
+            <value n="DEFAULT_NAME" v="false"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.JavaPortType"/>
+            <value n="NAME" v="{http://dynamicgateway.fsc.pt.gov.interop/}SaudeCCRespostaReenvioProcessoProxyType"/>
+            <hash n="PROPERTY_GROUPS"/>
+            <value n="PT_CLASS" v="ora.pt.cons.igif.services.ws.reenvioprocesso.SaudeCCRespostaReenvioProcessoProxyTypeImpl"/>
+            <value n="PT_SERVICE_INTERFACE" v="ora.pt.cons.igif.services.ws.reenvioprocesso.SaudeCCRespostaReenvioProcessoProxyType"/>
+         </hash>
+      </list>
+      <url n="TARGET_PROJECT" path="../../../../../../../../WSReenvioProcesso.jpr"/>
+      <url n="WS_MAPPING_FILE" path="../../../../../../../../public_html/WEB-INF/SaudeCCRespostaReenvioProcessoProxyService-java-wsdl-mapping.xml"/>
+      <value n="WS_TARGET_NAMESPACE" v="http://dynamicgateway.fsc.pt.gov.interop/"/>
+      <value n="WS_URI" v="SaudeCCRespostaReenvioProcessoProxyService"/>
+      <list n="WSDL_DEPENDENT_FILES">
+         <url path="../../../../../../../../public_html/WEB-INF/wsdl/TiposDados_2007_05_SaudeContacto.xsd"/>
+         <url path="../../../../../../../../public_html/WEB-INF/wsdl/ws_addressing.xsd"/>
+         <url path="../../../../../../../../public_html/WEB-INF/wsdl/TiposDados_2007_05_SaudeEndereco.xsd"/>
+         <url path="../../../../../../../../public_html/WEB-INF/wsdl/TiposDados_2007_05_SaudePessoa.xsd"/>
+         <url path="../../../../../../../../public_html/WEB-INF/wsdl/TiposDados_2007_05_SaudeComum.xsd"/>
+         <url path="../../../../../../../../public_html/WEB-INF/wsdl/TiposDados_2007_05_SaudeCidadao.xsd"/>
+         <url path="../../../../../../../../public_html/WEB-INF/wsdl/TiposDados_2007_05_SaudeGeografia.xsd"/>
+      </list>
+   </hash>
+</jdevws:WebService>

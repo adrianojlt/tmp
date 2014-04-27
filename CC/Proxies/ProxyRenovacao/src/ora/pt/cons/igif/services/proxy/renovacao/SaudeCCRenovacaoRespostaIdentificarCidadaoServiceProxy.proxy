@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="SaudeCCRenovacaoRespostaIdentificarCidadaoService.java"/>
+      <url path="runtime/SaudeCCRenovacaoRespostaIdentificarCidadaoService_Impl.java"/>
+      <url path="SaudeCCRenovacaoRespostaIdentificarCidadaoType.java"/>
+      <url path="runtime/SaudeCCRenovacaoRespostaIdentificarCidadaoPortBinding_Stub.java"/>
+      <url path="runtime/SaudeCCRenovacaoRespostaIdentificarCidadaoService_SerializerRegistry.java"/>
+      <url path="runtime/SaudeCCRenovacaoRespostaIdentificarCidadaoService_SerializerRegistry12.java"/>
+      <url path="SaudeCCRenovacaoRespostaIdentificarCidadaoPortClient.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="ora.pt.cons.igif.services.proxy.renovacao"/>
+            <value n="WSDL2JAVA_GENERATE_DATA_BINDING" v="false"/>
+            <value n="WSDL2JAVA_MAP_HEADERS_TO_PARAMETERS" v="false"/>
+            <value n="WSDL2JAVA_REUSE_EXISTING_TYPES" v="false"/>
+            <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="ora.pt.cons.igif.services.proxy.renovacao.proxy.types"/>
+            <value n="WSDL2JAVA_UNWRAP_PARAMETERS" v="false"/>
+         </hash>
+      </hash>
+      <value n="PROXY_MAPPING_URL"/>
+      <hash n="PROXY_PORTS">
+         <hash n="SaudeCCRenovacaoRespostaIdentificarCidadaoPort">
+            <value n="ACCESSES_DOC_WRAPPPED" v="true"/>
+            <value n="CLASS_NAME" v="ora.pt.cons.igif.services.proxy.renovacao.SaudeCCRenovacaoRespostaIdentificarCidadaoType"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="SaudeCCRenovacaoRespostaIdentificarCidadaoPort"/>
+            <hash n="OPERATIONS">
+               <hash n="saudeCCRenovacaoRespostaIdentificarCidadao">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS"/>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="jtksaude.test.fsc.umic.gov.pt" port="80" path="/gw/dynamicgateway/SaudeCCRenovacaoRespostaIdentificarCidadao"/>
+            <url n="PROXY_PORT_ENDPOINT" protocol="http" host="toolkitsaude" port="80" path="/gw/dynamicgateway/SaudeCCRenovacaoRespostaIdentificarCidadao"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="SaudeCCRenovacaoRespostaIdentificarCidadaoService"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://dynamicgateway.fsc.pt.gov.interop/"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../../../../../ProxyRenovacao.jpr"/>
+      <url n="PROXY_WSDL_URL" path="../../../../../../../../../../../../../../../../../Shared/UMIC Serviços Resposta FIXED/SaudeCCRenovacaoRespostaIdentificarCidadao.wsdl"/>
+   </hash>
+</jdevws:WebServiceProxy>

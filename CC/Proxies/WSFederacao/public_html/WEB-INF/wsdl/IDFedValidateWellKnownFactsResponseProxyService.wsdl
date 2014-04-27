@@ -1,0 +1,90 @@
+<definitions
+     name="DynamicGatewayService"
+     targetNamespace="http://dynamicgateway.fsc.pt.gov.interop/"
+     xmlns="http://schemas.xmlsoap.org/wsdl/"
+     xmlns:tns="http://dynamicgateway.fsc.pt.gov.interop/"
+     xmlns:wsaw="http://schemas.xmlsoap.org/ws/2003/03/addressing"
+     xmlns:ens="http://www.interop.gov.pt/schemas/FedId/2010/01"
+     xmlns:con="http://eviware.com/soapui/config"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    >
+    <types>
+        <xs:schema targetNamespace="http://www.interop.gov.pt/schemas/FedId/2010/01"
+             xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.interop.gov.pt/schemas/FedId/2010/01">
+            <xs:import namespace="http://schemas.xmlsoap.org/ws/2003/03/addressing" schemaLocation="ws-addressing.xsd"/>
+            <xs:element name="DummyOutput">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="ReturnValue" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:simpleType name="reasonType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="Confirmed"/>
+			<xs:enumeration value="Refused"/>
+		</xs:restriction>
+	</xs:simpleType>
+            <xs:element name="IDFedValidateWellKnownFactsResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="toolkitToken" type="xs:string"/>
+                        <xs:element name="encriptedLocalIdentification" type="xs:string" minOccurs="0"/>
+                        <xs:element name="hashedLocalIdentification" type="xs:string" minOccurs="0"/>
+                        <xs:element name="reason" type="reasonType"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            
+        </xs:schema>
+    </types>
+    <message name="IDFedValidateWellKnownFactsResponseProxy">
+        <part name="IDFedValidateWellKnownFactsResponseProxyParameters" element="ens:IDFedValidateWellKnownFactsResponse"/>
+    </message>
+    <message name="IDFedValidateWellKnownFactsResponseProxyResponse">
+        <part name="output" element="ens:DummyOutput"/>
+    </message>
+    <message name="WSAReplyToHeader">
+        <part name="ReplyTo" element="wsaw:ReplyTo"/>
+    </message>
+    <message name="WSARelatesToHeader">
+        <part name="RelatesTo" element="wsaw:RelatesTo"/>
+    </message>
+    <message name="WSAMessageIDHeader">
+        <part name="MessageID" element="wsaw:MessageID"/>
+    </message>
+    <message name="WSAActionHeader">
+        <part name="Action" element="wsaw:Action"/>
+    </message>
+    <message name="WSAToHeader">
+        <part name="To" element="wsaw:To"/>
+    </message>
+    <portType name="IDFedValidateWellKnownFactsResponseProxyType">
+        <operation name="IDFedValidateWellKnownFactsResponseProxy">
+            <input message="tns:IDFedValidateWellKnownFactsResponseProxy"/>
+            <output message="tns:IDFedValidateWellKnownFactsResponseProxyResponse"/>
+        </operation>
+    </portType>
+    <binding name="IDFedValidateWellKnownFactsResponseProxyPortBinding" type="tns:IDFedValidateWellKnownFactsResponseProxyType">
+        <wsaw:UsingAddressing/>
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="IDFedValidateWellKnownFactsResponseProxy">
+            <soap:operation soapAction="http://dynamicgateway.fsc.pt.gov.interop/IDFedValidateWellKnownFactsResponseProxy"/>
+            <input>
+                <soap:header message="tns:WSAMessageIDHeader" part="MessageID" use="literal"/>
+                <soap:header message="tns:WSARelatesToHeader" part="RelatesTo" use="literal" encodingStyle=""/>
+                <soap:header message="tns:WSAActionHeader" part="Action" use="literal"/>
+                <soap:header message="tns:WSAToHeader" part="To" use="literal"/>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="IDFedValidateWellKnownFactsResponseProxyService">
+        <port name="IDFedValidateWellKnownFactsResponseProxyPort" binding="tns:IDFedValidateWellKnownFactsResponseProxyPortBinding">
+            <soap:address location="http://192.168.1.240:8888/SaudeProxyServicesWSA-WSFederacao-context-root/IDFedValidateWellKnownFactsResponseProxyPort"/>
+        </port>
+    </service>
+</definitions>

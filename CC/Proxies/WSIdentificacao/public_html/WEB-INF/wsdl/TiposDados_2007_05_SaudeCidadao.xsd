@@ -1,0 +1,50 @@
+<xs:schema xmlns:cm="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" xmlns="http://www.min-saude.pt/schemas/TiposDados/2007/05/Cidadao"
+     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:md="http://www.min-saude.pt/schemas/Metadata/2006/11"
+     targetNamespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Cidadao" elementFormDefault="qualified"
+     attributeFormDefault="unqualified" version="1">
+    <xs:import namespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" schemaLocation="TiposDados_2007_05_SaudeComum.xsd"/>
+    <xs:simpleType name="TipoNIC">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{8}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EstruturaNIC">
+        <xs:annotation/>
+        <xs:sequence>
+            <xs:element name="Numero" type="TipoNIC"/>
+            <xs:element name="DigitoControlo" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="[0-9]{1}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:simpleType name="TipoNumeroCC">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="4"/>
+            <xs:maxLength value="12"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNIF">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{9}(\-P)?"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNISS">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{11}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNSNS">
+        <xs:annotation/>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{9}"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,44 @@
+<xs:schema xmlns="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+     xmlns:md="http://www.min-saude.pt/schemas/Metadata/2006/11" targetNamespace="http://www.min-saude.pt/schemas/TiposDados/2007/05/Comum"
+     elementFormDefault="qualified" attributeFormDefault="unqualified" version="1">
+    <xs:simpleType name="TipoData">
+        <xs:restriction base="xs:date"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoDataHora">
+        <xs:restriction base="xs:dateTime"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoBooleano">
+        <xs:restriction base="xs:boolean"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoString">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoStringObrigatorio">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoStringRestrito">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9\s~!&quot;@#$%&amp;&apos;\(\)\*\+,\-\./:;=>\?\[\\\]_\{\}\^]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoNumeroHexadecimal">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Fa-f0-9]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoIdentificador">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Za-z0-9 \-]{0,255}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="TipoBinario">
+        <xs:restriction base="xs:base64Binary"/>
+    </xs:simpleType>
+    <xs:simpleType name="TipoInformacaoEncriptada">
+        <xs:restriction base="TipoString">
+            <xs:maxLength value="10485760"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

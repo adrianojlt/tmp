@@ -1,0 +1,174 @@
+08/04/02 10:51:04.283 10.1.3.3.0 Started
+08/04/02 10:51:55.206 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 10:54:25.322 10.1.3.3.0 Started
+08/04/02 10:54:45.150 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 10:57:33.532 10.1.3.3.0 Started
+08/04/02 10:58:31.753 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 11:06:25.187 10.1.3.3.0 Started
+08/04/02 11:06:51.921 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 11:18:36.703 10.1.3.3.0 Started
+08/04/02 11:18:46.593 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 11:20:25.765 10.1.3.3.0 Started
+08/04/02 11:20:44.703 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 11:21:46.453 SaudeProxyServicesWSA-WSIdentificacao-webapp: An existing connection was forcibly closed by the remote host
+08/04/02 11:21:46.468 SaudeProxyServicesWSA-WSIdentificacao-webapp: Servlet error
+java.lang.ArrayIndexOutOfBoundsException: 2048
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.EvermindServletOutputStream.write(EvermindServletOutputStream.java:122)
+	at oracle.j2ee.ws.server.JAXRPCServlet.replacePattern(JAXRPCServlet.java:802)
+	at oracle.j2ee.ws.server.JAXRPCServlet.updateEndpointAddresses(JAXRPCServlet.java:699)
+	at oracle.j2ee.ws.server.JAXRPCServlet.processGetWsdl(JAXRPCServlet.java:624)
+	at oracle.j2ee.ws.server.JAXRPCServlet.doGet(JAXRPCServlet.java:572)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:743)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:856)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.ServletRequestDispatcher.invoke(ServletRequestDispatcher.java:713)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.ServletRequestDispatcher.forwardInternal(ServletRequestDispatcher.java:370)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.doProcessRequest(HttpRequestHandler.java:871)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.processRequest(HttpRequestHandler.java:453)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.serveOneRequest(HttpRequestHandler.java:221)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.run(HttpRequestHandler.java:122)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.run(HttpRequestHandler.java:111)
+	at oracle.oc4j.network.ServerSocketReadHandler$SafeRunnable.run(ServerSocketReadHandler.java:260)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].util.ReleasableResourcePooledExecutor$MyWorker.run(ReleasableResourcePooledExecutor.java:303)
+	at java.lang.Thread.run(Thread.java:595)
+08/04/02 11:21:46.765 SaudeProxyServicesWSA-WSIdentificacao-webapp: An existing connection was forcibly closed by the remote host
+08/04/02 11:21:46.765 SaudeProxyServicesWSA-WSIdentificacao-webapp: Servlet error
+java.lang.ArrayIndexOutOfBoundsException: 2048
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.EvermindServletOutputStream.write(EvermindServletOutputStream.java:122)
+	at oracle.j2ee.ws.server.JAXRPCServlet.replacePattern(JAXRPCServlet.java:802)
+	at oracle.j2ee.ws.server.JAXRPCServlet.updateEndpointAddresses(JAXRPCServlet.java:699)
+	at oracle.j2ee.ws.server.JAXRPCServlet.processGetWsdl(JAXRPCServlet.java:624)
+	at oracle.j2ee.ws.server.JAXRPCServlet.doGet(JAXRPCServlet.java:572)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:743)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:856)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.ServletRequestDispatcher.invoke(ServletRequestDispatcher.java:713)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.ServletRequestDispatcher.forwardInternal(ServletRequestDispatcher.java:370)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.doProcessRequest(HttpRequestHandler.java:871)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.processRequest(HttpRequestHandler.java:453)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.serveOneRequest(HttpRequestHandler.java:221)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.run(HttpRequestHandler.java:122)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].server.http.HttpRequestHandler.run(HttpRequestHandler.java:111)
+	at oracle.oc4j.network.ServerSocketReadHandler$SafeRunnable.run(ServerSocketReadHandler.java:260)
+	at com.evermind[Oracle Containers for J2EE 10g (10.1.3.3.0) ].util.ReleasableResourcePooledExecutor$MyWorker.run(ReleasableResourcePooledExecutor.java:303)
+	at java.lang.Thread.run(Thread.java:595)
+08/04/02 11:22:31.171 10.1.3.3.0 Started
+08/04/02 11:22:47.296 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 11:24:34.203 10.1.3.3.0 Started
+08/04/02 11:24:49.484 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 11:28:22.390 10.1.3.3.0 Started
+08/04/02 11:28:35.812 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 11:29:52.625 10.1.3.3.0 Started
+08/04/02 11:30:07.125 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 12:06:57.906 10.1.3.3.0 Started
+08/04/02 12:07:20.343 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 12:09:23.562 10.1.3.3.0 Started
+08/04/02 12:09:38.171 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 12:10:27.31 10.1.3.3.0 Started
+08/04/02 12:10:36.750 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 12:23:28.890 10.1.3.3.0 Started
+08/04/02 12:24:07.546 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/02 12:26:39.656 10.1.3.3.0 Started
+08/04/02 12:26:53.250 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:10:16.71 10.1.3.3.0 Started
+08/04/03 13:10:59.773 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:22:18.322 10.1.3.3.0 Started
+08/04/03 13:22:27.533 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:25:26.760 10.1.3.3.0 Started
+08/04/03 13:25:34.733 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:30:08.179 10.1.3.3.0 Started
+08/04/03 13:30:19.865 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:31:32.232 10.1.3.3.0 Started
+08/04/03 13:31:43.902 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:39:58.54 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Stopped
+08/04/03 13:39:59.182 10.1.3.3.0 Started
+08/04/03 13:41:36.518 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:44:09.289 10.1.3.3.0 Started
+08/04/03 13:44:20.301 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:49:45.439 10.1.3.3.0 Started
+08/04/03 13:49:55.229 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:51:10.275 10.1.3.3.0 Started
+08/04/03 13:51:30.669 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:52:46.499 10.1.3.3.0 Started
+08/04/03 13:53:06.862 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:55:09.981 10.1.3.3.0 Started
+08/04/03 13:55:25.755 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 13:57:12.286 10.1.3.3.0 Started
+08/04/03 13:57:24.801 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 14:00:38.205 10.1.3.3.0 Started
+08/04/03 14:03:06.339 10.1.3.3.0 Started
+08/04/03 14:03:18.714 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 14:05:26.219 10.1.3.3.0 Started
+08/04/03 14:05:38.953 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/03 14:07:58.410 10.1.3.3.0 Started
+08/04/03 14:08:17.301 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 13:07:32.95 10.1.3.3.0 Started
+08/04/04 13:07:52.893 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 13:10:40.106 10.1.3.3.0 Started
+08/04/04 13:10:56.560 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 14:14:52.174 10.1.3.3.0 Started
+08/04/04 14:15:09.54 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 14:21:45.188 10.1.3.3.0 Started
+08/04/04 14:22:16.588 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 14:23:55.42 10.1.3.3.0 Started
+08/04/04 14:24:10.557 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 14:32:22.549 10.1.3.3.0 Started
+08/04/04 14:32:38.596 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 14:33:48.144 10.1.3.3.0 Started
+08/04/04 14:34:07.98 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 14:41:34.818 10.1.3.3.0 Started
+08/04/04 14:42:54.118 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 14:49:02.119 10.1.3.3.0 Started
+08/04/04 14:49:24.58 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 15:07:43.357 10.1.3.3.0 Started
+08/04/04 15:07:58.92 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 15:09:08.517 10.1.3.3.0 Started
+08/04/04 15:09:27.736 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 15:13:21.528 10.1.3.3.0 Started
+08/04/04 15:13:41.451 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 15:27:22.660 10.1.3.3.0 Started
+08/04/04 15:27:37.801 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 15:34:56.774 10.1.3.3.0 Started
+08/04/04 15:42:48.14 10.1.3.3.0 Started
+08/04/04 15:43:03.467 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 15:46:25.148 10.1.3.3.0 Started
+08/04/04 15:46:38.39 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 15:49:01.640 10.1.3.3.0 Started
+08/04/04 15:49:24.641 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 16:45:28.916 10.1.3.3.0 Started
+08/04/04 16:45:45.823 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 17:53:39.37 10.1.3.3.0 Started
+08/04/04 17:53:50.756 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 17:57:39.751 10.1.3.3.0 Started
+08/04/04 17:57:59.611 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 18:00:00.164 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Stopped
+08/04/04 18:00:01.7 10.1.3.3.0 Started
+08/04/04 18:00:10.86 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 18:01:47.309 10.1.3.3.0 Started
+08/04/04 18:02:16.326 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 18:33:38.817 10.1.3.3.0 Started
+08/04/04 18:34:02.583 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 19:59:32.32 10.1.3.3.0 Started
+08/04/04 20:00:10.190 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 20:06:05.393 10.1.3.3.0 Started
+08/04/04 20:06:18.753 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 20:07:47.7 10.1.3.3.0 Started
+08/04/04 20:08:45.791 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 20:19:29.226 10.1.3.3.0 Started
+08/04/04 20:19:43.227 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 20:25:46.102 10.1.3.3.0 Started
+08/04/04 20:25:59.150 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 20:27:26.576 10.1.3.3.0 Started
+08/04/04 20:27:44.764 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 20:29:01.392 10.1.3.3.0 Started
+08/04/04 20:29:19.331 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 20:32:21.339 10.1.3.3.0 Started
+08/04/04 20:32:37.871 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/04 20:34:01.328 10.1.3.3.0 Started
+08/04/04 20:34:19.485 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/07 14:25:21.476 10.1.3.3.0 Started
+08/04/07 14:25:43.805 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/07 15:35:38.512 10.1.3.3.0 Started
+08/04/07 15:36:00.43 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/07 15:39:21.762 10.1.3.3.0 Started
+08/04/07 15:39:34.746 SaudeProxyServicesWSA-WSIdentificacao-webapp: 10.1.3.3.0 Started
+08/04/08 15:55:22.865 10.1.3.3.0 Started
+08/04/08 15:56:29.944 SaudeProxyServicesWSA-WSRenovacao-webapp: 10.1.3.3.0 Started

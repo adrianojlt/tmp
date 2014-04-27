@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
+   <hash n="component-versions">
+      <value n="oracle.ide.model.Project" v="10.1.3.3.0;10.1.3.5.0"/>
+      <value n="oracle.jdevimpl.xml.oc4j.ds.DataSourcesMigratorHelper" v="10.1.3.3.0;10.1.3.5.0"/>
+   </hash>
+   <list n="listOfChildren">
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="ProxyFederacao/ProxyFederacao.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="ProxyIdentificacao/ProxyIdentificacao.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="ProxyRenovacao/ProxyRenovacao.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="WSIdentificacao/WSIdentificacao.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="WSRenovacao/WSRenovacao.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="WSFederacao/WSFederacao.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="ProxyEstadoProcesso/ProxyEstadoProcesso.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="WSCCEstadoProcesso/WSCCEstadoProcesso.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="ProxyReenvioProcesso/ProxyReenvioProcesso.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="WSReenvioProcesso/WSReenvioProcesso.jpr"/>
+      </hash>
+   </list>
+</jws:workspace>

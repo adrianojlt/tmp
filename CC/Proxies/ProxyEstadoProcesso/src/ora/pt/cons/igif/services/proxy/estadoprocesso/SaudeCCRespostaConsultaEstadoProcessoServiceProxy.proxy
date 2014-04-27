@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jdevws:WebServiceProxy xmlns:jdevws="http://xmlns.oracle.com/jdeveloper/10130/webserviceproxy">
+   <list n="CHILD_NODES">
+      <url path="SaudeCCRespostaConsultaEstadoProcessoService.java"/>
+      <url path="runtime/SaudeCCRespostaConsultaEstadoProcessoService_Impl.java"/>
+      <url path="SaudeCCRespostaConsultaEstadoProcessoType.java"/>
+      <url path="runtime/SaudeCCRespostaConsultaEstadoProcessoPortBinding_Stub.java"/>
+      <url path="runtime/SaudeCCRespostaConsultaEstadoProcessoService_SerializerRegistry.java"/>
+      <url path="runtime/SaudeCCRespostaConsultaEstadoProcessoService_SerializerRegistry12.java"/>
+      <url path="SaudeCCRespostaConsultaEstadoProcessoPortClient.java"/>
+   </list>
+   <hash n="DATA_MODEL">
+      <value n="ATTACHMENT_ENCODING" v="ATTACHMENT_MIME"/>
+      <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.WebServiceProxy"/>
+      <hash n="PROPERTY_GROUPS">
+         <hash n="WSDL_TO_JAVA_PROPERTIES">
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.java.WSDLToJavaProperties"/>
+            <value n="WSDL2JAVA_DEFAULT_PACKAGE" v="ora.pt.cons.igif.services.proxy.estadoprocesso"/>
+            <value n="WSDL2JAVA_GENERATE_DATA_BINDING" v="false"/>
+            <value n="WSDL2JAVA_MAP_HEADERS_TO_PARAMETERS" v="false"/>
+            <value n="WSDL2JAVA_ROOT_VALUE_PACKAGE" v="ora.pt.cons.igif.services.proxy.estadoprocesso.types"/>
+            <value n="WSDL2JAVA_UNWRAP_PARAMETERS" v="false"/>
+         </hash>
+      </hash>
+      <value n="PROXY_MAPPING_URL"/>
+      <hash n="PROXY_PORTS">
+         <hash n="SaudeCCRespostaConsultaEstadoProcessoPort">
+            <value n="ACCESSES_DOC_WRAPPPED" v="true"/>
+            <value n="CLASS_NAME" v="ora.pt.cons.igif.services.proxy.estadoprocesso.SaudeCCRespostaConsultaEstadoProcessoType"/>
+            <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyPort"/>
+            <value n="NAME" v="SaudeCCRespostaConsultaEstadoProcessoPort"/>
+            <hash n="OPERATIONS">
+               <hash n="saudeCCRespostaConsultaEstadoProcesso">
+                  <value n="MODEL_CLASS" v="oracle.jdeveloper.webservices.model.proxy.ProxyOperation"/>
+                  <hash n="PROPERTY_GROUPS"/>
+               </hash>
+            </hash>
+            <hash n="PROPERTY_GROUPS"/>
+            <url n="PROXY_ORIGINAL_PORT_ENDPOINT" protocol="http" host="toolkit" path="/Saude/"/>
+            <url n="PROXY_PORT_ENDPOINT" protocol="http" host="toolkit" path="/Saude/"/>
+         </hash>
+      </hash>
+      <value n="PROXY_SERVICE_NAME" v="SaudeCCRespostaConsultaEstadoProcessoService"/>
+      <value n="PROXY_SERVICE_NAMESPACE" v="http://dynamicgateway.fsc.pt.gov.interop/"/>
+      <url n="PROXY_TARGET_PROJECT" path="../../../../../../../../ProxyEstadoProcesso.jpr"/>
+      <url n="PROXY_WSDL_URL" path="../../../../../../../../../../../../../../../../ACSS_CRF_CC_DVLP/SaudeCCConsultaEstadoProcesso/bpel/SaudeCCRespostaConsultaEstadoProcesso.wsdl"/>
+   </hash>
+</jdevws:WebServiceProxy>
