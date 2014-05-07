@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/template/baseLayout.jsp">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/template/header.jsp" />
+		<put-attribute name="menu" value="/template/menu.jsp" />
+		<put-attribute name="body" value="/template/body.jsp" />
+	</definition>
+	
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="Log in" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="/view/login.jsp" />
+	</definition>
+	<definition name="executelogin" extends="baseLayout">
+		<put-attribute name="title" value="Log in" />
+		<put-attribute name="menu" value="/template/menu.jsp" />
+		<put-attribute name="body" value="/view/home.jsp" />
+	</definition>
+	<definition name="error" extends="baseLayout">
+		<put-attribute name="title" value="Log in" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="/view/error.jsp" />
+	</definition>
+	<definition name="home" extends="baseLayout">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="menu" value="/template/menu.jsp" />
+		<put-attribute name="body" value="/view/home.jsp" />
+	</definition>
+	<definition name="logout" extends="baseLayout">
+		<put-attribute name="title" value="Log in" />
+		<put-attribute name="menu" value="" />
+		<put-attribute name="body" value="/view/logout.jsp" />
+	</definition>
+	
+	 <definition name="booklist" extends="baseLayout">
+      <put-attribute name="title"  value="Log in"/>
+      <put-attribute name="menu"   value="/template/menu.jsp"/>      
+      <put-attribute name="body"   value="/view/bookList.jsp"/>      
+  </definition>
+  
+   <definition name="selectedBooks" extends="baseLayout">
+      <put-attribute name="title"  value="Selected Books"/>
+      <put-attribute name="menu"   value="/template/menu.jsp"/>      
+      <put-attribute name="body"   value="/view/selectedBooks.jsp"/>      
+  </definition>
+  
+
+
+</tiles-definitions>

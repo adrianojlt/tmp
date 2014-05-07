@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+
+	<package name="default" extends="struts-default" namespace="/">
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		<action name="*Link" method="{1}"
+			class="com.apress.bookstore.controller.BookController">
+			<result name="login" type="tiles">login</result>
+			<result name="allBooks" type="tiles">booklist</result>
+			<result name="booksByCategory" type="tiles">booklist</result>
+			<result name="searchByKeyword" type="tiles">booklist</result>
+			<result name="home" type="tiles">home</result>
+			<result name="executelogin" type="tiles">executelogin</result>
+			<result name="selectedBooks" type="tiles">selectedBooks</result>			
+			<result name="logout" type="tiles">logout</result>
+			<result name="error" type="tiles">error</result>
+		</action>
+
+	</package>
+</struts>
+
