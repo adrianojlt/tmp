@@ -1,0 +1,651 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN" "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <form-beans>
+    <form-bean name="DataForm"
+               type="oracle.adf.controller.v2.struts.forms.BindingContainerActionForm"/>
+  </form-beans>
+  <action-mappings>
+    <action path="/admin/globalSinc"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/admin/globalSinc.jsp" name="DataForm"/>
+    <action path="/med/nomeComercialLov"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/med/nomeComercialLov.jsp" name="DataForm">
+      <!--<set-property property="v1ActionClass"                     value="ora.pt.cons.igif.sics.controller.TestAction"/>                     -->
+                    
+    </action>
+    <action path="/med/receitasUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/med/receitasUtente.jsp" name="DataForm">
+      <forward name="onGetUtente" path="/idu/pesquisaUtente.do"
+               redirect="true"/>
+      <forward name="onError" path="/med/receitasUtente.do"/>
+    </action>
+    <action path="/git/baixasUtente"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/git/baixasUtente.jsp">
+      <forward name="onGetUtente" path="/idu/pesquisaUtente.do?pReadOnlyMode=true"
+               redirect="true"/>
+    </action>
+    <action path="/navigationList"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/navigationList.jsp" name="DataForm"/>
+    <action path="/navigationListAjax"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/navigationListAjax.jsp" name="DataForm"/>
+    <action path="/med/substActivaLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/substActivaLov.jsp"/>
+    <action path="/med/diabetesLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/diabetesLov.jsp"/>
+    <action path="/med/prescricoesAnteriores"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/prescricoesAnteriores.jsp"/>
+    <action path="/sup/edicaoTipoCodigo"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoTipoCodigo.jsp">
+      <forward name="onError" path="/sup/edicaoTipoCodigo.do"/>
+    </action>
+    <action path="/sup/edicaoCodigoPostal"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoCodigoPostal.jsp"/>
+    <action path="/sup/edicaoGestaoAcesso"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoGestaoAcesso.jsp">
+            <forward name="onSuccess" path="/sup/edicaoGestaoAcesso.do"/>
+            <forward name="onError" path="/sup/edicaoGestaoAcesso.do"/>
+    </action>
+    <action path="/sup/pesquisaEntidade"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/pesquisaEntidade.jsp"/>
+    <action path="/sup/edicaoEntidade"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoEntidade.jsp">
+      <forward name="onSuccess" path="/sup/pesquisaEntidade.do"/>
+      <forward name="onError" path="/sup/edicaoEntidade.do"/>
+    </action>
+    <action path="/sup/edicaoFeriado"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoFeriado.jsp"/>
+    <action path="/sup/pesquisaCodigoGenerico"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/pesquisaCodigoGenerico.jsp"/>
+    <action path="/sup/edicaoCodigoGenerico"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoCodigoGenerico.jsp">
+      <forward name="onSuccess"
+               path="/sup/pesquisaCodigoGenerico.do"/>
+      <forward name="onError" path="/sup/edicaoCodigoGenerico.do"/>
+    </action>
+    <action path="/sup/pesquisaCodigoHierarquico"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/pesquisaCodigoHierarquico.jsp">
+      <forward name="onNovaPesquisa" path="/sup/pesquisaCodigoHierarquico.do"
+               redirect="true"/>
+    </action>
+    <action path="/sup/edicaoOpcaoMenu"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoOpcaoMenu.jsp">
+      <forward name="onAssociarPerfis" path="/sup/associarPerfis.do"/>
+      <forward name="onEditarFuncionalidades" path="/sup/edicaoFuncionalidadeModulo.do"/>
+    </action>
+    <action path="/sup/edicaoUtilizador"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoUtilizador.jsp"/>
+    <action path="/sup/pesquisaPerfil"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/pesquisaPerfil.jsp"/>
+    <action path="/idu/pesquisaUtente"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/pesquisaUtente.jsp">
+        <forward name="onEditarUtente" path="/idu/edicaoUtente.do"
+                 redirect="true"/>
+        <forward name="onNovoUtente" path="/idu/novoUtente.do"/>
+        <forward name="onConsultaUtente" path="/idu/consultaUtente.do"
+                 redirect="true"/>
+         <forward name="onConsultaUtenteHospital" path="/idu/edicaoUtenteHospital.do"
+                redirect="true"/>
+        <forward name="onError" path="/idu/pesquisaUtente.do"/>
+        <forward name="onNovaPesquisa" path="/idu/pesquisaUtente.do" redirect="true"/>
+        <forward name="onIntegrateSAMBaixas" path="/git/baixasUtente.do" redirect="true"/>
+        <forward name="onGoBackToBaixas" path="/git/baixasUtente.do" redirect="true"/>
+        <forward name="onGoBackToReceitas" path="/med/receitasUtente.do" redirect="true"/>        
+        <forward name="onGoBacktoAdminSinc" path="/admin/globalSinc.do" redirect="true"/>         
+    </action>
+    <action path="/idu/consultaListasUtentes"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/consultaListasUtentes.jsp">
+            <forward name="onConsultaUtente" path="/idu/consultaUtente.do"  redirect="true"/>
+            <forward name="onNovaPesquisa" path="/idu/consultaListasUtentes.do" redirect="true"/>
+    </action>
+    <action path="/idu/pesquisaDuplicado"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/pesquisaDuplicado.jsp"/>
+    <action path="/sup/edicaoFuncionalidadeModulo"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoFuncionalidadeModulo.jsp">
+        <forward name="onEdicaoOpcaoMenu" path="/sup/edicaoOpcaoMenu.do"/>
+    </action>
+    <action path="/idu/impressaoFichaUtente"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/impressaoFichaUtente.jsp"/>
+    <action path="/sup/edicaoPerfil"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoPerfil.jsp">
+            <forward name="onError" path="/sup/edicaoPerfil.do"/>
+            <forward name="onSuccess" path="/sup/pesquisaPerfil.do"/>
+    </action>
+    <action path="/sup/edicaoCodigoHierarquico"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/edicaoCodigoHierarquico.jsp">
+      <forward name="onError" path="/sup/edicaoCodigoHierarquico.do"/>
+      <forward name="onSuccess" path="/sup/pesquisaCodigoHierarquico.do"/>
+    </action>
+    <action path="/com/detalheUtente"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/com/detalheUtente.jsp"/>
+    <action path="/com/infoUtente"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/com/infoUtente.jsp"/>
+    <action path="/sup/codHierarquicoLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/codHierarquicoLov.jsp"/>
+    <action path="/sup/tipoCodigoLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/tipoCodigoLov.jsp"/>
+    <action path="/sup/perfilLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/perfilLov.jsp"/>
+    <action path="/sup/profissionalLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/profissionalLov.jsp"/>
+    <action path="/sup/centroSaudeLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/centroSaudeLov.jsp"/>
+    <action path="/sup/utilizadorLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/utilizadorLov.jsp"/>
+    <action path="/sup/codGenericoLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/codGenericoLov.jsp"/>
+    <action path="/idu/edicaoUtente"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/edicaoUtente.jsp">
+      <forward name="onNovaPesquisa" path="/idu/pesquisaUtente.do" redirect="true"/>
+      <forward name="onError" path="/idu/edicaoUtente.do"/>
+    </action>
+    <action path="/idu/consultaUtente"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/consultaUtente.jsp">
+      <forward name="onNovaPesquisa" path="/idu/pesquisaUtente.do"
+               redirect="true"/>
+      <forward name="onError" path="/idu/consultaUtente.do"/>
+      <forward name="onSearchMae" path="/idu/novoUtente.do"/>
+    </action>
+    <action path="/idu/pesquisaHistoricoMedico"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/pesquisaHistoricoMedico.jsp"/>
+    <action path="/idu/pesquisaHistoricoFamilia"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/pesquisaHistoricoFamilia.jsp"/>
+    <action path="/idu/pesquisaHistoricoInsc"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/pesquisaHistoricoInsc.jsp"/>
+    <action path="/idu/entidadeRespLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/entidadeRespLov.jsp"/>
+    <action path="/idu/entidadeLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/entidadeLov.jsp"/>
+    <action path="/git/edicaoBaixa"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/git/edicaoBaixa.jsp">
+      <forward name="onSuccess" path="/git/baixasUtente.do"/>
+      <forward name="onError" path="/git/edicaoBaixa.do"/>
+      <forward name="onSuccessAdmin" path="/git/edicaoBaixasUtente.do"/>
+      <forward name="onGetUtente" path="/idu/pesquisaUtente.do?pReadOnlyMode=true"
+               redirect="true"/>
+    </action>
+    <action path="/git/edicaoProrrogacaoBaixa"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/git/edicaoProrrogacaoBaixa.jsp">
+      <forward name="onSuccess" path="/git/baixasUtente.do"/>
+      <forward name="onError" path="/git/edicaoProrrogacaoBaixa.do"/>
+      <forward name="onGetUtente" path="/idu/pesquisaUtente.do?pReadOnlyMode=true"
+               redirect="true"/>
+    </action>
+    <action path="/git/edicaoAlta"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/git/edicaoAlta.jsp">
+      <forward name="onSuccess" path="/git/baixasUtente.do"/>
+      <forward name="onError" path="/git/edicaoAlta.do"/>
+      <forward name="onGetUtente" path="/idu/pesquisaUtente.do?pReadOnlyMode=true"
+               redirect="true"/>
+    </action>
+    <action path="/med/receitasPosologia"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/receitasPosologia.jsp">
+      <forward name="onError" path="/med/receitasPosologia.do"/>
+    </action>
+    <action path="/sup/hierOpcoesMenuLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/hierOpcoesMenuLov.jsp"/>
+    <action path="/sup/codPostalLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/codPostalLov.jsp"/>
+    <action path="/pub/index"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/pub/index.jsp" unknown="true">
+      <forward name="onIntegrateSAMUtente" path="/idu/pesquisaUtente.do"
+               redirect="yes" contextRelative="yes"/>
+    </action>
+    <action path="/idu/codHierLov"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/codHierLov.jsp" name="DataForm"/>
+    <action path="/idu/resolucaoDuplicado"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/resolucaoDuplicado.jsp"/>
+     <action path="/idu/detalheDuplicado"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/detalheDuplicado.jsp">
+      <forward name="onDupSolved"
+               path="/idu/pesquisaDuplicado.do?event=DupSolved"
+               redirect="false"/>
+    </action>
+    <action path="/sup/associarPerfis"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/associarPerfis.jsp">
+      <forward name="onEdicaoOpcaoMenu" path="/sup/edicaoOpcaoMenu.do"/>
+    </action>
+    <action path="/sup/opcoesMenuLov"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            name="DataForm" parameter="/sup/opcoesMenuLov.jsp"/>
+    <action path="/med/medicacaoProlongadaLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/medicacaoProlongadaLov.jsp">
+      <forward name="onError" path="/med/medicacaoProlongadaLov.do"/>
+    </action>
+    <action path="/med/medicacaoProlongada"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/medicacaoProlongada.jsp"/>
+    <action path="/med/receitasAnteriores"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/receitasAnteriores.jsp"/>
+    <action path="/med/recmLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/recmLov.jsp"/>
+    <action path="/med/receitasAnterioresAnular"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/receitasAnterioresAnular.jsp"/>
+    <action path="/med/regimeEspCompMedicamentos"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/regimeEspCompMedicamentos.jsp"/>
+    <action path="/idu/medicoLov"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/medicoLov.jsp" name="DataForm"/>
+    <action path="/sup/entidadePaiLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/entidadePaiLov.jsp"/>
+
+<action path="/med/prontuarioTerapeutico"
+                        className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+                        type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/med/prontuarioTerapeutico.jsp"/>
+    <action path="/idu/beneficiosLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/beneficiosLov.jsp"/>
+    <action path="/idu/codigoPostalLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/codigoPostalLov.jsp"/>
+    <action path="/idu/pesquisaHistoricoBeneficios"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/idu/pesquisaHistoricoBeneficios.jsp"/>
+    <action path="/correspondenciaUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/correspondenciaUtente.jsp" name="DataForm"/>
+    <action path="/dadosUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/dadosUtente.jsp" name="DataForm"/>
+    <action path="/idu/pesquisaFamilia"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/pesquisaFamilia.jsp" name="DataForm"/>
+    <action path="/beneficiosUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/beneficiosUtente.jsp" name="DataForm"/>
+    <action path="/contactosUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/contactosUtente.jsp" name="DataForm"/>
+    <action path="/git/edicaoBaixasUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/git/edicaoBaixasUtente.jsp" name="DataForm">
+            <forward name="onGetUtente" path="/idu/pesquisaUtente.do" redirect="true"/>
+            <forward name="onError" path="/git/edicaoBaixasUtente.do"/>
+    </action>
+    <action path="/familiaUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/familiaUtente.jsp" name="DataForm"/>
+	<action path="/git/motivoAnulacaoLov"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/git/motivoAnulacaoLov.jsp"/>  
+   <action path="/sup/dadosUtilizador"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/sup/dadosUtilizador.jsp"/>
+    <action path="/entidadesUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/entidadesUtente.jsp" name="DataForm"/>
+    <action path="/idu/pesquisaHistoricoEntidades"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/pesquisaHistoricoEntidades.jsp" name="DataForm"/>
+    <action path="/med/ajax"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/med/ajax.jsp" name="DataForm"/>
+    <action path="/med/prontuario"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/med/prontuario.jsp" name="DataForm"/>
+    <action path="/menu"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/menu.jsp" name="DataForm"/>
+    <action path="/redirectPesquisaUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/redirectPesquisaUtente.jsp" name="DataForm"/>
+    <action path="/logout"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/logout.jsp" name="DataForm"/>
+    <action path="/error"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/com/error.jsp"/>
+    <action path="/navigationSelectBox"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/navigationSelectBox.jsp" name="DataForm"/>
+    <action path="/com/distConcFreg"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/distConcFreg.jsp" name="DataForm"/>
+    <action path="/idu/novoUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/novoUtente.jsp" name="DataForm">
+            <forward name="onNovaPesquisa" path="/idu/pesquisaUtente.do" redirect="true" />
+            <forward name="onEditarUtente" path="/idu/edicaoUtente.do" redirect="true"/>
+            <forward name="onEditarUtenteContinuar" path="/idu/edicaoUtente.do?viaNovoUtente=true" redirect="true"/>
+            <forward name="onEditarUtenteContinuarMaternidade" path="/idu/consultaUtente.do?viaNovoUtente=true" redirect="true"/>
+    </action>
+    <action path="/inscricaoUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/inscricaoUtente.jsp" name="DataForm"/>
+    <action path="/com/ajaxServices"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/ajaxServices.jsp" name="DataForm"/>
+    <action path="/avisos"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/avisos.jsp" name="DataForm"/>
+ 
+<action path="/cc/pendentes"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/cc/pendentes.jsp">
+      <forward name="onConsultaPedido" path="/cc/utentesPedido.do"/>
+      <forward name="onError" path="/cc/pendentes.do"/>
+    </action>
+    <action path="/com/detalhePedido"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/com/detalhePedido.jsp"/>
+    <action path="/cc/utentesPedido"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/cc/utentesPedido.jsp">
+      <forward name="onResolucaoPedido" path="/cc/resolucaoPedido.do"/>
+      <forward name="onError" path="/cc/utentesPedido.do"/>
+      <forward name="onSuccess" path="/cc/pendentes.do"/>
+    </action>
+    <action path="/cc/resolucaoPedido"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/cc/resolucaoPedido.jsp">
+      <forward name="onSuccess" path="/cc/pendentes.do"/>
+      <forward name="onError" path="/cc/resolucaoPedido.do"/>
+    </action>
+    <action path="/header"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/com/header.jsp"/>
+    <action path="/com/compararPedido"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/com/compararPedido.jsp"/>
+    <action path="/pendentes"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/cc/pendentes.jsp" name="DataForm"/>
+    <action path="/resolucaoPedido"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/cc/resolucaoPedido.jsp" name="DataForm"/>
+    <action path="/utentesPedido"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/cc/utentesPedido.jsp" name="DataForm"/>
+    <action path="/cc/estatisticas"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/cc/estatisticas.jsp"/>
+    <action path="/cc/pesquisaPedidos"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            name="DataForm" parameter="/cc/pesquisaPedidos.jsp">
+      <forward name="onError" path="/cc/pesquisaPedidos.do"/>
+      <forward name="onConsultaPedido" path="/cc/utentesPedido.do"/>
+    </action>
+    <action path="/distConcFreg"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/sup/distConcFreg.jsp" name="DataForm"/>
+            
+    <action path="/cc/adicionarDuplicado"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/cc/adicionarDuplicado.jsp" name="DataForm">
+      <forward name="onError" path="/cc/adicionarDuplicado.do"/>
+      <forward name="onSuccess" path="/idu/pesquisaDuplicado.do"/>
+    </action>
+    <action path="/listaCodGenerico"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/pageUtils/listaCodGenerico.jsp" name="DataForm"/>
+    <action path="/sup/profissionais"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/sup/profissionais.jsp" name="DataForm">
+      <forward name="onSuccess" path="/sup/profissionais.do?sucesso=true"/>
+    </action>
+    <action path="/sup/pedidoAcesso"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/sup/pedidoAcesso.jsp" name="DataForm"/>    
+    <action path="/sup/entidadesEstrangeirasLov"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/sup/entidadesEstrangeirasLov.jsp" name="DataForm"/>
+    <action path="/idu/associacaoPotDup"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/associacaoPotDup.jsp" name="DataForm"/>
+    <action path="/combosRelEntidades"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/pageUtils/combosRelEntidades.jsp" name="DataForm"/>
+    <action path="/gmf/pesquisaMedicos"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/gmf/pesquisaMedicos.jsp" name="DataForm">
+            <forward name="onPesquisar" path="/gmf/pesquisaMedicos.do"/>
+            <forward name="onNovaPesquisa" path="/gmf/pesquisaMedicos.do"/>
+            <forward name="onDetalheMedico" path="/gmf/popUpDetalheMedico.do"/>
+            <forward name="onHistoricoEquipasMedico" path="/gmf/listaEquipasMedico.do"/>
+            <forward name="onCriarEquipa" path="/gmf/popUpEscolhaEntidade.do"/>
+    </action>
+    <action path="/gmf/listaEquipasMedico"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/gmf/listaEquipasMedico.jsp" name="DataForm"/>
+    <action path="/gmf/popUpDetalheMedico"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/gmf/popUpDetalheMedico.jsp" name="DataForm"/>
+    <action path="/gmf/popUpEscolhaEntidade"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/gmf/popUpEscolhaEntidade.jsp" name="DataForm"/>
+    <action path="/gmf/transferencias"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/gmf/transferencias.jsp" name="DataForm">
+            <forward name="onNovaTransferencia" path="/gmf/transferencias.do" redirect="true"/>
+    </action>
+    <action path="/gmf/indicadores"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/gmf/indicadores.jsp" name="DataForm"/>
+    <action path="/gmf/processosTransferencia"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/gmf/processosTransferencia.jsp" name="DataForm">
+            <forward name="onNovaPesquisa" path="/gmf/processosTransferencia.do" redirect="true"/>
+    </action>
+    <action path="/gmf/listasGruposUtentes"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/gmf/listaGruposUtentes.jsp" name="DataForm"/>
+    <action path="/com/exportExcel"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/com/exportExcel.jsp" name="DataForm"/>
+    <action path="/idu/popUpInsEconomica"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/popUpInsEconomica.jsp" name="DataForm"/>
+    <action path="/gmf/utentePorEquipa"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/gmf/utentePorEquipa.jsp" name="DataForm"/>
+  <action path="/index"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/index.jsp" name="DataForm"/>
+    <action path="/pesquisaMae"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/pesquisaMae.jsp" name="DataForm"/>
+	<action path="/listaUtentesOutros"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/listaUtentesOutros.jsp" name="DataForm"/>
+    <action path="/idu/edicaoUtenteHospital"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/edicaoUtenteHospital.jsp" name="DataForm">
+              <forward name="onNovaPesquisa" path="/idu/pesquisaUtente.do" redirect="true"/>
+    </action>
+    <action path="/subsistemas"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+            parameter="/idu/subsistemas.jsp" name="DataForm"/>
+    <action path="/com/edicaoDocsUtente"
+            type="oracle.adf.controller.v2.struts.actions.DataForwardAction"
+            className="oracle.adf.controller.v2.struts.actions.DataActionMapping"
+             name="DataForm"
+            parameter="/com/edicaoDocsUtente.jsp"/>
+  </action-mappings>
+  <message-resources parameter="ora.pt.cons.igif.sics.view.ApplicationResources"/>
+</struts-config>
