@@ -13,6 +13,8 @@ select * from SYS_ENTIDADES;
 select * from SYS_COD_GENERICOS;
 select * from PRO_PROFISSID_PESSOAL;
 
+select * from SYS_OPCOES_MENU;
+select * from SYS_OPCOES_PERFIS;
 
 
 

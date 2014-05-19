@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="10.1.3.39.84" id="consultaUtentePageDef"
+                Package="ora.pt.cons.igif.sics.view.pageDefs.idu"
+                ControllerClass="ora.pt.cons.igif.sics.controller.idu.IduConsultaUtentePageController">
+<executables>
+    <iterator id="InformacaoUtilizadorIterator" RangeSize="10" Binds="InformacaoUtilizador" DataControl="RootAppModuleDataControl"/>
+    <iterator id="OpcoesMenuUtilizadorIterator" RangeSize="100" Binds="OpcoesMenuUtilizador" DataControl="RootAppModuleDataControl"/>
+    
+    <iterator id="PaisesIterator"                                       RangeSize="500" Binds="Root.IdentificacaoUtenteModule.ListaPaisesLov"                               DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ListaCodigosGenericos1Iterator"                       RangeSize="500" Binds="Root.ModulosSuporteModule.ListaCodigosGenericos1"                            DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="UtenteEdicaoIterator"                                 RangeSize="1"   Binds="Root.IdentificacaoUtenteModule.UtenteEdicao"                                 DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="InscricaoActivaIterator"                              RangeSize="1"   Binds="Root.IdentificacaoUtenteModule.InscricaoActiva"                              DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="FamiliaActivaIterator"                                RangeSize="1"   Binds="Root.IdentificacaoUtenteModule.FamiliaActiva"                                DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ListaAgregadoFamiliarIterator"                        RangeSize="5"   Binds="Root.IdentificacaoUtenteModule.ListaAgregadoFamiliar"                        DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="CorrespondenciaCorreioIterator"                       RangeSize="10"  Binds="Root.IdentificacaoUtenteModule.CorrespondenciaCorreio"                       DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ListaContactosIterator"                               RangeSize="3"   Binds="Root.IdentificacaoUtenteModule.ListaContactos"                               DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ContactoUtenteIterator"                               RangeSize="1"   Binds="Root.IdentificacaoUtenteModule.ContactoUtente"                               DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ListaEntidadesUtenteIterator"                         RangeSize="5"   Binds="Root.IdentificacaoUtenteModule.ListaEntidadesUtente"                         DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ListaEntidadesEstrangeirasUtenteIterator"             RangeSize="5"   Binds="Root.IdentificacaoUtenteModule.ListaEntidadesEstrangeirasUtente"             DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ListaBeneficiosDoUtenteIterator"                      RangeSize="3"   Binds="Root.IdentificacaoUtenteModule.ListaBeneficiosDoUtente"                      DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ListaBeneficiosDoUtenteRegimeEspecialIterator"        RangeSize="1"   Binds="Root.IdentificacaoUtenteModule.ListaBeneficiosDoUtenteRegimeEspecial"        DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ListaBeneficiosDoUtenteIsencaoTaxaModeradoraIterator" RangeSize="1"   Binds="Root.IdentificacaoUtenteModule.ListaBeneficiosDoUtenteIsencaoTaxaModeradora" DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+    <iterator id="ListaParametrosIterator"                              RangeSize="10"  Binds="ListaParametros"                                                             DataControl="RootAppModuleDataControl" Refresh="never"/>
+    <iterator id="ListaHistoricoEstadoInscricaoIterator"                RangeSize="20" Binds="Root.IdentificacaoUtenteModule.ListaHistoricoEstadoInscricao"  DataControl="RootAppModuleDataControl" Refresh="renderModelIfNeeded"/>
+  </executables>
+<bindings>
+    <table id="InformacaoUtilizador" IterBinding="InformacaoUtilizadorIterator">
+      <AttrNames>
+        <Item Value="CsDesc"/>
+        <Item Value="CsId"/>
+        <Item Value="Nomeclin"/>
+        <Item Value="ProfId"/>
+      </AttrNames>
+    </table>
+    <table id="OpcoesMenuUtilizador"
+           IterBinding="OpcoesMenuUtilizadorIterator">
+      <AttrNames>
+        <Item Value="Level"/>
+        <Item Value="PaiNome"/>
+        <Item Value="PaiPrompt"/>
+        <Item Value="PaiTipo"/>
+        <Item Value="FilhoNome"/>
+        <Item Value="FilhoPrompt"/>
+        <Item Value="FilhoTipo"/>
+        <Item Value="FilhoUrl"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="PaisesIterator" id="ListaPaisesLov">
+      <AttrNames>
+        <Item Value="Id"/>
+        <Item Value="Codigo"/>
+        <Item Value="Descricao"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="ListaCodigosGenericos1Iterator"
+           id="ListaCodigosGenericos1">
+      <AttrNames>
+        <Item Value="Id"/>
+        <Item Value="Codigo"/>
+        <Item Value="Descricao"/>
+        <Item Value="TipocodigoCodtipo"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="UtenteEdicaoIterator" id="UtenteEdicao">
+      <AttrNames>
+        <Item Value="IiuId"/>
+        <Item Value="Apelidos"/>
+        <Item Value="Concelho"/>
+        <Item Value="ConcelhoId"/>
+        <Item Value="CsaudeCod"/>
+        <Item Value="CsaudeDesig"/>
+        <Item Value="Distrito"/>
+        <Item Value="DistritoId"/>
+        <Item Value="DtaNasc"/>
+        <Item Value="EntrespDesig"/>
+        <Item Value="Freguesia"/>
+        <Item Value="FreguesiaId"/>
+        <Item Value="IheId"/>
+        <Item Value="Nif"/>
+        <Item Value="Nir"/>
+        <Item Value="Niss"/>
+        <Item Value="NomeCompleto"/>
+        <Item Value="NomesProprios"/>
+        <Item Value="Nop"/>
+        <Item Value="Numbenef"/>
+        <Item Value="NumId"/>
+        <Item Value="PaisNacionalidade"/>
+        <Item Value="PaisNacionalidadeId"/>
+        <Item Value="PaisNatalidade"/>
+        <Item Value="PaisNatalidadeId"/>
+        <Item Value="ProfId"/>
+        <Item Value="Profissao"/>
+        <Item Value="Sexo"/>
+        <Item Value="SitProfId"/>
+        <Item Value="SitProfissao"/>
+        <Item Value="TipoId"/>
+        <Item Value="TipoIdId"/>
+        <Item Value="NomesPropriosPai"/>
+        <Item Value="ApelidosPai"/>
+        <Item Value="NomesPropriosMae"/>
+        <Item Value="ApelidosMae"/>
+        <Item Value="RegiaoNat"/>
+        <Item Value="CidadeNat"/>
+        <Item Value="LocalidadeNat"/>
+        <Item Value="RegUmic"/>
+        <Item Value="IdpPotDup"/>
+        <Item Value="IobId"/>
+        <Item Value="NomeNormalizado"/>
+        <Item Value="NhabilitDescr"/>
+        <Item Value="ScgNhabilitId"/>
+        <Item Value="DataVRes"/>
+        <Item Value="NumVRes"/>
+        <Item Value="Dataobito"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="InscricaoActivaIterator" id="InscricaoActiva">
+      <AttrNames>
+        <Item Value="CsaudeEquipaCodigo"/>
+        <Item Value="CsaudeEquipaId"/>
+        <Item Value="CsaudeEquipaNome"/>
+        <Item Value="DataFim"/>
+        <Item Value="DataIni"/>
+        <Item Value="DtaInsc"/>
+        <Item Value="IduIdentUtId"/>
+        <Item Value="IinId"/>
+        <Item Value="Nutente"/>
+        <Item Value="PheDataFim"/>
+        <Item Value="PheId"/>
+        <Item Value="ProEquipaId"/>
+        <Item Value="ProEquipaNome"/>
+        <Item Value="ScgTipoinscr"/>
+        <Item Value="ScgTipoinscrcod"/>
+        <Item Value="ScgTipoinscrId"/>
+        <Item Value="ScgTipoutente"/>
+        <Item Value="ScgTipoutenteId"/>
+        <Item Value="SenUnidSaude"/>
+        <Item Value="SenUnidSaudeCod"/>
+        <Item Value="SenUnidSaudeId"/>
+        <Item Value="Estadoinscr"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="ListaFamiliaIterator" id="ListaFamilia">
+      <AttrNames>
+        <Item Value="IdFamilia"/>
+        <Item Value="Andar"/>
+        <Item Value="CodPostal"/>
+        <Item Value="Concelho"/>
+        <Item Value="ConcelhoId"/>
+        <Item Value="CsaudeCod"/>
+        <Item Value="CsaudeDesig"/>
+        <Item Value="Distrito"/>
+        <Item Value="DistritoId"/>
+        <Item Value="Freguesia"/>
+        <Item Value="FreguesiaId"/>
+        <Item Value="IdCodPostal"/>
+        <Item Value="IdTpAndar"/>
+        <Item Value="IdTpPorta"/>
+        <Item Value="IdTpRua"/>
+        <Item Value="Localidade"/>
+        <Item Value="LocPostal"/>
+        <Item Value="Lugar"/>
+        <Item Value="Porta"/>
+        <Item Value="Procfam"/>
+        <Item Value="Rua"/>
+        <Item Value="SeqPostal"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="FamiliaActivaIterator" id="FamiliaActiva">
+      <AttrNames>
+        <Item Value="IduFamiliaId"/>
+        <Item Value="IdHistFamilia"/>
+        <Item Value="IdParentesco"/>
+        <Item Value="Andar"/>
+        <Item Value="CodParentesco"/>
+        <Item Value="CodPost"/>
+        <Item Value="Concelho"/>
+        <Item Value="ConcelhoId"/>
+        <Item Value="DescParentesco"/>
+        <Item Value="Distrito"/>
+        <Item Value="DistritoId"/>
+        <Item Value="Freguesia"/>
+        <Item Value="FreguesiaId"/>
+        <Item Value="IdCodPost"/>
+        <Item Value="IduInscrId"/>
+        <Item Value="Localidade"/>
+        <Item Value="LocPost"/>
+        <Item Value="Lugar"/>
+        <Item Value="NomeCompleto"/>
+        <Item Value="Procfam"/>
+        <Item Value="Rua"/>
+        <Item Value="ScgTpandarDesc"/>
+        <Item Value="ScgTpandarId"/>
+        <Item Value="ScgTpportaDesc"/>
+        <Item Value="ScgTpportaId"/>
+        <Item Value="ScgTpruaDesc"/>
+        <Item Value="ScgTpruaId"/>
+        <Item Value="SeqNum"/>
+        <Item Value="Porta"/>
+        <Item Value="CsaudeCod"/>
+        <Item Value="CsaudeDesig"/>
+        <Item Value="DataFim"/>
+        <Item Value="DataIni"/>
+        <Item Value="DtaNasc"/>
+        <Item Value="MoradaCompleta"/>
+        <Item Value="NomeEquipa"/>
+        <Item Value="Nutente"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="CorrespondenciaCorreioIterator"
+           id="CorrespondenciaCorreio">
+      <AttrNames>
+        <Item Value="IdMorada"/>
+        <Item Value="IduIdentUtId"/>
+        <Item Value="Andar"/>
+        <Item Value="CidadeEst"/>
+        <Item Value="CodPost"/>
+        <Item Value="CodPostalEst"/>
+        <Item Value="Concelho"/>
+        <Item Value="ConcelhoId"/>
+        <Item Value="Distrito"/>
+        <Item Value="DistritoId"/>
+        <Item Value="EnderecoEst"/>
+        <Item Value="Freguesia"/>
+        <Item Value="FreguesiaId"/>
+        <Item Value="IdCodPost"/>
+        <Item Value="Localidade"/>
+        <Item Value="LocalidadeEst"/>
+        <Item Value="LocPost"/>
+        <Item Value="Lugar"/>
+        <Item Value="Porta"/>
+        <Item Value="RegiaoEst"/>
+        <Item Value="Rua"/>
+        <Item Value="ScgTpandarDesc"/>
+        <Item Value="ScgTpandarId"/>
+        <Item Value="ScgTpportaDesc"/>
+        <Item Value="ScgTpportaId"/>
+        <Item Value="ScgTpruaDesc"/>
+        <Item Value="ScgTpruaId"/>
+        <Item Value="PaisId"/>
+        <Item Value="PaisDesc"/>
+        <Item Value="NprocSecurizacao"/>
+        <Item Value="SeqNum"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="ListaContactosIterator" id="ListaContactos">
+      <AttrNames>
+        <Item Value="Id"/>
+        <Item Value="IduIdentUtId"/>
+        <Item Value="NomeContacto"/>
+        <Item Value="NoOtipoContacto"/>
+        <Item Value="Obs"/>
+        <Item Value="OtipoContacto"/>
+        <Item Value="TelfContacto"/>
+        <Item Value="TelmContacto"/>
+        <Item Value="EmailContacto"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="ContactoUtenteIterator" id="ContactoUtente">
+      <AttrNames>
+        <Item Value="Id"/>
+        <Item Value="IduIdentUtId"/>
+        <Item Value="NomeContacto"/>
+        <Item Value="NoOtipoContacto"/>
+        <Item Value="Obs"/>
+        <Item Value="OtipoContacto"/>
+        <Item Value="TelfContacto"/>
+        <Item Value="TelmContacto"/>
+        <Item Value="EmailContacto"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="ListaAgregadoFamiliarIterator"
+           id="ListaAgregadoFamiliar">
+      <AttrNames>
+        <Item Value="DescParentesco"/>
+        <Item Value="Nutente"/>
+        <Item Value="NomeCompleto"/>
+        <Item Value="DtaNasc"/>
+        <Item Value="NomeEquipa"/>
+        <Item Value="Id"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="ListaBeneficiosDoUtenteIterator" id="ListaBeneficiosDoUtente">
+      <AttrNames>
+        <Item Value="IhbId"/>
+        <Item Value="DataFim"/>
+        <Item Value="DataIni"/>
+        <Item Value="Descr"/>
+        <Item Value="CodBenef"/>
+        <Item Value="DescBenef"/>
+        <Item Value="DtaValidade"/>
+        <Item Value="DescrAbrev"/>
+        <Item Value="IdBenef"/>
+        <Item Value="IduBenefUtId"/>
+        <Item Value="IduIdentUtId"/>
+        <Item Value="NdocIsent"/>
+        <Item Value="IsencaoAtiva"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="ListaBeneficiosDoUtenteRegimeEspecialIterator" id="ListaBeneficiosDoUtenteRegimeEspecial">
+      <AttrNames>
+        <Item Value="IhbId"/>
+        <Item Value="DataFim"/>
+        <Item Value="DataIni"/>
+        <Item Value="Descr"/>
+        <Item Value="CodBenef"/>
+        <Item Value="DescBenef"/>
+        <Item Value="DtaValidade"/>
+        <Item Value="DescrAbrev"/>
+        <Item Value="IdBenef"/>
+        <Item Value="IduBenefUtId"/>
+        <Item Value="IduIdentUtId"/>
+        <Item Value="NdocIsent"/>
+        <Item Value="Expirado"/>
+        <Item Value="IsencaoAtiva"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="ListaBeneficiosDoUtenteIsencaoTaxaModeradoraIterator" id="ListaBeneficiosDoUtenteIsencaoTaxaModeradora">
+      <AttrNames>
+        <Item Value="IhbId"/>
+        <Item Value="DataFim"/>
+        <Item Value="DataIni"/>
+        <Item Value="Descr"/>
+        <Item Value="CodBenef"/>
+        <Item Value="DescBenef"/>
+        <Item Value="DtaValidade"/>
+        <Item Value="DescrAbrev"/>
+        <Item Value="IdBenef"/>
+        <Item Value="IduBenefUtId"/>
+        <Item Value="IduIdentUtId"/>
+        <Item Value="NdocIsent"/>
+        <Item Value="Expirado"/>
+        <Item Value="IsencaoAtiva"/>
+      </AttrNames>
+    </table>
+    <table id="ListaEntidadesUtente" IterBinding="ListaEntidadesUtenteIterator">
+      <AttrNames>
+        <Item Value="Idutente"/>
+        <Item Value="CodEnt"/>
+        <Item Value="DescEnt"/>
+        <Item Value="DescEntAbrv"/>
+        <Item Value="Numbenef"/>
+        <Item Value="Dtval"/>
+        <Item Value="DataIni"/>
+        <Item Value="DataFim"/>
+        <Item Value="IduIdentUtId"/>
+        <Item Value="DtaVal"/>
+        <Item Value="Cartao"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="ListaParametrosIterator" id="ListaParametros">
+      <AttrNames>
+        <Item Value="Nome"/>
+        <Item Value="ValText"/>
+      </AttrNames>
+    </table>
+    <table id="ListaEntidadesEstrangeirasUtente" IterBinding="ListaEntidadesEstrangeirasUtenteIterator">
+      <AttrNames>
+        <Item Value="Idutente"/>
+        <Item Value="CodEnt"/>
+        <Item Value="DescEnt"/>
+        <Item Value="DescEntAbrv"/>
+        <Item Value="Numbenef"/>
+        <Item Value="Dtval"/>
+        <Item Value="DataIni"/>
+        <Item Value="DataFim"/>
+        <Item Value="Cartao"/>
+        <Item Value="IdEnt"/>
+        <Item Value="IheId"/>
+        <Item Value="Existeentidadecartao"/>
+        <Item Value="Expirado"/>
+        <Item Value="DataEmissao"/>
+        <Item Value="NumbenefRef"/>
+        <Item Value="Pais"/>
+        <Item Value="Tipocartao"/>
+      </AttrNames>
+    </table>
+    <table id="AvisosView" IterBinding="AvisosViewIterator">
+      <AttrNames>
+        <Item Value="Id"/>
+        <Item Value="Aviso"/>
+        <Item Value="SysOrigemAvisoId"/>
+        <Item Value="DescOrigem"/>
+        <Item Value="SysCodGenericosAvisoId"/>
+        <Item Value="CreatedBy"/>
+        <Item Value="CreationDate"/>
+        <Item Value="LastUpdatedBy"/>
+        <Item Value="LastUpdateDate"/>
+      </AttrNames>
+    </table>
+     <action IterBinding="AvisosViewIterator"
+            id="ExecuteWithParamsAvisos"
+            InstanceName="RootAppModuleDataControl.AvisosView"
+            DataControl="RootAppModuleDataControl"
+            RequiresUpdateModel="true" Action="95">
+      <NamedData NDName="origemAvisoIdentUtId" NDType="java.lang.String"
+                 NDValue="${bindings.UtenteEdicao.IiuId}"/>
+    </action>
+    
+    <table id="ListaHistoricoEstadoInscricao" IterBinding="ListaHistoricoEstadoInscricaoIterator">
+      <AttrNames>
+        <Item Value="Id"/>
+        <Item Value="IduInscrId"/>
+        <Item Value="Activa"/>
+        <Item Value="DtaUltContacto"/>
+        <Item Value="DataIni"/>
+        <Item Value="DataFim"/>
+        <Item Value="CreatedBy"/>
+        <Item Value="CreationDate"/>
+        <Item Value="LastUpdatedBy"/>
+        <Item Value="LastUpdateDate"/>
+        <Item Value="DataLimite"/>
+      </AttrNames>
+    </table>
+    
+  </bindings>
+</pageDefinition>
