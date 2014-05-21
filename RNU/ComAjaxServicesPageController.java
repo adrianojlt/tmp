@@ -616,5 +616,17 @@ public class ComAjaxServicesPageController extends PageController {
           log.error("",e);
         }
     }
+
+
+
+    public void onValidateMaternidade(PageLifecycleContext ctx) {
     
+        String codigoPerfil = request.getParameter("codigoPerfil");
+        String IinId = request.getParameter("IinId");
+
+        int rowCount = amIdent.listaUsersMaternidadeByIduInscrId(IinId);
+        
+        request.setAttribute("editable", "10");
+        //request.setAttribute("editable", "false");
+    }
 }
