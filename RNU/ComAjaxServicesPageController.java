@@ -16,6 +16,7 @@ import ora.pt.cons.igif.sics.gmf.GestaoMedicosFamiliaImpl;
 import ora.pt.cons.igif.sics.suporte.ModulosSuporteModuleImpl;
 import ora.pt.cons.igif.sics.utentes.IdentificacaoUtenteModuleImpl;
 
+import ora.pt.cons.igif.sics.utentes.ListaUsersMaternidadeRowImpl;
 import ora.pt.cons.igif.sics.utils.DataValidationException;
 import ora.pt.cons.utils.date.DateUtils;
 
@@ -620,13 +621,44 @@ public class ComAjaxServicesPageController extends PageController {
 
 
     public void onValidateMaternidade(PageLifecycleContext ctx) {
-    
-        String codigoPerfil = request.getParameter("codigoPerfil");
-        String IinId = request.getParameter("IinId");
 
-        int rowCount = amIdent.listaUsersMaternidadeByIduInscrId(IinId);
+        try {    
+            //String codigoPerfil = request.getParameter("codigoPerfil");
+            String IinId = request.getParameter("IinId");
         
-        request.setAttribute("editable", "10");
-        //request.setAttribute("editable", "false");
+            amIdent.listaUsersMaternidadeByIduInscrId(IinId);
+            
+            DCIteratorBinding dci = (DCIteratorBinding) ctx.getBindingContainer().get("ListaUsersMaternidadeIterator");
+            ViewObjectImpl vo = (ViewObjectImpl)dci.getViewObject();
+            
+            ListaUsersMaternidadeRowImpl row = (ListaUsersMaternidadeRowImpl)vo.getRowAtRangeIndex(0);
+            
+            // oracle.jbo.domain.Date
+            Date dataIns = row.getDtaInsc().getValue();
+            Date dataIni = row.getDataIni().getValue();
+            Date dataFim = row.getDataFim().getValue();
+            
+            request.setAttribute("userId", row.getSysUsersId());
+            request.setAttribute("entidadeId", row.getSysEntidadesId());
+            
+            request.setAttribute("dataIns", dataIns.toString());
+            request.setAttribute("dataIni", dataIni.toString());
+            request.setAttribute("logica",true);
+            request.setAttribute("dataFim", dataFim.toString());
+            
+            System.out.println(row.getId());
+            /*
+            request.setAttribute("rowCount", vo.getRowCount());
+            oracle.jbo.Row row = vo.getCurrentRow();
+            String[] names = vo.getCurrentRow().getAttributeNames();
+            String defFullName = vo.getDefFullName();
+            String[] properties = vo.getPropertiesAsStrings();
+            */
+            
+            //request.setAttribute("editable", "false");
+        }
+        catch(Exception ex) {
+            log.error("",ex);
+        }
     }
 }

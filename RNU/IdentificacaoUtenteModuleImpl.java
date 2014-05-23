@@ -4934,20 +4934,25 @@ public class IdentificacaoUtenteModuleImpl extends ApplicationModuleImpl {
         return (ListaNovosUtentesImpl)findViewObject("ListaNovosUtentes");
     }
 
-    public int listaUsersMaternidadeByIduInscrId(String iduInscrId) {
+    public void listaUsersMaternidadeByIduInscrId(String iduInscrId) {
+    
+        int rowCount = 0;
+        ListaUsersMaternidadeImpl vo = getListaUsersMaternidade();
     
         try{
-        
-            ListaUsersMaternidadeImpl vo = getListaUsersMaternidade();
             vo.clearWhereState();
             vo.clearCache();
             vo.setIDU_INSCR_ID(Integer.parseInt(iduInscrId));
             vo.executeQuery();
-            return vo.getRowCount();
+            //Row ro = vo.getCurrentRow();
+            //rowCount =  vo.getRowCount();
         } 
         catch(Exception e){
           log.error("",e);
         }
+        
+        //return vo;
+        //return rowCount;
     }
    
 }
