@@ -38,8 +38,6 @@ update SYS_OPCOES_PERFIS
 
 select * from sys_users where id in (44241,26,44242);
 
-
-
 select * from IDU_INSCR where idu_ident_ut_id = (select id from idu_ident_ut where nir = '998761216');
 select * from IDU_INSCR where sys_entidades_id = '2148';
 select * from SYS_ENTIDADES where id = '2148';
