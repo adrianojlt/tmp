@@ -1,0 +1,45 @@
+body {
+	background-color:#eee;
+	margin-top:0;
+	margin-bottom:0;
+}
+
+#header {
+	background-image: url("img/gradient-vert-blue.png");
+	background-repeat: repeat-x;
+	color: red;
+	padding-left:20pt;
+}
+
+#footer {
+	background-image: url("img/gradient-rvert-blue.png");
+	background-repeat: repeat-x;
+	color: yellow;
+	padding-left:20pt;	
+	padding-top:20pt;	
+}
+
+
+#menu {
+	background-image: url("img/gradient-vert-blue.png");
+	/*background-color: blue;*/
+	background-repeat: repeat-x;
+	color: yellow;
+}
+
+#menu ul {
+	list-style: none;
+	overflow:hidden;
+}
+
+#menu a {
+	color: yellow;
+	text-decoration: none;	
+}
+
+#menu li {
+	float: left;
+	margin-left: 20pt;
+	text-decoration: none;
+}
+
