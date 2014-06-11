@@ -8,13 +8,17 @@
     <jsp:include page="/com/head.jsp" flush="true"/>
   </head>
 <body onload="splash(false); onloadFirstTime(); ">
+
   <jsp:include page="/com/header.jsp" flush="true">     
     <jsp:param name="pIdCentroSaude" value="${centroSaudeEscolhido}"/> 
     <jsp:param name="pCodigoCentroSaude" value="${pSessaoCodigoCentroSaude}"/> 
     <jsp:param name="pDescricaoCentroSaude" value="${pSessaoDescricaoCentroSaude}"/>
     <jsp:param name="pTitle" value="Manuten&ccedil;&atilde;o Utente"/>
   </jsp:include>
+
   <script type="text/javascript" charset="UTF-8" src="../js/identificacao.js"></script>
+  <script type="text/javascript" charset="UTF-8" src="../js/pesquisaUtente.js"></script>
+
   <%-- TODO: rever a forma como se controla a entrada de edicão ou consulta --%>
   <%
     String pReadOnlyMode = "true";   
@@ -70,14 +74,18 @@
      
     
     function disponibilizaOpcoes(isSupervisor){
+
         var numeroUtentesEmPesquisa = document.getElementById('numeroUtentesEmPesquisa').value;
+
         if(numeroUtentesEmPesquisa > 1){
             setEnabledOrDisabledButtons(new Array('selectUtente','editUtente', 'consultarUtente', 'potDuplicado'), false);
         } else {
             setEnabledOrDisabledButtons(new Array('selectUtente','editUtente', 'consultarUtente'), false);
         }
+
         // se utente seleccionado esta marcado como óbito faz disable da opção de seleccionar e editar
         var registos = document.getElementsByName("selID");
+
         for (var j = 0 ; j < registos.length ; j++) {
             if(registos[j].checked){
                 // verificar se registos está marcado como óbito
@@ -97,6 +105,8 @@
             }
         }
     }
+
+    
   </script>
   <!-- DOWN -->
     <form id="forma" name="forma" action="pesquisaUtente.do" method="POST" onSubmit="splash(true);">
@@ -455,6 +465,15 @@
         <thead/>
         <tbody>
         <tr><td>
+
+                <!--
+                <input disabled id="teste" name="teste" class="submitButton" type="button" value="${sessionScope.pSessaoCodigoPerfil}" />
+                -->
+
+                <!--
+                <input disabled id="teste" name="teste" class="submitButton" type="button" value="${pReadOnlyMode}" />
+                -->
+
                 <c:choose>
                 <c:when test="${pReadOnlyMode!='true'}"> 
                         <c:choose>
@@ -475,7 +494,7 @@
                 </c:choose>
                 
                 <!-- disponibiliza opção de marcação de duplicado para perfis com modo de edicao ou perfil helpdesk = 275 mas não para os hospitais 376 -->
-                <c:if test="${(sessionScope.pSessaoCodigoPerfil == 275 || pReadOnlyMode!='true' ) and sessionScope.pSessaoCodigoPerfil != 376}" >
+                <c:if test="${(sessionScope.pSessaoCodigoPerfil == 275 || pReadOnlyMode!='true' ) and sessionScope.pSessaoCodigoPerfil != 376 and sessionScope.pSessaoCodigoPerfil != 380}" >
                     <input disabled id="potDuplicado" name="potDuplicado" class="submitButton buttonDisabled" type="button" value="Marcar Pot. Duplicado" onclick="openPotDupPopup(document.getElementById('hiddenSelectedId').value);" />
                 </c:if>
                 
@@ -516,7 +535,7 @@
                         
                         <input name="selID" type="radio" 
                                value="${lineListaUtentes.count}" 
-                               onclick=" disponibilizaOpcoes(${sessionScope.pSessaoCodigoPerfil == 250?'true':'false'}); highlightRow(this, ${lineListaUtentes.count}); document.getElementById('hiddenSelectedId').value = '${Row.IiuId}'"/>
+                               onclick="disponibilizaOpcoes(${sessionScope.pSessaoCodigoPerfil == 250?'true':'false'}); highlightRow(this, ${lineListaUtentes.count}); document.getElementById('hiddenSelectedId').value = '${Row.IiuId}'; opcoesMaternidade(${sessionScope.pSessaoCodigoPerfil}, ${empty Row.IinId?0:Row.IinId});"/>
                     </td> 
                     <td class="numeric"><c:out value="${Row.Nir}"/></td>
                     <td class="text"><c:out value="${Row.NomeCompleto}"/></td>

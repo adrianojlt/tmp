@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import javax.sql.RowSet;
+
 import ora.pt.cons.igif.sics.ViewObjectImpl;
 import ora.pt.cons.igif.sics.common.ListaParametros;
 import ora.pt.cons.igif.sics.common.ListaParametrosRow;
@@ -25,6 +27,8 @@ import oracle.adf.controller.v2.context.PageLifecycleContext;
 import oracle.adf.controller.v2.lifecycle.PageController;
 import oracle.adf.model.binding.DCIteratorBinding;
 
+
+import oracle.jbo.Row;
 import oracle.jbo.ViewObject;
 
 import oracle.jbo.domain.Number;
@@ -581,6 +585,9 @@ public class ComAjaxServicesPageController extends PageController {
                     if (nDuplicados>0){
                         DCIteratorBinding dci = (DCIteratorBinding) ctx.getBindingContainer().get("ListaUtentesNifDuplicadoIterator");
                         ViewObjectImpl vo = (ViewObjectImpl)dci.getViewObject();
+                        int i = vo.getRowCount();
+                        Row row = (Row) vo.getRowAtRangeIndex(0);
+                        System.out.println(row.getAttributeCount());
                     }
                     else {naoCarregarIterador(ctx,"ListaUtentesNifDuplicadoIterator" );}
                 }
@@ -623,42 +630,59 @@ public class ComAjaxServicesPageController extends PageController {
     public void onValidateMaternidade(PageLifecycleContext ctx) {
 
         try {    
-            //String codigoPerfil = request.getParameter("codigoPerfil");
-            String IinId = request.getParameter("IinId");
         
+            //String codigoPerfil = request.getParameter("codigoPerfil");
+            
+            String IinId = request.getParameter("IinId");
+            String codSessaoCentroSaude = session.getAttribute("pSessaoCodigoCentroSaude").toString();
+            int num_days_interval = 50;
+            int pUserId = Integer.parseInt(request.getSession().getAttribute("pUserId").toString());
+            
             amIdent.listaUsersMaternidadeByIduInscrId(IinId);
             
             DCIteratorBinding dci = (DCIteratorBinding) ctx.getBindingContainer().get("ListaUsersMaternidadeIterator");
             ViewObjectImpl vo = (ViewObjectImpl)dci.getViewObject();
             
-            ListaUsersMaternidadeRowImpl row = (ListaUsersMaternidadeRowImpl)vo.getRowAtRangeIndex(0);
+            request.setAttribute("pUserId", pUserId);
             
-            // oracle.jbo.domain.Date
+            ListaUsersMaternidadeRowImpl row = null;
+            boolean hasUser = false;
+            
+            while ( vo.hasNext() ) {
+                row = (ListaUsersMaternidadeRowImpl )vo.next();
+                int sysUsersId = row.getSysUsersId().intValue();
+                if ( sysUsersId == pUserId ) hasUser = true;
+            }
+            
+            String codRowEntidade = row.getCodigo().toString();
+            
+            if ( !hasUser ) {
+                request.setAttribute("editable", false);
+                return;
+            } 
+            
+            if ( !codSessaoCentroSaude.equals(codRowEntidade) ) {
+                request.setAttribute("editable", false);
+                return;
+            }
+            
             Date dataIns = row.getDtaInsc().getValue();
-            Date dataIni = row.getDataIni().getValue();
-            Date dataFim = row.getDataFim().getValue();
+            Date date_right_now = new Date();
             
-            request.setAttribute("userId", row.getSysUsersId());
-            request.setAttribute("entidadeId", row.getSysEntidadesId());
+            long interval_millisecounds = date_right_now.getTime() - dataIns.getTime();
+            int interval_days = (int) interval_millisecounds / ( 1000*60*60*24 );
             
-            request.setAttribute("dataIns", dataIns.toString());
-            request.setAttribute("dataIni", dataIni.toString());
-            request.setAttribute("logica",true);
-            request.setAttribute("dataFim", dataFim.toString());
-            
-            System.out.println(row.getId());
-            /*
-            request.setAttribute("rowCount", vo.getRowCount());
-            oracle.jbo.Row row = vo.getCurrentRow();
-            String[] names = vo.getCurrentRow().getAttributeNames();
-            String defFullName = vo.getDefFullName();
-            String[] properties = vo.getPropertiesAsStrings();
-            */
-            
-            //request.setAttribute("editable", "false");
+            if ( interval_days <= num_days_interval ) {
+                request.setAttribute("editable", true);
+            }
+            else {
+                request.setAttribute("editable", false);
+            }
         }
         catch(Exception ex) {
-            log.error("",ex);
+            request.setAttribute("editable", false);
+            log.error("Error onValidateMaternidade",ex);
+            ex.printStackTrace();
         }
     }
 }
